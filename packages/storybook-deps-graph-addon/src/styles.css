@@ -1,0 +1,19 @@
+.deps_graph__error{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}
+.deps_graph__info{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}
+.deps_graph__info div:first-of-type{
+    font-weight: 500;
+}
+.deps_graph__wrapper{
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}

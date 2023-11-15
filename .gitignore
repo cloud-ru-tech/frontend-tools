@@ -51,6 +51,9 @@ web_modules/
 # Optional npm cache directory
 .npm
 
+# Optional npm cache directory
+.npmrc
+
 # Optional eslint cache
 .eslintcache
 
@@ -128,3 +131,15 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+.vscode
+.idea
+.DS_Store
+/node_modules
+/packages/*/node_modules
+dist
+/.dockerignore
+/Dockerfile
+/nginx
+/reports
+tsconfig.tsbuildinfo

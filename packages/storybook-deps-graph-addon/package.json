@@ -1,0 +1,50 @@
+{
+  "name": "@cloud-ru/ft-storybook-deps-graph-addon",
+  "version": "1.0.0",
+  "author": "Yakov Nikiforov",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "storybook dependencies graph",
+  "keywords": [
+    "packages",
+    "storybook",
+    "addon",
+    "dependencies"
+  ],
+  "dependencies": {
+    "@storybook/components": "7.0.26",
+    "@storybook/manager-api": "7.0.26",
+    "cytoscape": "3.26.0",
+    "cytoscape-dagre": "2.5.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@types/cytoscape": "3.19.10",
+    "@types/cytoscape-dagre": "2.3.0",
+    "@types/react": "18.2.14",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "files": [
+    "src",
+    "dist/cjs",
+    "dist/esm",
+    "preset.js",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/storybook-deps-graph-addon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/storybook-deps-graph-addon"
+  },
+  "scripts": {
+    "compile": "ts-node scripts/custom-copy.ts"
+  }
+}

@@ -24,20 +24,17 @@ jobs:
       with:
         node-version: 18
         cache: 'npm'
-      
-    - name: Setup npm
-      run: |
-        npm set "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}"
 
     - name: Publish preview
       run: |
-        if [[ "${ inputs.force }" == "true" ]]; then
+        if [[ "${{ inputs.force }}" == "true" ]]; then
           NPM_FLAGS="--force"
           NPM_CLIENT_ARGS="--npm-client-args=--force"
           echo "Force installing is enabled"
         fi
         git config --global user.email "robot@cloud.ru"
         git config --global user.name "cloud-ru-tech-robot"
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
         npm ci $NPM_FLAGS
         SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
         npx lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA" ${NPM_CLIENT_ARGS}

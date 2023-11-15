@@ -1,0 +1,32 @@
+{
+  "name": "@cloud-ru/ft-config-stylelint",
+  "version": "1.0.0",
+  "author": "Konstantin Yakovlev",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "stylelint config",
+  "keywords": [
+    "stylelint",
+    "linaria",
+    "scss"
+  ],
+  "license": "Apache-2.0",
+  "files": [
+    "index.js",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-stylelint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-stylelint"
+  },
+  "dependencies": {
+    "@linaria/postcss-linaria": "4.5.1",
+    "@linaria/stylelint-config-standard-linaria": "5.0.0",
+    "stylelint": "14.16.1",
+    "stylelint-config-recommended-scss": "8.0.0"
+  }
+}

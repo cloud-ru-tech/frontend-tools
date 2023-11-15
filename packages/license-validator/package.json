@@ -1,0 +1,39 @@
+{
+  "name": "@cloud-ru/ft-license-validator",
+  "version": "1.0.0",
+  "author": "Дмитрий Безматерных",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Package licenses validator",
+  "bin": {
+    "validate-licenses": "./dist/cjs/index.js"
+  },
+  "dependencies": {
+    "colors": "1.4.0",
+    "glob": "10.3.3",
+    "license-checker": "25.0.1"
+  },
+  "devDependencies": {
+    "@types/license-checker": "25.0.3"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/license-validator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/license-validator"
+  }
+}

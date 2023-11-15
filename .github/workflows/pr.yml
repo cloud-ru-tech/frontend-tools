@@ -1,0 +1,32 @@
+name: PR
+
+on:
+  pull_request:
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: ESLint
+        uses: './.github/actions/eslint'
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Unit
+        uses: './.github/actions/unit'
+
+  licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Licenses
+        uses: './.github/actions/licenses'
