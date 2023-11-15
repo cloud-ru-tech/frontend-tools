@@ -1,0 +1,36 @@
+{
+  "name": "@cloud-ru/ft-config-commit-message",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "description": "Config for autoformatting commit messages, bundled in @cloud-ru/ft-config-husky",
+  "license": "Apache-2.0",
+  "bin": {
+    "cloud-ru-commit-message": "./dist/cjs/index.js"
+  },
+  "dependencies": {
+    "cosmiconfig": "8.2.0"
+  },
+  "types": "./dist/esm/defaultConfig.d.ts",
+  "exports": {
+    "import": "./dist/esm/defaultConfig.js",
+    "require": "./dist/cjs/defaultConfig.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-commit-message",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-commit-message"
+  }
+}

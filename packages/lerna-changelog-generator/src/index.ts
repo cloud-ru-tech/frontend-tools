@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+import { execFileSync } from 'child_process';
+import { readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
+
+import simpleGit from 'simple-git';
+
+type Package = {
+  packagePath: string;
+  version: string;
+  packageName: string;
+  deps: Record<string, string>;
+  changedDeps: { packageName: string; packagePath: string }[];
+};
+
+const git = simpleGit();
+
+const commitMessage = '[ci skip] Version and changelog releases';
+const changelogFile = 'CHANGELOG.md';
+const currentProjectUrl = process.env['CI_PROJECT_URL'] || '';
+const defaultBranch = process.env['CI_DEFAULT_BRANCH'] || '';
+
+const generateConventionalCommitsChangelog = () => {
+  const lernaParameters = [
+    'version',
+    '--conventional-commits',
+    '--include-merged-tags',
+    '--exact',
+    '--no-push',
+    '--no-git-tag-version',
+    '--yes',
+  ];
+  execFileSync('lerna', lernaParameters, { stdio: 'inherit' });
+};
+
+const createTags = () => {
+  const lernaParameters = [
+    'version',
+    '--conventional-commits',
+    '--no-changelog',
+    '--include-merged-tags',
+    '--exact',
+    '--amend',
+    '--yes',
+  ];
+  execFileSync('lerna', lernaParameters, { stdio: 'inherit' });
+};
+
+const findChangedDependencies = (allFiles: string[]) => {
+  const changedPackages = allFiles
+    .filter(file => file.includes(changelogFile))
+    .map(changedFilePath => {
+      const extractedPath = changedFilePath.replace(changelogFile, '');
+      const packageDescription = JSON.parse(readFileSync(`${extractedPath}package.json`, 'utf8'));
+      return {
+        packagePath: extractedPath,
+        packageName: packageDescription.name,
+        version: packageDescription.version,
+        deps: packageDescription.dependencies,
+      };
+    }) as Package[];
+  const findDependencies = (bumpedPackages: Package[]) => (pkg: Package) => {
+    const changedDeps = bumpedPackages
+      .filter(({ packageName }) => pkg?.deps?.[packageName])
+      .map(({ packageName, version, packagePath }) => ({
+        packageName: `${packageName}@${version}`,
+        packagePath,
+      }));
+    return { ...pkg, changedDeps: changedDeps };
+  };
+
+  return changedPackages.map(findDependencies(changedPackages));
+};
+
+const writeChangedDependencies = (packages: Package[]) => {
+  const changedDepsHeader = '### Only dependencies have been changed\n';
+  const replaceText = '**Note:** Version bump only for package';
+
+  packages.forEach((pkg: Package) => {
+    if (!pkg.changedDeps.length) return;
+
+    const changelogPath = join(pkg.packagePath, changelogFile);
+    const fileData = readFileSync(changelogPath, 'utf8');
+    const depsString = pkg.changedDeps
+      .map(({ packageName, packagePath }) => {
+        // eslint-disable-next-line
+        const pathToChangelog = join(currentProjectUrl, '/-/blob/', defaultBranch, packagePath, changelogFile).replace(
+          ':/',
+          '://',
+        );
+        return `* [${packageName}](${pathToChangelog})`;
+      })
+      .join('\n');
+    const newFileData = fileData.replace(`${replaceText} ${pkg.packageName}`, `${changedDepsHeader}${depsString}`);
+    writeFileSync(changelogPath, newFileData);
+  });
+};
+
+const generateChangelog = async () => {
+  generateConventionalCommitsChangelog();
+
+  const status = await git.status();
+  const allFiles = [...status.created, ...status.modified];
+  const filesToRestore = allFiles.filter(file => !file.includes(changelogFile));
+  if (allFiles.length === 0) {
+    console.warn('No new versions have been released');
+    return 'false';
+  }
+  const packagesWithChangedDeps = findChangedDependencies(allFiles);
+  writeChangedDependencies(packagesWithChangedDeps);
+
+  await git.checkout(filesToRestore);
+  await git.add('./*').commit(commitMessage);
+  createTags();
+  await git.push().pushTags();
+
+  return 'true';
+};
+
+generateChangelog().then(x => process.stdout.write(x));

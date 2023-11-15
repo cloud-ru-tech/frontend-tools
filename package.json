@@ -1,0 +1,53 @@
+{
+  "name": "@cloud-ru/frontend-tools",
+  "version": "1.0.0",
+  "description": "Common to frontend projects helpers and utilities",
+  "scripts": {
+    "add-package": "ts-node scripts/npm-init",
+    "build:watch": "tsc -b ./packages/tsconfig.esm.json -w",
+    "build:packages:esm": "tsc -b ./packages/tsconfig.esm.json",
+    "build:packages:cjs": "tsc -b ./packages/tsconfig.cjs.json",
+    "build:packages": "npm run clean:all && npm run deps:packages && lerna run compile && npm run build:packages:esm && npm run build:packages:cjs && npm run deps:global",
+    "clean:all": "npm run clean:dist && npm run clean:modules",
+    "clean:dist": "rimraf --glob ./packages/*/dist",
+    "clean:modules": "rimraf --glob ./packages/*/node_modules",
+    "deps:all": "npm run deps:global && npm run deps:packages",
+    "deps:global": "npm i",
+    "deps:packages": "npm i --workspaces",
+    "test:unit": "vitest run"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "husky": "8.0.3",
+    "lerna": "7.4.1",
+    "rimraf": "5.0.1"
+  },
+  "overrides": {
+    "typescript": "4.9.5"
+  },
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git"
+  },
+  "keywords": [
+    "tools",
+    "utilities",
+    "helpers",
+    "hooks",
+    "configs"
+  ],
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/inquirer": "9.0.3",
+    "@types/shelljs": "0.8.12",
+    "inquirer": "8.0.0",
+    "shelljs": "0.8.5",
+    "ts-node": "10.9.1"
+  }
+}

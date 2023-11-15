@@ -1,0 +1,40 @@
+{
+  "name": "@cloud-ru/eslint-config",
+  "version": "1.0.0",
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Config and dependencies for eslint.config.js",
+  "dependencies": {
+    "@rushstack/eslint-patch": "1.5.1",
+    "@typescript-eslint/eslint-plugin": "6.9.0",
+    "@typescript-eslint/parser": "6.9.0",
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-config-ts-react-important-stuff": "3.0.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-testcafe-community": "2.0.0",
+    "eslint-plugin-vitest": "0.3.8"
+  },
+  "main": "base.js",
+  "files": [
+    "base.js",
+    "monorepo.js",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/eslint-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/eslint-config"
+  }
+}

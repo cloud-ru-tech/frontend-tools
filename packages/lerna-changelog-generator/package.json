@@ -1,0 +1,38 @@
+{
+  "name": "@cloud-ru/ft-lerna-changelog-generator",
+  "version": "1.0.0",
+  "author": "Kruglov Dmitry",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "writes changed dependencies for bumped packages in changelog",
+  "keywords": [
+    "packages",
+    "changelog",
+    "dependencies"
+  ],
+  "dependencies": {
+    "simple-git": "3.19.1"
+  },
+  "license": "Apache-2.0",
+  "bin": {
+    "lerna-changelog-generator": "./dist/cjs/index.js"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/lerna-changelog-generator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/lerna-changelog-generator"
+  }
+}

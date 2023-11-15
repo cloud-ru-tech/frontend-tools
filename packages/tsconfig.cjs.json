@@ -1,0 +1,43 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./config-commit-message/tsconfig.cjs.json"
+    },
+    {
+      "path": "./config-prettier/tsconfig.cjs.json"
+    },
+    {
+      "path": "./config-vitest/tsconfig.cjs.json"
+    },
+    {
+      "path": "./lerna-changelog-generator/tsconfig.cjs.json"
+    },
+    {
+      "path": "./license-validator/tsconfig.cjs.json"
+    },
+    {
+      "path": "./storybook-readme-addon/tsconfig.cjs.json"
+    },
+    {
+      "path": "./storybook-deps-graph-addon/tsconfig.cjs.json"
+    }
+  ],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "CommonJS",
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext"
+    ],
+    "declaration": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "composite": true
+  }
+}

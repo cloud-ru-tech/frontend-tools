@@ -1,0 +1,18 @@
+{
+  "version": "independent",
+  "command": {
+    "publish": {
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "message": "[ci skip] Version bump",
+      "registry": "https://registry.npmjs.org"
+    },
+    "version": {
+      "changelogPreset": "@cloud-ru/ft-conventional-changelog",
+      "ignoreChanges": ["**/*.md", "**/*.MD", "**/*.mdx", "**/*.MDX", "./scripts/**/*", "packages/*/__tests__/**/*.*"]
+    },
+    "create": {
+      "license": "Apache-2.0"
+    }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+}

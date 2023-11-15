@@ -1,0 +1,31 @@
+{{#if noteGroups}}
+{{#each noteGroups}}
+
+### {{title}}
+
+{{#each notes}}
+
+* {{#if commit.scope}}**{{commit.scope}}:** {{/if}}{{text}}
+  {{~!-- commit link --}} {{#if commit.shortHash~}}
+    {{#if @root.linkReferences~}}
+      ([{{commit.shortHash}}](
+      {{~#if @root.repository}}
+        {{~#if @root.host}}
+          {{~@root.host}}/
+        {{~/if}}
+        {{~#if @root.owner}}
+          {{~@root.owner}}/
+        {{~/if}}
+        {{~@root.repository}}
+      {{~else}}
+        {{~@root.repoUrl}}
+      {{~/if}}/
+      {{~@root.commit}}/{{commit.hash}}))
+    {{~else}}
+      {{~commit.shortHash}}
+    {{~/if}}
+  {{~/if}}
+{{/each}}
+{{/each}}
+
+{{/if}}

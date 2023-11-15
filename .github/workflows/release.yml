@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: ESLint
+        uses: './.github/actions/eslint'
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Unit
+        uses: './.github/actions/unit'
+
+  licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Licenses
+        uses: './.github/actions/licenses'
+
+  publish:
+    needs: [eslint, unit, licenses]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Publish latest
+        run: |
+          git config --global user.email "robot@cloud.ru"
+          git config --global user.name "cloud-ru-tech-robot"
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+          npm ci
+          if [[ ! $CI_LERNA_SKIP ]] ; then
+            isNewVersionDetected=$(npx @cloud-ru/ft-lerna-changelog-generator@latest)
+            [[ "$isNewVersionDetected" != "false" ]] && npm run build:packages && npx lerna publish from-git --yes
+          fi
+        shell: bash
