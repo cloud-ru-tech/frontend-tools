@@ -1,0 +1,46 @@
+name: Release preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Use "--force" flag for npm'
+        required: false
+        default: 'false'
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: "Checkout"
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+      
+    - name: Setup npm
+      run: |
+        npm set "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}"
+
+    - name: Publish preview
+      run: |
+        if [[ "${ inputs.force }" == "true" ]]; then
+          NPM_FLAGS="--force"
+          NPM_CLIENT_ARGS="--npm-client-args=--force"
+          echo "Force installing is enabled"
+        fi
+        git config --global user.email "robot@cloud.ru"
+        git config --global user.name "cloud-ru-tech-robot"
+        npm ci $NPM_FLAGS
+        SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
+        npx lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA" ${NPM_CLIENT_ARGS}
+        npm run build:packages $NPM_FLAGS
+        npx lerna publish from-git --yes --dist-tag preview
+      shell: bash
