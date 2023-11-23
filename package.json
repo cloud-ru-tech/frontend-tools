@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "husky": "8.0.3",
-    "lerna": "7.4.1",
+    "lerna": "7.4.2",
     "rimraf": "5.0.1"
   },
   "overrides": {

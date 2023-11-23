@@ -51,9 +51,13 @@ jobs:
           cache: 'npm'
 
       - name: Publish latest
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git config --global user.email "robot@cloud.ru"
           git config --global user.name "cloud-ru-tech-robot"
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "@cloud-ru:registry=https://registry.npmjs.org/" >> .npmrc
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
           npm ci
           if [[ ! $CI_LERNA_SKIP ]] ; then
