@@ -11,7 +11,16 @@
       "path": "./config-vitest/tsconfig.cjs.json"
     },
     {
+      "path": "./config-babel/tsconfig.cjs.json"
+    },
+    {
+      "path": "./config-lint-staged/tsconfig.cjs.json"
+    },
+    {
       "path": "./lerna-changelog-generator/tsconfig.cjs.json"
+    },
+    {
+      "path": "./config-semantic-release/tsconfig.cjs.json"
     },
     {
       "path": "./license-validator/tsconfig.cjs.json"
@@ -21,6 +30,9 @@
     },
     {
       "path": "./storybook-deps-graph-addon/tsconfig.cjs.json"
+    },
+    {
+      "path": "./storybook-brand-addon/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {

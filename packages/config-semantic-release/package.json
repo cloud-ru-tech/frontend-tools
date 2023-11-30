@@ -1,0 +1,37 @@
+{
+  "name": "@cloud-ru/ft-config-semantic-release",
+  "version": "1.0.0",
+  "description": "Config and dependencies for semantic-release",
+  "author": {
+    "name": "Belov Aleksei",
+    "url": "https://github.com/lexbeloff"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@cloud-ru/ft-conventional-changelog": "1.1.0",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/gitlab": "9.5.1",
+    "semantic-release": "19.0.5"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-semantic-release",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-semantic-release"
+  }
+}

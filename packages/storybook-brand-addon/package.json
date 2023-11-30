@@ -1,0 +1,51 @@
+{
+  "name": "@cloud-ru/ft-storybook-brand-addon",
+  "version": "1.0.0",
+  "description": "Custom Storybook brand addon",
+  "keywords": [
+    "packages",
+    "storybook",
+    "addon",
+    "brand"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@floating-ui/react": "0.24.6",
+    "@storybook/components": "7.0.26",
+    "@storybook/manager-api": "7.0.26",
+    "classnames": "2.3.2",
+    "storybook-dark-mode": "3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@storybook/types": "7.0.26",
+    "@types/react": "18.2.14",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "src",
+    "dist/cjs",
+    "dist/esm",
+    "preset.js",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/storybook-brand-addon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/storybook-brand-addon"
+  },
+  "scripts": {
+    "compile": "ts-node scripts/custom-copy.ts"
+  }
+}
