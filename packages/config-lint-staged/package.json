@@ -1,0 +1,37 @@
+{
+  "name": "@cloud-ru/ft-config-lint-staged",
+  "version": "1.0.0",
+  "description": "Config and dependencies for lint-staged",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "lint-staged": "15.0.2"
+  },
+  "peerDependencies": {
+    "eslint": "*",
+    "prettier": "*"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-lint-staged",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-lint-staged"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@cloud-ru/ft-config-tsconfig",
+  "version": "1.0.0",
+  "description": "Reusable typescript configuration",
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "main": "tsconfig.json",
+  "files": [
+    "./CHANGELOG.md",
+    "./tsconfig.json"
+  ],
+  "dependencies": {
+    "@types/node": "18.16.19",
+    "ts-config-single-spa": "3.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.1.6"
+  },
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-tsconfig",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-tsconfig"
+  }
+}
