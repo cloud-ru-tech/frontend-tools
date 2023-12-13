@@ -11,9 +11,9 @@
   "description": "Config and dependencies for eslint.config.js",
   "dependencies": {
     "@rushstack/eslint-patch": "1.5.1",
-    "@typescript-eslint/eslint-plugin": "6.9.0",
-    "@typescript-eslint/parser": "6.9.0",
-    "eslint": "8.54.0",
+    "@typescript-eslint/eslint-plugin": "6.14.0",
+    "@typescript-eslint/parser": "6.14.0",
+    "eslint": "8.55.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-ts-react-important-stuff": "3.0.0",
     "eslint-import-resolver-typescript": "3.6.1",

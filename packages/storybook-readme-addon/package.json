@@ -12,7 +12,7 @@
     "readme"
   ],
   "dependencies": {
-    "react-markdown": "9.0.0",
+    "react-markdown": "9.0.1",
     "react-syntax-highlighter": "15.5.0",
     "rehype-raw": "7.0.0",
     "remark-gfm": "4.0.0"
@@ -24,11 +24,11 @@
     "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@storybook/components": "7.0.26",
-    "@storybook/manager-api": "7.0.26",
-    "@storybook/theming": "7.0.26",
-    "@types/react": "18.2.14",
-    "@types/react-syntax-highlighter": "15.5.7",
+    "@storybook/components": "7.6.4",
+    "@storybook/manager-api": "7.6.4",
+    "@storybook/theming": "7.6.4",
+    "@types/react": "18.2.45",
+    "@types/react-syntax-highlighter": "15.5.11",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
