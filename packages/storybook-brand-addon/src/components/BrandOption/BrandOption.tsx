@@ -42,6 +42,7 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
       {customBrand ? (
         <div className={'brand-select-iconWrapper'}>
           <IconButton
+            placeholder={undefined}
             onClick={handleDeleteBrand}
             content={undefined}
             autoFocus={undefined}
@@ -60,6 +61,7 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
             onFloatingClick={stopPropagation}
           >
             <IconButton
+              placeholder={undefined}
               active={editPanelOpen}
               content={undefined}
               autoFocus={undefined}

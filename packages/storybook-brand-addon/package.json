@@ -13,18 +13,18 @@
   },
   "dependencies": {
     "@floating-ui/react": "0.24.6",
-    "@storybook/components": "7.0.26",
-    "@storybook/manager-api": "7.0.26",
+    "@storybook/components": "7.6.4",
+    "@storybook/manager-api": "7.6.4",
     "classnames": "2.3.2",
-    "storybook-dark-mode": "3.0.0"
+    "storybook-dark-mode": "3.0.3"
   },
   "peerDependencies": {
     "react": "^17.0.2 || ^18.0.0",
     "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@storybook/types": "7.0.26",
-    "@types/react": "18.2.14",
+    "@storybook/types": "7.6.4",
+    "@types/react": "18.2.45",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
