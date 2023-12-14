@@ -36,9 +36,7 @@ jobs:
         fi
         git config --global user.email "robot@cloud.ru"
         git config --global user.name "cloud-ru-tech-robot"
-        echo "registry=https://registry.npmjs.org/" >> .npmrc
-        echo "@cloud-ru:registry=https://registry.npmjs.org/" >> .npmrc
-        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
+        npm config --global set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
         npm ci $NPM_FLAGS
         SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
         npx lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA" ${NPM_CLIENT_ARGS}
