@@ -12,7 +12,9 @@
     "dependencies"
   ],
   "dependencies": {
-    "simple-git": "3.19.1"
+    "@types/yargs": "17.0.32",
+    "simple-git": "3.19.1",
+    "yargs": "17.7.2"
   },
   "license": "Apache-2.0",
   "bin": {
