@@ -78,7 +78,6 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
       }
     >
       <IconButton
-        placeholder={undefined}
         active={open}
         title='Выбрать бренд'
         content={undefined}

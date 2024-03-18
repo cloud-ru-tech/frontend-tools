@@ -1,6 +1,6 @@
 import { IconButton, Icons } from '@storybook/components';
 import cn from 'classnames';
-import { MouseEvent, MouseEventHandler, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 import { useCustomBrandContext } from '../../contexts';
 import { EditBrandPanel } from '../EditBrandPanel';
@@ -21,9 +21,9 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
 
   const renderCircle = (className?: string) => <Icons icon='circle' color={color} width={16} className={className} />;
 
-  const stopPropagation = (e: MouseEvent) => e.stopPropagation();
+  const stopPropagation = (e: SyntheticEvent) => e.stopPropagation();
 
-  const handleDeleteBrand: MouseEventHandler<HTMLButtonElement> = e => {
+  const handleDeleteBrand = (e: SyntheticEvent) => {
     stopPropagation(e);
     deleteBrand(value);
   };
@@ -42,7 +42,6 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
       {customBrand ? (
         <div className={'brand-select-iconWrapper'}>
           <IconButton
-            placeholder={undefined}
             onClick={handleDeleteBrand}
             content={undefined}
             autoFocus={undefined}
@@ -61,7 +60,6 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
             onFloatingClick={stopPropagation}
           >
             <IconButton
-              placeholder={undefined}
               active={editPanelOpen}
               content={undefined}
               autoFocus={undefined}

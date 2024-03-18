@@ -1,5 +1,5 @@
 import { Button } from '@storybook/components';
-import { MouseEventHandler, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 import { useCustomBrandContext } from '../../contexts';
 import { CustomBrandConfig } from '../../types';
@@ -27,7 +27,7 @@ export function EditBrandPanel({ brand, onUpdate }: EditBrandPanelProps) {
     onUpdate?.();
   };
 
-  const handleUpdateBrand: MouseEventHandler<HTMLButtonElement> = e => {
+  const handleUpdateBrand = (e: SyntheticEvent) => {
     e.preventDefault();
 
     if (!brand?.key) return;
@@ -58,7 +58,7 @@ export function EditBrandPanel({ brand, onUpdate }: EditBrandPanelProps) {
           <input id='file' type='file' accept='.css' onChange={e => setFile(e.target.files?.[0])} />
         </div>
         <div className={'addon-buttonWrapper'}>
-          <Button primary small onClick={handleUpdateBrand}>
+          <Button variant='solid' size='small' onClick={handleUpdateBrand}>
             Сохранить
           </Button>
         </div>
