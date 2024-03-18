@@ -1,5 +1,5 @@
 import { Button } from '@storybook/components';
-import { MouseEventHandler, useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 import { useCustomBrandContext } from '../../contexts';
 
@@ -14,7 +14,7 @@ export function AddBrandPanel({ onAdd }: AddPanelProps) {
   const [brandColor, setBrandColor] = useState<string>('');
   const { addBrand } = useCustomBrandContext();
 
-  const handleAddBrand: MouseEventHandler<HTMLButtonElement> = e => {
+  const handleAddBrand = (e: SyntheticEvent) => {
     e.preventDefault();
 
     if (brandKey && file && brandName && brandColor) {
@@ -46,7 +46,12 @@ export function AddBrandPanel({ onAdd }: AddPanelProps) {
         <div>
           <input type='file' accept='.css' onChange={e => setFile(e.target.files?.[0])} />
         </div>
-        <Button primary small onClick={handleAddBrand} disabled={!brandColor || !brandName || !brandKey || !file}>
+        <Button
+          variant='solid'
+          size='small'
+          onClick={handleAddBrand}
+          disabled={!brandColor || !brandName || !brandKey || !file}
+        >
           Добавить бренд
         </Button>
       </form>
