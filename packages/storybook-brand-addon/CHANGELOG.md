@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2024-07-04)
+
+
+### BREAKING CHANGES
+
+
+* **FF-0000:** up deps to sb v8 ([1217773](https://github.com/cloud-ru-tech/frontend-tools/commit/121777397ba3956b2e03716b43744306c3c8c38b))
+
+
+
+
 ## 1.1.1 (2023-12-14)
 
 
