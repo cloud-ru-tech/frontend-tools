@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@cloud-ru/ft-config-commit-message": "1.1.0",
-    "husky": "8.0.3",
+    "husky": "9.1.5",
     "solidarity": "3.0.4"
   },
   "peerDependencies": {
