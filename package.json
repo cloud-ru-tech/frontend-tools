@@ -14,15 +14,15 @@
     "deps:all": "npm run deps:global && npm run deps:packages",
     "deps:global": "npm i",
     "deps:packages": "npm i --workspaces",
+    "deps:reinstall": "npm run clean:all && rm -rf node_modules package-lock.json && npm cache clean -f && npm run deps:all",
     "test:unit": "vitest run"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "husky": "8.0.3",
-    "lerna": "8.1.2",
-    "rimraf": "5.0.5"
+    "husky": "9.1.5",
+    "lerna": "8.1.8"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools",
   "repository": {
@@ -42,9 +42,12 @@
   ],
   "devDependencies": {
     "@types/inquirer": "9.0.3",
-    "@types/shelljs": "0.8.12",
+    "@types/shelljs": "0.8.15",
     "inquirer": "8.0.0",
     "shelljs": "0.8.5",
     "ts-node": "10.9.2"
+  },
+  "overrides": {
+    "typescript": "5.5.4"
   }
 }

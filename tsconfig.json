@@ -16,8 +16,6 @@
     "isolatedModules": false,
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "ignoreDeprecations": "5.0",
-    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "types": ["@types/node", "vitest/globals"]
