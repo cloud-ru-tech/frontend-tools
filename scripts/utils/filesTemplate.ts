@@ -7,7 +7,7 @@ import globTSConfigESM from '../../packages/tsconfig.esm.json';
 
 const PackagesRootFolder = 'packages';
 
-const Folders = {
+const Folders: Record<string, string> = {
   root: '/',
   src: '/src',
 };
@@ -36,6 +36,9 @@ export const packageJson = ({
     version: '0.0.0',
     description: `${packageDescription}`,
     keywords: packageKeywords,
+    publishConfig: {
+      access: 'public',
+    },
     author: `${user} <${email}>`,
     license: 'Apache-2.0',
     types: './dist/esm/index.d.ts',
