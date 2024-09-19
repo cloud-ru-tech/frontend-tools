@@ -33,6 +33,9 @@
     },
     {
       "path": "./storybook-brand-addon/tsconfig.cjs.json"
+    },
+    {
+      "path": "./eslint-plugin-ssr-safe-react/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {

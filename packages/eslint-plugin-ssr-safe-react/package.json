@@ -1,0 +1,32 @@
+{
+  "name": "@cloud-ru/eslint-plugin-ssr-safe-react",
+  "version": "0.0.0",
+  "description": "eslint plugin for validating react code so that it would be suitable for SSR",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "react",
+    "ssr"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Anna Kozlova <fyz95@mail.ru>",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "eslint": ">= 8.0.0"
+  },
+  "homepage": "https://github.com/cloud-ru-tech/frontend-toolspackages/eslint-plugin-ssr-safe-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/eslint-plugin-ssr-safe-react"
+  }
+}

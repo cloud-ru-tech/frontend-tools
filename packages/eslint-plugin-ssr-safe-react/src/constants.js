@@ -1,0 +1,20 @@
+module.exports = {
+  DEFAULT_SCOPES: ['useEffect', 'useLayoutEffect'],
+  DEFAULT_CONDITIONS: ['isBrowser()'],
+  DEFAULT_VARIABLES: [
+    'document',
+    'history',
+    'location',
+    'screen',
+    'indexedDB',
+    'addEventListener',
+    'removeEventListener',
+    'innerHeight',
+    'innerWidth',
+    'requestAnimationFrame',
+    'dispatchEvent',
+    'IntersectionObserver',
+    'ResizeObserver',
+    'parent',
+  ],
+};
