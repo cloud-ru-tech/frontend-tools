@@ -4,18 +4,24 @@ import { defineConfig, mergeConfig, UserConfig } from 'vitest/config';
 
 import { tsconfigPathsConverter } from './tsconfigPathsConverter';
 
-const defaultConfig = defineConfig({
-  test: {
-    globals: true,
-    include: ['**/__tests__/**/*.spec.(ts|js|tsx|jsx)'],
+type DefaultConfigOptions = {
+  useAliases?: boolean;
+};
 
-    environment: 'jsdom',
-    outputFile: 'reports/unit/unit-report.xml',
-    reporters: ['default', 'junit'],
-  },
-  resolve: {
-    alias: tsconfigPathsConverter(path.resolve(process.cwd(), 'tsconfig.json')),
-  },
-}) as UserConfig;
+const getDefaultConfig = ({ useAliases = true }: DefaultConfigOptions) =>
+  defineConfig({
+    test: {
+      globals: true,
+      include: ['**/__tests__/**/*.spec.(ts|js|tsx|jsx)'],
 
-export default (overrides: UserConfig = {}) => mergeConfig(defaultConfig, overrides);
+      environment: 'jsdom',
+      outputFile: 'reports/unit/unit-report.xml',
+      reporters: ['default', 'junit'],
+    },
+    resolve: {
+      alias: useAliases ? tsconfigPathsConverter(path.resolve(process.cwd(), 'tsconfig.json')) : undefined,
+    },
+  }) as UserConfig;
+
+export default (overrides: UserConfig = {}, options: DefaultConfigOptions = {}) =>
+  mergeConfig(getDefaultConfig(options), overrides);
