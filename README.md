@@ -26,6 +26,8 @@ Common repository, which contains all kinds of frontend tools, i.e. configs, hoo
 
 * [@cloud-ru/eslint-config](packages/eslint-config/README.md)
 
+* [@cloud-ru/eslint-plugin-ssr-safe-react](packages/eslint-plugin-ssr-safe-react/README.md)
+
 * [@cloud-ru/ft-lerna-changelog-generator](packages/lerna-changelog-generator/README.md)
 
 * [@cloud-ru/ft-license-validator](packages/license-validator/README.md)
