@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.2 (2024-09-24)
+
+
+### Bug Fixes
+
+* **FF-4988:** update storybook versions ([9e3def2](https://github.com/cloud-ru-tech/frontend-tools/commit/9e3def2999e8b957d6144246a36aee733b349a80))
+
+
+
+
+
 ## 2.0.1 (2024-09-24)
 
 
