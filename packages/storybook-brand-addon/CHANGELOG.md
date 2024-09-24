@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2024-09-24)
+
+
+### Dependencies
+
+* **PDS-611:** up floating-ui ([995afcf](https://github.com/cloud-ru-tech/frontend-tools/commit/995afcf64589c3c6b25a92df90824a631820f387))
+
+
+
+
+
 # 2.0.0 (2024-07-04)
 
 
