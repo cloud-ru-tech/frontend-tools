@@ -1,6 +1,7 @@
 import '../../styles.css';
 
-import { IconButton, Icons } from '@storybook/components';
+import { IconButton } from '@storybook/components';
+import { AddIcon, CircleIcon } from '@storybook/icons';
 import { useGlobals } from '@storybook/manager-api';
 import { useState } from 'react';
 
@@ -31,6 +32,8 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
 
   const { brands } = useCustomBrandContext();
 
+  const selectedBrand = globals[PARAM_KEY];
+
   const brandOptions: BrandOptionProps[] = [
     ...mapBrandOptions(globals[PARAM_COLOR_MAP_KEY]),
     ...(canAddCustomBrand
@@ -56,7 +59,7 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
             <BrandOption
               key={item.value}
               {...item}
-              selected={globals[PARAM_KEY] === item.value}
+              selected={selectedBrand === item.value}
               onSelect={handleSelectOption}
             />
           ))}
@@ -70,7 +73,7 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
             >
               <div className={'brand-select-option'}>
                 Добавить бренд
-                <Icons icon='add' width={16} />
+                <AddIcon width={16} />
               </div>
             </Tooltip>
           )}
@@ -85,7 +88,7 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
         rel={undefined}
         rev={undefined}
       >
-        <Icons icon='circle' color={brandOptions.find(op => op.value === globals[PARAM_KEY])?.color} />
+        <CircleIcon color={brandOptions.find(op => op.value === selectedBrand)?.color} />
       </IconButton>
     </Tooltip>
   );

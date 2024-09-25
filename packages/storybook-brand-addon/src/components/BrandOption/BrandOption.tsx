@@ -1,4 +1,5 @@
-import { IconButton, Icons } from '@storybook/components';
+import { IconButton } from '@storybook/components';
+import { CircleIcon, EditIcon, TrashIcon } from '@storybook/icons';
 import cn from 'classnames';
 import { SyntheticEvent, useState } from 'react';
 
@@ -19,7 +20,7 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
   const { brands, deleteBrand } = useCustomBrandContext();
   const customBrand = brands.find(item => item.key === value);
 
-  const renderCircle = (className?: string) => <Icons icon='circle' color={color} width={16} className={className} />;
+  const renderCircle = (className?: string) => <CircleIcon color={color} width={16} className={className} />;
 
   const stopPropagation = (e: SyntheticEvent) => e.stopPropagation();
 
@@ -48,7 +49,7 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
             rel={undefined}
             rev={undefined}
           >
-            <Icons icon='trash' />
+            <TrashIcon />
           </IconButton>
 
           <Tooltip
@@ -66,7 +67,7 @@ export function BrandOption({ value, title, color, selected, onSelect }: BrandOp
               rel={undefined}
               rev={undefined}
             >
-              <Icons icon='edit' />
+              <EditIcon />
             </IconButton>
           </Tooltip>
           {renderCircle()}

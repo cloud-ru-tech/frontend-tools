@@ -13,8 +13,8 @@
     "dependencies"
   ],
   "dependencies": {
-    "@storybook/components": "8.3.2",
-    "@storybook/manager-api": "8.3.2",
+    "@storybook/components": "8.3.3",
+    "@storybook/manager-api": "8.3.3",
     "cytoscape": "3.28.0",
     "cytoscape-dagre": "2.5.0"
   },

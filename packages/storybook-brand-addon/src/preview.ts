@@ -1,4 +1,4 @@
-import type { ProjectAnnotations, Renderer } from '@storybook/types';
+import { ProjectAnnotations, Renderer } from '@storybook/csf';
 
 import { BrandProvider } from './BrandProvider';
 
