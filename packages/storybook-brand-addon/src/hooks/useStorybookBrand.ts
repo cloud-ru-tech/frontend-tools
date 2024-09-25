@@ -1,4 +1,4 @@
-import { Globals } from '@storybook/types';
+import { Globals } from '@storybook/csf';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import { PARAM_COLOR_MAP_KEY } from '../constants';

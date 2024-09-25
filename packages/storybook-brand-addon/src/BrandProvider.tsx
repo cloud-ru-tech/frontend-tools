@@ -1,11 +1,11 @@
-import { Addon_StoryContext, StoryFn } from '@storybook/types';
-import { useRef } from 'react';
+import { JSX, useRef } from 'react';
+import { Addon_StoryContext, StoryFn } from 'storybook/internal/types';
 
 import { DEFAULT_BRAND, PARAM_COLOR_MAP_KEY, PARAM_KEY } from './constants';
 import { getCustomBrandList, getCustomBrands } from './customBrands';
 import { useStorybookBrand } from './hooks';
 
-export function BrandProvider(StoryFn: StoryFn, { globals }: Addon_StoryContext) {
+export function BrandProvider(StoryFn: StoryFn, { globals }: Addon_StoryContext): JSX.Element {
   const brand =
     getCustomBrandList().includes(globals[PARAM_KEY]) ||
     Object.keys(globals[PARAM_COLOR_MAP_KEY] || {}).includes(globals[PARAM_KEY])

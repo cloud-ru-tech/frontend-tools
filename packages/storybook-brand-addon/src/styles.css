@@ -62,5 +62,6 @@
 .addon-tooltip {
   filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.05)) drop-shadow(0 1px 3px rgba(0,0,0,0.1));
   border-radius: 4px;
-  font-size: 12px
+  font-size: 12px;
+  z-index: 4;
 }
