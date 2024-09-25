@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.2 (2024-09-25)
+
+
+### Bug Fixes
+
+* **FF-4988:** update versions, update imports ([e3f4b3a](https://github.com/cloud-ru-tech/frontend-tools/commit/e3f4b3a3f839f2881ed2ef7da3fb00220d1fdd6d))
+
+
+
+
+
 ## 2.0.1 (2024-09-24)
 
 
