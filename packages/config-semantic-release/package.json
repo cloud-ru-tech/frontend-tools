@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-semantic-release",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Config and dependencies for semantic-release",
   "author": {
     "name": "Belov Aleksei",
@@ -11,7 +11,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@cloud-ru/ft-conventional-changelog": "1.1.0",
+    "@cloud-ru/ft-conventional-changelog": "1.1.1",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/gitlab": "13.2.1",
