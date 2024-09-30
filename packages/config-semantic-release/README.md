@@ -7,7 +7,7 @@
 ## Usage
 
 ```js
-// projectRoot/release.config.js
+// projectRoot/.releaserc.js
 module.exports = require('@cloud-ru/ft-config-semantic-release').defaultReleaseConfig();
 
 // если необходимо, чтобы при релизе создавался npm-пакет

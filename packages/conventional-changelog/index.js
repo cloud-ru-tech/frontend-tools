@@ -1,15 +1,11 @@
-/* eslint-env node */
-const Q = require('q');
-const conventionalChangelog = require('./conventional-changelog');
-const parserOpts = require('./parser-opts');
-const recommendedBumpOpts = require('./conventional-recommended-bump');
-const writerOpts = require('./writer-opts');
+const whatBump = require('./conventional-recommended-bump');
+const createParserOpts = require('./parser-opts');
+const createWriterOpts = require('./writer-opts');
 
-module.exports = Q.all([conventionalChangelog, parserOpts, recommendedBumpOpts, writerOpts]).spread(
-  (conventionalChangelog, parserOpts, recommendedBumpOpts, writerOpts) => ({
-    conventionalChangelog,
-    parserOpts,
-    recommendedBumpOpts,
-    writerOpts,
-  }),
-);
+module.exports = async function createPreset() {
+  return {
+    parser: createParserOpts(),
+    writer: await createWriterOpts(),
+    whatBump,
+  };
+};
