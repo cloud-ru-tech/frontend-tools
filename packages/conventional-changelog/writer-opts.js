@@ -1,70 +1,74 @@
-/* eslint-env node */
+const { readFile } = require('fs/promises');
+const { resolve } = require('path');
+
 const compareFunc = require('compare-func');
-const Q = require('q');
-const readFile = Q.denodeify(require('fs').readFile);
-const resolve = require('path').resolve;
+
 const hasBreakingChanges = require('./has-breaking-changes');
 
 function getWriterOpts() {
   return {
     transform: commit => {
-      let discard = true;
       const issues = [];
 
-      commit.notes.forEach(note => {
+      let discard = true;
+      let type = commit.type;
+
+      const notes = commit.notes.map(note => {
         note.title = 'BREAKING CHANGES';
         discard = false;
       });
 
       if (commit.type === 'feat') {
-        commit.type = 'Features';
+        type = 'Features';
       } else if (commit.type === 'fix') {
-        commit.type = 'Bug Fixes';
+        type = 'Bug Fixes';
       } else if (commit.type === 'perf') {
-        commit.type = 'Performance Improvements';
+        type = 'Performance Improvements';
       } else if (commit.type === 'deps') {
-        commit.type = 'Dependencies';
+        type = 'Dependencies';
       } else if (commit.type === 'revert' || commit.revert) {
-        commit.type = 'Reverts';
+        type = 'Reverts';
       } else if (discard) {
         return;
       } else if (commit.type === 'docs') {
-        commit.type = 'Documentation';
+        type = 'Documentation';
       } else if (commit.type === 'style') {
-        commit.type = 'Styles';
+        type = 'Styles';
       } else if (commit.type === 'refactor') {
-        commit.type = 'Code Refactoring';
+        type = 'Code Refactoring';
       } else if (commit.type === 'test') {
-        commit.type = 'Tests';
+        type = 'Tests';
       } else if (commit.type === 'build') {
-        commit.type = 'Build System';
+        type = 'Build System';
       } else if (commit.type === 'ci') {
-        commit.type = 'Continuous Integration';
+        type = 'Continuous Integration';
       } else if (commit.type === 'story') {
-        commit.type = 'Story';
+        type = 'Story';
       }
 
-      if (commit.scope === '*') {
-        commit.scope = '';
-      }
+      const shortHash = typeof commit.hash === 'string' ? commit.hash.substring(0, 7) : commit.shortHash;
 
-      if (typeof commit.hash === 'string') {
-        commit.shortHash = commit.hash.substring(0, 7);
-      }
-
-      if (typeof commit.scope === 'string') {
+      let scope = commit.scope === '*' ? '' : commit.scope;
+      if (typeof scope === 'string') {
         // Issue URLs.
         const JIRA_ID_PATTERN = /([A-Z0-9]{2,}-[1-9][0-9]*)/g;
-        commit.scope = commit.scope.replace(JIRA_ID_PATTERN, function (_, issue) {
+        scope = commit.scope.replace(JIRA_ID_PATTERN, function (_, issue) {
           issues.push(issue);
           return issue;
         });
       }
 
       // remove references that already appear in the subject
-      commit.references = commit.references.filter(reference => issues.indexOf(reference.issue) === -1);
+      const references = commit.references.filter(reference => issues.indexOf(reference.issue) === -1);
 
-      return commit;
+      return {
+        notes,
+        type,
+        scope,
+        shortHash,
+        subject: commit.subject,
+        references,
+      };
     },
     finalizeContext: context => {
       /* Remove breaking changes commits
@@ -90,12 +94,14 @@ function getWriterOpts() {
   };
 }
 
-module.exports = Q.all([
-  readFile(resolve(__dirname, './templates/template.hbs'), 'utf-8'),
-  readFile(resolve(__dirname, './templates/header.hbs'), 'utf-8'),
-  readFile(resolve(__dirname, './templates/commit.hbs'), 'utf-8'),
-  readFile(resolve(__dirname, './templates/footer.hbs'), 'utf-8'),
-]).spread((template, header, commit, footer) => {
+module.exports = async function createWriterOpts() {
+  const [template, header, commit, footer] = await Promise.all([
+    readFile(resolve(__dirname, './templates/template.hbs'), 'utf-8'),
+    readFile(resolve(__dirname, './templates/header.hbs'), 'utf-8'),
+    readFile(resolve(__dirname, './templates/commit.hbs'), 'utf-8'),
+    readFile(resolve(__dirname, './templates/footer.hbs'), 'utf-8'),
+  ]);
+
   const writerOpts = getWriterOpts();
 
   writerOpts.mainTemplate = template;
@@ -104,4 +110,4 @@ module.exports = Q.all([
   writerOpts.footerPartial = footer;
 
   return writerOpts;
-});
+};

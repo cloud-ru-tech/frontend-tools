@@ -5,8 +5,9 @@ describe('@cloud-ru/ft-conventional-changelog/write-opts', () => {
   let transform, finalizeContext;
 
   beforeAll(async () => {
-    transform = (await writerOpts).transform;
-    finalizeContext = (await writerOpts).finalizeContext;
+    const opts = await writerOpts();
+    transform = opts.transform;
+    finalizeContext = opts.finalizeContext;
   });
 
   it('transform should add shortHash', () => {
