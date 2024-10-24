@@ -40,7 +40,12 @@ function formatNotConventional(message: string, ticketId: string): string {
   return cleanUpSpaces(newMessage);
 }
 
+function isRevertCommit(message: string) {
+  return /Revert ".*"/.test(message);
+}
+
 export function formatMessage(message: string, ticketId: string): string {
+  if (isRevertCommit(message)) return message;
   if (checkConventionalPattern(message)) return formatConventional(message, ticketId);
   return formatNotConventional(message, ticketId);
 }
