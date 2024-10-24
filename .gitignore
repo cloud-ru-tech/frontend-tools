@@ -139,4 +139,8 @@ dist
 /Dockerfile
 /nginx
 /reports
+/.report
+/.husky
 tsconfig.tsbuildinfo
+.env
+.report
