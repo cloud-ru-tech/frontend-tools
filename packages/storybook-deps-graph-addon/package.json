@@ -13,9 +13,9 @@
     "dependencies"
   ],
   "dependencies": {
-    "@storybook/components": "8.3.3",
-    "@storybook/manager-api": "8.3.3",
-    "cytoscape": "3.28.0",
+    "@storybook/components": "8.3.6",
+    "@storybook/manager-api": "8.3.6",
+    "cytoscape": "3.30.3",
     "cytoscape-dagre": "2.5.0"
   },
   "peerDependencies": {
@@ -23,7 +23,7 @@
     "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@types/cytoscape": "3.19.16",
+    "@types/cytoscape": "3.21.8",
     "@types/cytoscape-dagre": "2.3.3",
     "@types/react": "18.2.45",
     "react": "18.2.0",
