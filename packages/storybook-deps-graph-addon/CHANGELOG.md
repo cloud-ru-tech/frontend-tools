@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>2.0.3 (2024-10-24)</small>
+
+* deps(FF-5782): update deps ([c30dd4a](https://github.com/cloud-ru-tech/frontend-tools/commit/c30dd4a))
+
+
+
+
+
 ## 2.0.2 (2024-09-25)
 
 

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.1.1 (2024-10-24)</small>
+
+* fix(FF-5782): git revert default message should pass regex checks ([65fd500](https://github.com/cloud-ru-tech/frontend-tools/commit/65fd500))
+* deps(FF-5782): update deps ([c30dd4a](https://github.com/cloud-ru-tech/frontend-tools/commit/c30dd4a))
+
+
+
+
+
 # 1.1.0 (2023-11-23)
 
 
