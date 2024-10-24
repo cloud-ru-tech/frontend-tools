@@ -14,7 +14,7 @@
     "cloud-ru-commit-message": "./dist/cjs/index.js"
   },
   "dependencies": {
-    "cosmiconfig": "8.2.0"
+    "cosmiconfig": "9.0.0"
   },
   "types": "./dist/esm/defaultConfig.d.ts",
   "exports": {

@@ -11,7 +11,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "prettier": "3.3.1"
+    "prettier": "3.3.3"
   },
   "types": "./dist/esm/index.d.ts",
   "exports": {

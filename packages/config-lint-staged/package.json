@@ -11,7 +11,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "lint-staged": "15.2.5"
+    "lint-staged": "15.2.10"
   },
   "peerDependencies": {
     "eslint": "*",

@@ -12,8 +12,8 @@
     "dependencies"
   ],
   "dependencies": {
-    "@types/yargs": "17.0.32",
-    "simple-git": "3.19.1",
+    "@types/yargs": "17.0.33",
+    "simple-git": "3.27.0",
     "yargs": "17.7.2"
   },
   "license": "Apache-2.0",

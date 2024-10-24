@@ -11,6 +11,9 @@ type DefaultConfigOptions = {
 const getDefaultConfig = ({ useAliases = true }: DefaultConfigOptions) =>
   defineConfig({
     test: {
+      snapshotFormat: {
+        escapeString: true,
+      },
       globals: true,
       include: ['**/__tests__/**/*.spec.(ts|js|tsx|jsx)'],
 

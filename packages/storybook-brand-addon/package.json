@@ -12,10 +12,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@floating-ui/react": "0.26.24",
-    "@storybook/components": "8.3.3",
-    "@storybook/manager-api": "8.3.3",
-    "classnames": "2.3.2",
+    "@floating-ui/react": "0.26.25",
+    "@storybook/components": "8.3.6",
+    "@storybook/manager-api": "8.3.6",
+    "classnames": "2.5.1",
     "storybook-dark-mode": "4.0.2"
   },
   "peerDependencies": {
@@ -23,7 +23,7 @@
     "react-dom": "^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@storybook/types": "8.3.2",
+    "@storybook/types": "8.3.6",
     "@types/react": "18.2.45",
     "react": "18.2.0",
     "react-dom": "18.2.0"
