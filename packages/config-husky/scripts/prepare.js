@@ -1,16 +1,35 @@
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const pkg = require('../package.json');
 
-execSync(`cd ${process.env.INIT_CWD} && husky install`);
+if (process.env.CI) {
+  process.exit(0);
+}
 
-!fs.existsSync(path.resolve(process.env.INIT_CWD, '.husky/pre-commit')) &&
-  execSync(`cd ${process.env.INIT_CWD} && husky set .husky/pre-commit node_modules/.bin/lint-staged`);
+const versionPrefix = `# ${pkg.version}\n`;
+const targetDirectoryRoot = process.env.INIT_CWD || process.cwd();
+const commandCommonPrefix = `cd ${targetDirectoryRoot} && echo "${versionPrefix}node_modules/.bin/`;
+const precommitPath = path.resolve(targetDirectoryRoot, '.husky/pre-commit');
+const prepushPath = path.resolve(targetDirectoryRoot, '.husky/pre-push');
+const precommitmsgPath = path.resolve(targetDirectoryRoot, '.husky/commit-msg');
 
-!fs.existsSync(path.resolve(process.env.INIT_CWD, '.husky/pre-push')) &&
-  execSync(`cd ${process.env.INIT_CWD} && husky set .husky/pre-push node_modules/.bin/solidarity`);
+function shouldUpdate(path) {
+  return !fs.existsSync(path) || !fs.readFileSync(path).toString().startsWith(versionPrefix);
+}
 
-!fs.existsSync(path.resolve(process.env.INIT_CWD, '.husky/commit-msg')) &&
-  execSync(`cd ${process.env.INIT_CWD} && husky set .husky/commit-msg node_modules/.bin/cloud-ru-commit-message`);
+execSync(`cd ${targetDirectoryRoot} && husky`);
 
-execSync(`cp -f ${path.resolve(__dirname, '.solidarity')} ${path.resolve(process.env.INIT_CWD, '.solidarity')}`);
+if (shouldUpdate(precommitPath)) {
+  execSync(`${commandCommonPrefix}lint-staged" > .husky/pre-commit`);
+}
+
+if (shouldUpdate(prepushPath)) {
+  execSync(`${commandCommonPrefix}solidarity" > .husky/pre-push`);
+}
+
+if (shouldUpdate(precommitmsgPath)) {
+  execSync(`${commandCommonPrefix}cloud-ru-commit-message" > .husky/commit-msg`);
+}
+
+execSync(`cp -f ${path.resolve(__dirname, '.solidarity')} ${path.resolve(targetDirectoryRoot, '.solidarity')}`);
