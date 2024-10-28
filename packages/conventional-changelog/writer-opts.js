@@ -14,8 +14,12 @@ function getWriterOpts() {
       let type = commit.type;
 
       const notes = commit.notes.map(note => {
-        note.title = 'BREAKING CHANGES';
         discard = false;
+
+        return {
+          ...note,
+          title: 'BREAKING CHANGES',
+        };
       });
 
       if (commit.type === 'feat') {
@@ -70,22 +74,22 @@ function getWriterOpts() {
         references,
       };
     },
-    finalizeContext: context => {
+    finalizeContext: context =>
       /* Remove breaking changes commits
       cause "BREAKING CHANGES" section already has it */
-      context.commitGroups = context.commitGroups.reduce((commitGroups, group) => {
-        const commits = group.commits.filter(commit => !hasBreakingChanges(commit));
-        if (commits.length) {
-          commitGroups.push({
-            ...group,
-            commits,
-          });
-        }
-        return commitGroups;
-      }, []);
-
-      return context;
-    },
+      ({
+        ...context,
+        commitGroups: context.commitGroups.reduce((commitGroups, group) => {
+          const commits = group.commits.filter(commit => !hasBreakingChanges(commit));
+          if (commits.length) {
+            commitGroups.push({
+              ...group,
+              commits,
+            });
+          }
+          return commitGroups;
+        }, []),
+      }),
     groupBy: 'type',
     commitGroupsSort: 'title',
     commitsSort: ['scope', 'subject'],
