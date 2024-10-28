@@ -11,8 +11,7 @@
   "description": "conventional-changelog Cloud.ru preset",
   "main": "index.js",
   "dependencies": {
-    "compare-func": "2.0.0",
-    "q": "1.5.1"
+    "compare-func": "2.0.0"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/conventional-changelog",
   "repository": {
