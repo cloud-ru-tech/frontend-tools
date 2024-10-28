@@ -45,7 +45,8 @@
     "@types/shelljs": "0.8.15",
     "inquirer": "8.0.0",
     "shelljs": "0.8.5",
-    "ts-node": "10.9.2"
+    "ts-node": "10.9.2",
+    "@cloud-ru/ft-conventional-changelog-prev": "npm:@cloud-ru/ft-conventional-changelog@1.1.0"
   },
   "overrides": {
     "typescript": "5.5.4"
