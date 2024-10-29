@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.3 (2024-10-29)
+
+### Only dependencies have been changed
+* [@cloud-ru/ft-conventional-changelog@1.1.2](/blob/packages/conventional-changelog/CHANGELOG.md)
+
+
+
+
+
 ## <small>1.1.2 (2024-10-24)</small>
 
 * fix(FF-5782): deleting postinstall script ([940b91a](https://github.com/cloud-ru-tech/frontend-tools/commit/940b91a))
