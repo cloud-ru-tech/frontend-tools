@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-stylelint",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "Konstantin Yakovlev",
   "publishConfig": {
     "access": "public"
