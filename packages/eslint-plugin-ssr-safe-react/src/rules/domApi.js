@@ -137,8 +137,9 @@ module.exports.domApi = {
           const isInsideAllowedCondition = ancestors.some((ancestor, index) =>
             isAllowedCondition({ node: ancestor, nextNode: ancestors[index + 1] }),
           );
+          const isTypeReference = node.parent.type === 'TSTypeReference';
 
-          if (!isInsideAllowedCondition && !insideAllowedScopes && isGlobalVariable(variableName)) {
+          if (!isInsideAllowedCondition && !insideAllowedScopes && isGlobalVariable(variableName) && !isTypeReference) {
             context.report({
               node,
               messageId: 'forbiddenToUse',
