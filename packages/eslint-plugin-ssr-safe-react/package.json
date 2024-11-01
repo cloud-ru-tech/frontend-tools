@@ -20,6 +20,9 @@
     "./CHANGELOG.md",
     "LICENSE"
   ],
+  "devDependencies": {
+    "@typescript-eslint/rule-tester": "6.21.0"
+  },
   "peerDependencies": {
     "eslint": ">= 8.0.0"
   },

@@ -70,6 +70,10 @@ ruleTester.run('domApi', domApi, {
       name: 'usage of document inside long logical expression',
       code: 'isBrowser() && document.body && true;',
     },
+    {
+      name: 'usage of variable in types',
+      code: 'function TestComponent() { const observerRef = useRef<IntersectionObserver>(); }',
+    },
   ],
   invalid: [
     {
