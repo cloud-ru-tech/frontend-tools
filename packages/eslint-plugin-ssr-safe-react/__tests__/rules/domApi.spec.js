@@ -92,6 +92,16 @@ ruleTester.run('domApi', domApi, {
       errors: [DEFAULT_DOCUMENT_ERROR],
     },
     {
+      name: 'usage of document from window',
+      code: "window.document.createElement('div');",
+      errors: [DEFAULT_DOCUMENT_ERROR],
+    },
+    {
+      name: 'usage of document from globalThis',
+      code: "globalThis.document.createElement('div');",
+      errors: [DEFAULT_DOCUMENT_ERROR],
+    },
+    {
       name: 'several usage of variables',
       code: "history.createElement('div'); function TestComponent() { document.createElement('div'); }",
       errors: [
