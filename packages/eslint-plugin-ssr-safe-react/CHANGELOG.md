@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2024-11-01)
+
+
+### Bug Fixes
+
+* **FF-5830:** allow usage of forbidden variables in types ([2129dd6](https://github.com/cloud-ru-tech/frontend-tools/commit/2129dd667b57849912fa08aeac770dd42d7c2c8c))
+
+
+### Features
+
+* **FF-5830:** forbid matchMedia global variable ([32cd7e4](https://github.com/cloud-ru-tech/frontend-tools/commit/32cd7e423a4ffb207e162a0fa399d9215467fdcc))
+
+
+
+
+
 # 0.1.0 (2024-09-23)
 
 
