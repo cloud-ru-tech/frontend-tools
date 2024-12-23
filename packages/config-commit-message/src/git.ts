@@ -75,7 +75,7 @@ export function getCommitMessage(): string {
 
   try {
     message = fs.readFileSync(messageFilePath, { encoding: 'utf-8' });
-  } catch (ex) {
+  } catch {
     throw new Error(`Unable to read the file "${messageFilePath}".`);
   }
 

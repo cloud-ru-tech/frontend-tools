@@ -39,7 +39,7 @@ export function EditBrandPanel({ brand, onUpdate }: EditBrandPanelProps) {
 
     const reader = new FileReader();
     reader.addEventListener('load', event => {
-      saveUpdates(String(event.target?.result) ?? '');
+      saveUpdates(String(event.target?.result ?? ''));
     });
     reader.readAsText(file);
   };

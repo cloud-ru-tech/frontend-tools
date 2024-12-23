@@ -24,7 +24,7 @@ export function AddBrandPanel({ onAdd }: AddPanelProps) {
           title: brandName,
           color: brandColor,
           fileName: file.name,
-          content: String(event.target?.result) ?? '',
+          content: String(event.target?.result ?? ''),
         });
         onAdd?.();
       });

@@ -51,6 +51,7 @@ function mapPackagesWithVersion(deps: [string, string][]) {
 }
 
 function getPackageJson(file: string): PackageJson {
+  // eslint-disable-next-line
   return require(path.resolve(file));
 }
 
