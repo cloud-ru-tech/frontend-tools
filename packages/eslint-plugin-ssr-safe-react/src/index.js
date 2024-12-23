@@ -1,12 +1,10 @@
-'use strict';
+import { domApi } from './rules/domApi.js';
 
-module.exports.rules = {
-  domApi: require('./rules/domApi').domApi,
-};
-
-module.exports.configs = {
+export default {
+  rules: {
+    domApi,
+  },
   recommended: {
-    plugins: ['@cloud-ru/ssr-safe-react'],
     rules: {
       'no-restricted-imports': [
         'error',

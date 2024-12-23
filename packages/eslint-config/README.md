@@ -7,20 +7,31 @@
 ## Usage
 For monorepositories:
 ```ts
-// projectRoot/.eslintrc.js
-module.exports = {
-  extends: '@cloud-ru/eslint-config/monorepo',
-  //some additional rules if needed
-}
+// projectRoot/eslint.config.mjs
+import monorepoEslintConfig from '@cloud-ru/eslint-config/monorepo';
+
+// simple usage
+export default monorepoEslintConfig;
+
+// extended usage with rules
+export default [
+  ...monorepoEslintConfig,
+  {
+    files: ['packages/config-playwright/src/**/*.ts'],
+    rules: {
+      'react-hooks/rules-of-hooks': 'off',
+    },
+  },
+];
+
 ```
 
 For other projects:
 ```ts
-// projectRoot/.eslintrc.js
-module.exports = {
-  extends: '@cloud-ru/eslint-config/base',
-  //some additional rules if needed
-}
+// projectRoot/eslint.config.mjs
+import baseConfig from '@cloud-ru/eslint-config';
+
+export default baseConfig;
 ```
 
 ## Tips

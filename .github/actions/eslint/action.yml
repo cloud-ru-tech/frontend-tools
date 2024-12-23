@@ -15,5 +15,5 @@ runs:
       shell: bash
 
     - name: ESLint check
-      run: npx eslint
+      run: npx eslint packages/*/src
       shell: bash
