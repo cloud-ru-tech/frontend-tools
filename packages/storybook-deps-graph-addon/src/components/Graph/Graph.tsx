@@ -6,6 +6,8 @@ import React, { ReactElement, useEffect, useRef } from 'react';
 import { color } from '../../const';
 import { GraphElementType } from '../../types';
 
+// it's not a hook
+// eslint-disable-next-line react-hooks/rules-of-hooks
 Cytoscape.use(dagre);
 
 const layout = {

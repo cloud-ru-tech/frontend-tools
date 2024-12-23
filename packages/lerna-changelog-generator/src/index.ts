@@ -89,7 +89,6 @@ const writeChangedDependencies = ({ packages, currentProjectUrl, defaultBranch }
     const fileData = readFileSync(changelogPath, 'utf8');
     const depsString = pkg.changedDeps
       .map(({ packageName, packagePath }) => {
-        // eslint-disable-next-line
         const pathToChangelog = join(currentProjectUrl, '/blob/', defaultBranch, packagePath, changelogFile).replace(
           ':/',
           '://',
@@ -110,7 +109,7 @@ const getArgs = async (): Promise<{ projectUrl: string; defaultBranch: string }>
       projectUrl: typeof argv.projectUrl === 'string' ? argv.projectUrl : '',
       defaultBranch: typeof argv.defaultBranch === 'string' ? argv.defaultBranch : '',
     };
-  } catch (e) {
+  } catch {
     return { projectUrl: '', defaultBranch: '' };
   }
 };

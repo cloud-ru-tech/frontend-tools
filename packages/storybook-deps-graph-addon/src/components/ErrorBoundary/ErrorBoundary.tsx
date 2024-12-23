@@ -20,7 +20,6 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: unknown): void {
-    // eslint-disable-next-line no-console
     console.error(error);
   }
 
