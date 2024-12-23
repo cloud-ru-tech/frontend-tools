@@ -1,8 +1,6 @@
-'use strict';
+import { DEFAULT_CONDITIONS, DEFAULT_SCOPES, DEFAULT_VARIABLES } from '../constants.js';
 
-const { DEFAULT_SCOPES, DEFAULT_VARIABLES, DEFAULT_CONDITIONS } = require('../constants');
-
-module.exports.domApi = {
+export const domApi = {
   meta: {
     type: 'problem',
     docs: {
@@ -99,7 +97,7 @@ module.exports.domApi = {
       );
     }
 
-    function isGlobalVariable(variableName, scope = context.getScope()) {
+    function isGlobalVariable(variableName, scope) {
       const variable = scope.variables.find(v => v.name === variableName);
 
       if (variable && variable.defs.length > 0) {
@@ -133,13 +131,18 @@ module.exports.domApi = {
         const variableName = node.name;
 
         if (restrictedVariables.includes(variableName)) {
-          const ancestors = context.getAncestors();
+          const ancestors = context.sourceCode.getAncestors(node);
           const isInsideAllowedCondition = ancestors.some((ancestor, index) =>
             isAllowedCondition({ node: ancestor, nextNode: ancestors[index + 1] }),
           );
           const isTypeReference = node.parent.type === 'TSTypeReference';
 
-          if (!isInsideAllowedCondition && !insideAllowedScopes && isGlobalVariable(variableName) && !isTypeReference) {
+          if (
+            !isInsideAllowedCondition &&
+            !insideAllowedScopes &&
+            isGlobalVariable(variableName, context.sourceCode.getScope(node)) &&
+            !isTypeReference
+          ) {
             context.report({
               node,
               messageId: 'forbiddenToUse',

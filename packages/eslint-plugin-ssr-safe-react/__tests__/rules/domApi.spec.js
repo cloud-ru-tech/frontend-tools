@@ -1,9 +1,8 @@
 'use strict';
 
+import { DEFAULT_CONDITIONS, DEFAULT_SCOPES } from '../../src/constants';
+import { domApi } from '../../src/rules/domApi';
 import { ruleTester } from '../ruleTester';
-
-const { domApi } = require('../../src/rules/domApi');
-const { DEFAULT_SCOPES, DEFAULT_CONDITIONS } = require('../../src/constants');
 
 const DEFAULT_DOCUMENT_ERROR = {
   messageId: 'forbiddenToUse',

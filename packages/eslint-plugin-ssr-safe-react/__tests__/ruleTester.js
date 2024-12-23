@@ -6,5 +6,5 @@ RuleTester.describe = describe;
 RuleTester.it = it;
 
 export const ruleTester = new RuleTester({
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  languageOptions: { ecmaVersion: 6, sourceType: 'module' },
 });
