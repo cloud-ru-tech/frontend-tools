@@ -1,9 +1,9 @@
 import '../../styles.css';
 
-import { IconButton } from '@storybook/components';
+import { Button } from '@storybook/components';
 import { AddIcon, CircleIcon } from '@storybook/icons';
 import { useGlobals } from '@storybook/manager-api';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { PARAM_CAN_ADD_CUSTOM_BRAND_KEY, PARAM_COLOR_MAP_KEY, PARAM_KEY } from '../../constants';
 import { useCustomBrandContext } from '../../contexts';
@@ -32,14 +32,15 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
 
   const { brands } = useCustomBrandContext();
 
-  const selectedBrand = globals[PARAM_KEY];
-
-  const brandOptions: BrandOptionProps[] = [
-    ...mapBrandOptions(globals[PARAM_COLOR_MAP_KEY]),
-    ...(canAddCustomBrand
-      ? brands.map(config => ({ value: config.key, color: config.color, title: config.title }))
-      : []),
-  ];
+  const brandOptions: BrandOptionProps[] = useMemo(
+    () => [
+      ...mapBrandOptions(globals[PARAM_COLOR_MAP_KEY]),
+      ...(canAddCustomBrand
+        ? brands.map(config => ({ value: config.key, color: config.color, title: config.title }))
+        : []),
+    ],
+    [brands, canAddCustomBrand, globals],
+  );
 
   const handleSelectOption = (value: string) => {
     updateGlobals({ [PARAM_KEY]: value });
@@ -47,6 +48,11 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
   };
 
   const handleAddBrand = () => setAddPanelOpen(false);
+
+  const selectedBrand = useMemo(
+    () => brandOptions.find(op => op.value === globals[PARAM_KEY]),
+    [brandOptions, globals],
+  );
 
   return (
     <Tooltip
@@ -59,7 +65,7 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
             <BrandOption
               key={item.value}
               {...item}
-              selected={selectedBrand === item.value}
+              selected={selectedBrand?.value === item.value}
               onSelect={handleSelectOption}
             />
           ))}
@@ -80,16 +86,17 @@ export function BrandSelector({ defaultOpen = false }: ToolbarItemProps) {
         </div>
       }
     >
-      <IconButton
+      <Button
         active={open}
-        title='Выбрать бренд'
+        title='Выберите брэнд'
         content={undefined}
         autoFocus={undefined}
         rel={undefined}
         rev={undefined}
       >
-        <CircleIcon color={brandOptions.find(op => op.value === selectedBrand)?.color} />
-      </IconButton>
+        <CircleIcon color={selectedBrand?.color} />
+        {selectedBrand?.title || 'Выберите брэнд'}
+      </Button>
     </Tooltip>
   );
 }
