@@ -33,10 +33,16 @@
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
+  border-left: 2px solid transparent;
+}
+
+.brand-select-option[data-selected] {
+  border-left: 2px solid #029CFD;
+  background-color: rgb(2, 156, 253, 0.1);
 }
 
 .brand-select-option:hover {
-  background-color: rgba(2,156,253,0.07);
+  background-color: rgb(2, 156, 253, 0.2);
 }
 
 .brand-select-optionSmall {
