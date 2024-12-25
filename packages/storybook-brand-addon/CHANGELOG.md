@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.5 (2024-12-25)
+
+
+### Bug Fixes
+
+* **FF-5676:** add label and selected state for brand ([95b1ee7](https://github.com/cloud-ru-tech/frontend-tools/commit/95b1ee7ef440db08cedcc3b24ed332c100116eeb))
+
+
+
+
+
 ## <small>2.0.4 (2024-10-24)</small>
 
 * deps(FF-5782): update deps ([c30dd4a](https://github.com/cloud-ru-tech/frontend-tools/commit/c30dd4a))
