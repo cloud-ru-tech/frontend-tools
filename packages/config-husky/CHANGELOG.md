@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.3 (2024-12-26)
+
+### Only dependencies have been changed
+* [@cloud-ru/ft-config-commit-message@1.1.2](/blob/packages/config-commit-message/CHANGELOG.md)
+
+
+
+
+
 ## <small>1.1.2 (2024-10-24)</small>
 
 * feat(FF-5782): migration to husky v9 ([63141fe](https://github.com/cloud-ru-tech/frontend-tools/commit/63141fe))

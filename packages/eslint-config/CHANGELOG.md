@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2024-12-26)
+
+
+### BREAKING CHANGES
+
+
+* **FF-5734:** update eslint to 9 ([9aaed00](https://github.com/cloud-ru-tech/frontend-tools/commit/9aaed00ca2bc6c347fa24ca0f63e2ea1ffb071a1))
+
+
+
+
 ## 1.1.2 (2023-12-14)
 
 
