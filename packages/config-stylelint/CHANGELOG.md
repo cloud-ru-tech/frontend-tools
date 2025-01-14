@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2025-01-14)
+
+
+### BREAKING CHANGES
+
+
+* **FF-683:** remove linaria deps ([675d7c9](https://github.com/cloud-ru-tech/frontend-tools/commit/675d7c964fca2ae7345b36608ec9fa405e1658d7))
+
+
+
+
 # 2.0.0 (2024-10-30)
 
 
