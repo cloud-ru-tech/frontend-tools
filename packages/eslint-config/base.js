@@ -5,6 +5,7 @@ import typescriptParser from '@typescript-eslint/parser';
 import vitest from '@vitest/eslint-plugin';
 import pluginImport from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+import noOnlyTests from 'eslint-plugin-no-only-tests';
 import pluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintReact from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
@@ -54,6 +55,7 @@ export default eslintTypescript.config(
       vitest,
       'react-hooks': reactHooksPlugin,
       'simple-import-sort': simpleImportSortPlugin,
+      'no-only-tests': noOnlyTests,
     },
     rules: {
       // Possible Errors
@@ -178,6 +180,8 @@ export default eslintTypescript.config(
       'vitest/consistent-test-it': ['error'],
       'vitest/no-conditional-in-test': 'error',
       'vitest/prefer-equality-matcher': 'error',
+
+      'no-only-tests/no-only-tests': 'error',
     },
   },
   {
