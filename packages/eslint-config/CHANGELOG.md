@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2025-01-28)
+
+
+### Features
+
+* **FF-01:** add plugin for ban only in tests ([06f30b0](https://github.com/cloud-ru-tech/frontend-tools/commit/06f30b0ef35ebdfd2520b8f63a205e8c61041ff9))
+
+
+
+
+
 # 2.0.0 (2024-12-26)
 
 
