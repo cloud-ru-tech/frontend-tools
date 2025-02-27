@@ -36,6 +36,9 @@
     },
     {
       "path": "./eslint-plugin-ssr-safe-react/tsconfig.esm.json"
+    },
+    {
+      "path": "./request-payload-transform/tsconfig.esm.json"
     }
   ],
   "compilerOptions": {
