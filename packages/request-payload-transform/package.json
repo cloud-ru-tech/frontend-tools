@@ -1,0 +1,31 @@
+{
+  "name": "@cloud-ru/ft-request-payload-transform",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [
+    ""
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "vdizryadnov <vdizryadnov@cloud.ru>",
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/packages/request-payload-transform",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/request-payload-transform"
+  }
+}
