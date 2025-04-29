@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.7 (2025-04-29)
+
+
+### Bug Fixes
+
+* **FF-00:** vitest update to resolve vulnerability ([bca2081](https://github.com/cloud-ru-tech/frontend-tools/commit/bca2081713a591988ef349cb63de66fa5d1a581b))
+
+
+
+
+
 ## 2.0.6 (2024-12-26)
 
 
