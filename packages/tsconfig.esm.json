@@ -39,6 +39,9 @@
     },
     {
       "path": "./request-payload-transform/tsconfig.esm.json"
+    },
+    {
+      "path": "./copy-to-clipboard/tsconfig.esm.json"
     }
   ],
   "compilerOptions": {

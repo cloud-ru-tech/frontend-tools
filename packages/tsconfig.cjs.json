@@ -39,6 +39,9 @@
     },
     {
       "path": "./request-payload-transform/tsconfig.cjs.json"
+    },
+    {
+      "path": "./copy-to-clipboard/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {
