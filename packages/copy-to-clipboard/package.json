@@ -1,0 +1,34 @@
+{
+  "name": "@cloud-ru/ft-copy-to-clipboard",
+  "version": "0.0.0",
+  "description": "Helper function for copying text to clipboard",
+  "keywords": [
+    ""
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "vdizryadnov <vdizryadnov@cloud.ru>",
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-toolspackages/copy-to-clipboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/copy-to-clipboard"
+  },
+  "dependencies": {
+    "copy-to-clipboard": "3.3.3"
+  }
+}
