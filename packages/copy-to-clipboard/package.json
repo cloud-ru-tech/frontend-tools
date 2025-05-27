@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-copy-to-clipboard",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Helper function for copying text to clipboard",
   "keywords": [
     ""
