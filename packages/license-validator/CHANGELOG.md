@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2025-05-27)
+
+
+### Features
+
+* **PROFCOMM-147:** add mpl license ([ae4f0e7](https://github.com/cloud-ru-tech/frontend-tools/commit/ae4f0e7c4da9beca0be64635f6469a88a67be99d))
+
+
+
+
+
 ## 1.1.2 (2024-12-26)
 
 

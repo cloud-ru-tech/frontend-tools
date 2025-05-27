@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-license-validator",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "Дмитрий Безматерных",
   "publishConfig": {
     "access": "public"
