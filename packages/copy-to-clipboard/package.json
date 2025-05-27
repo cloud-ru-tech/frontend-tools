@@ -22,7 +22,7 @@
     "./CHANGELOG.md",
     "LICENSE"
   ],
-  "homepage": "https://github.com/cloud-ru-tech/frontend-toolspackages/copy-to-clipboard",
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/packages/copy-to-clipboard",
   "repository": {
     "type": "git",
     "url": "https://github.com/cloud-ru-tech/frontend-tools.git",

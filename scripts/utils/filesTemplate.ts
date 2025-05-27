@@ -32,7 +32,7 @@ export const packageJson = ({
   packageKeywords: string[];
 }) => {
   const config = {
-    name: `${globConfig.name}-${packageName}`,
+    name: `ft-${packageName}`,
     version: '0.0.0',
     description: `${packageDescription}`,
     keywords: packageKeywords,
