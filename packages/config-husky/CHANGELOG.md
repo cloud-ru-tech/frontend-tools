@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2025-05-27)
+
+
+### Features
+
+* **PROFCOMM-669:** added pnpm to husky solidarity ([8474214](https://github.com/cloud-ru-tech/frontend-tools/commit/847421487a0e9189021f4be840a75550d10b286f))
+
+
+
+
+
 ## 1.1.3 (2024-12-26)
 
 ### Only dependencies have been changed
