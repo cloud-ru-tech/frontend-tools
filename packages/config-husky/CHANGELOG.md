@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.1 (2025-08-07)
+
+
+### Bug Fixes
+
+* **FF-7035:** remove pnpm strict version requirement ([4a05cc1](https://github.com/cloud-ru-tech/frontend-tools/commit/4a05cc19a916ed8211827d07c031f26d2cbf2198))
+
+
+
+
+
 # 1.2.0 (2025-05-27)
 
 
