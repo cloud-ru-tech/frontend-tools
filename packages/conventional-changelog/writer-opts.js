@@ -113,5 +113,11 @@ module.exports = async function createWriterOpts() {
   writerOpts.commitPartial = commit;
   writerOpts.footerPartial = footer;
 
+  const changelogRepoUrl = process.env.CHANGELOG_REPO_URL;
+
+  if (changelogRepoUrl) {
+    writerOpts.repository = changelogRepoUrl;
+  }
+
   return writerOpts;
 };
