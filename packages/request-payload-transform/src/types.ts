@@ -29,7 +29,7 @@ type MultiValueFilter = {
 
 type SingleValueFilter = {
   condition: (typeof SINGLE_VALUE_CONDITIONS)[number];
-  value: string | number | boolean | null;
+  value: string | number | boolean | null | Record<string, unknown>;
 };
 
 export type FieldFilter = BaseFilter & (MultiValueFilter | SingleValueFilter);
