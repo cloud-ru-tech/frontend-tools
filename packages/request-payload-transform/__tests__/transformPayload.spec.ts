@@ -10,6 +10,8 @@ const REQUEST_PARAMS: Required<RequestPayloadParams> = {
     { field: 'great', condition: 'ge', value: 13 },
     { field: 'stringsArray', condition: 'in', value: ['first', 'second'] },
     { field: 'singleArrayString', condition: 'in', value: ['first'] },
+    { field: 'date', condition: 'eq', value: new Date('2025-08-26').toISOString() },
+    { field: 'object', condition: 'eq', value: { hours: 1, minutes: 2, seconds: 3 } },
   ],
   sort: [
     { field: 'age', direction: 'd' },
@@ -20,7 +22,7 @@ const REQUEST_PARAMS: Required<RequestPayloadParams> = {
 };
 
 const PARAMS_RESULT_STRING = encodeURIComponent(
-  'limit=10&offset=2&filter=name[eq]John;age[in][18,25];bool[in][true,false];great[ge]13;stringsArray[in][first,second];singleArrayString[in][first]&sort=age[d];name[a]&search=searching',
+  'limit=10&offset=2&filter=name[eq]John;age[in][18,25];bool[in][true,false];great[ge]13;stringsArray[in][first,second];singleArrayString[in][first];date[eq]2025-08-26T00:00:00.000Z;object[eq]hours:1,minutes:2,seconds:3&sort=age[d];name[a]&search=searching',
 );
 
 describe('@cloud-ru/ft-request-payload-transform', () => {

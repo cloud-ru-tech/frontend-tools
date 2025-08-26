@@ -1,8 +1,21 @@
 import { ARRAY_REG, DELIMITER, MULTI_VALUE_CONDITIONS, PAGINATION_KEYS } from './constants';
 import { FieldFilter, FieldSort, PaginationParams, RequestPayloadParams } from './types';
 
+const OBJECT_FORMAT_REGEX = /^[a-zA-Z\d]+:(,|[a-zA-Z\d]+).*/;
+
 function isStringArray(str: string) {
   return ARRAY_REG.test(str);
+}
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function parseStringToTypedValue(value: string) {
+  const valueAsNumber = Number(value);
+  const valueAsBooleanOrString = ['true', 'false'].includes(value) ? value === 'true' : value;
+
+  return isNaN(valueAsNumber) ? valueAsBooleanOrString : valueAsNumber;
 }
 
 function stringifySortParams(sortParams: FieldSort[]) {
@@ -25,6 +38,13 @@ function stringifyFilterParams(filters: FieldFilter[]) {
       formattedValue = `[${value.join(',')}]`;
     }
 
+    if (isObject(value)) {
+      formattedValue = Object.entries(value).reduce(
+        (acc, [key, value], ind, arr) => `${acc}${key}:${value}${ind === arr.length - 1 ? '' : ','}`,
+        '',
+      );
+    }
+
     return `${acc}${delimiter}${field}[${condition}]${formattedValue}`;
   }, '');
 }
@@ -39,10 +59,6 @@ export function isValueNotEmpty(value: unknown) {
   }
 
   return value !== undefined;
-}
-
-function isObject(value: unknown): value is Record<string, unknown> {
-  return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
 
 export function stringifyRequestParams(
@@ -75,21 +91,39 @@ export function isPaginationKey(key: string): key is keyof PaginationParams {
   return Object.values(PAGINATION_KEYS).includes(key);
 }
 
-export function parseStringToValue(value: string) {
-  if (isStringArray(value)) {
+export function parseStringToValue(filterValue: string) {
+  if (filterValue === undefined) {
+    return undefined;
+  }
+
+  if (isStringArray(filterValue)) {
     try {
-      return JSON.parse(value);
+      return JSON.parse(filterValue);
     } catch {
-      return value
+      return filterValue
         .replace(/[[\]]/g, '')
         .split(',')
         .map(v => v.trim());
     }
   }
 
-  const valueAsNumber = Number(value);
+  // Check if value represents an object in format "key1:value1,key2:value2,..."
+  const isObjectString = OBJECT_FORMAT_REGEX.test(filterValue);
+  if (isObjectString) {
+    const parsedValue = filterValue.split(',').reduce<Record<string, string | number | boolean>>((acc, cur) => {
+      const [key, value] = cur.split(':');
 
-  return !isNaN(valueAsNumber) ? valueAsNumber : value;
+      if (key !== undefined && value !== undefined) {
+        acc[key] = parseStringToTypedValue(value);
+      }
+
+      return acc;
+    }, {});
+
+    return Object.values(parsedValue).length ? parsedValue : undefined;
+  }
+
+  return parseStringToTypedValue(filterValue);
 }
 
 export function removeEmptyValuesFromObject<T extends Partial<RequestPayloadParams | PaginationParams>>(obj: T) {
