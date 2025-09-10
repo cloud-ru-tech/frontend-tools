@@ -18,4 +18,6 @@ export const DEFAULT_VARIABLES = [
   'ResizeObserver',
   'parent',
   'matchMedia',
+  'localStorage',
+  'sessionStorage',
 ];
