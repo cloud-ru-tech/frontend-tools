@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2025-09-10)
+
+
+### BREAKING CHANGES
+
+
+* **FF-7214:** add local and session storage to forbidden variables ([4298696](https://github.com/cloud-ru-tech/frontend-tools/commit/4298696754a37665626f1754094dce6a31857762))
+
+
+
+
 # 0.3.0 (2024-12-26)
 
 
