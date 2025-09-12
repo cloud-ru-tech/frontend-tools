@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.1 (2025-09-12)
+
+
+### Bug Fixes
+
+* **FF-7214:** add navigator to ssr-safe checking ([f6f68b6](https://github.com/cloud-ru-tech/frontend-tools/commit/f6f68b67087bbc7fa0951ba38da7b79014a0e5b2))
+
+
+
+
+
 # 0.4.0 (2025-09-10)
 
 
