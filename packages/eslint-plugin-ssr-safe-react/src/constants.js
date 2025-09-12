@@ -20,4 +20,5 @@ export const DEFAULT_VARIABLES = [
   'matchMedia',
   'localStorage',
   'sessionStorage',
+  'navigator',
 ];
