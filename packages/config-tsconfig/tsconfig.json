@@ -16,7 +16,6 @@
     "isolatedModules": false,
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "ignoreDeprecations": "5.0"
   }
