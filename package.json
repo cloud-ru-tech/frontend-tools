@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "husky": "9.1.7",
-    "lerna": "8.1.8"
+    "lerna": "8.2.4",
+    "solidarity": "3.0.4"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools",
   "repository": {
@@ -41,15 +42,18 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@cloud-ru/ft-conventional-changelog-prev": "npm:@cloud-ru/ft-conventional-changelog@1.1.0",
-    "@types/inquirer": "9.0.3",
+    "@cloud-ru/ft-conventional-changelog": "1.1.2",
+    "@types/inquirer": "9.0.9",
     "@types/shelljs": "0.8.15",
-    "inquirer": "8.0.0",
+    "inquirer": "8.2.7",
     "shelljs": "0.8.5",
     "ts-node": "10.9.2"
   },
   "overrides": {
-    "typescript": "5.5.4"
+    "axios": "1.12.2",
+    "typescript": "5.5.4",
+    "ejs": "3.1.10",
+    "json5": "2.2.3"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.40.1"
