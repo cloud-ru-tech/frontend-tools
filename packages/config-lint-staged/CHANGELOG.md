@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.1.3 (2025-09-19)</small>
+
+* chore(FF-7260): fix vulnerabilities ([bccf338](https://github.com/cloud-ru-tech/frontend-tools/commit/bccf338))
+
+
+
+
+
 ## <small>1.1.2 (2024-10-24)</small>
 
 * deps(FF-5782): update deps ([c30dd4a](https://github.com/cloud-ru-tech/frontend-tools/commit/c30dd4a))

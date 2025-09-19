@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.1.2 (2025-09-19)</small>
+
+* fix(FF-7260): remove suppressImplicitAnyIndexErrors ([c6df129](https://github.com/cloud-ru-tech/frontend-tools/commit/c6df129))
+
+
+
+
+
 ## 1.1.1 (2024-09-16)
 
 
