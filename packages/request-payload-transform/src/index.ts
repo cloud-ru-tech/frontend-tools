@@ -18,7 +18,7 @@ import {
 
 type RequestPayloadFormatMethods = {
   toObject(): Partial<RequestPayloadParams>;
-  toString(): string;
+  toString(params?: { encode?: boolean }): string;
 };
 
 type RequestPayloadCreator = RequestPayloadFormatMethods & {
@@ -39,8 +39,8 @@ export function createRequestPayload(
     return removeEmptyValuesFromObject(result);
   }
 
-  function toString() {
-    return stringifyRequestParams(toObject());
+  function toString({ encode }: { encode?: boolean } = { encode: true }) {
+    return stringifyRequestParams(toObject(), { encode });
   }
 
   if (params !== undefined) {

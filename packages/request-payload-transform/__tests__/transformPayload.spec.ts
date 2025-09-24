@@ -21,27 +21,28 @@ const REQUEST_PARAMS: Required<RequestPayloadParams> = {
   pagination: { limit: 10, offset: 2 },
 };
 
-const PARAMS_RESULT_STRING = encodeURIComponent(
-  'limit=10&offset=2&filter=name[eq]John;age[in][18,25];bool[in][true,false];great[ge]13;stringsArray[in][first,second];singleArrayString[in][first];date[eq]2025-08-26T00:00:00.000Z;object[eq]hours:1,minutes:2,seconds:3&sort=age[d];name[a]&search=searching',
-);
+const CLEAN_PARAMS_RESULT_STRING =
+  'limit=10&offset=2&filter=name[eq]John;age[in][18,25];bool[in][true,false];great[ge]13;stringsArray[in][first,second];singleArrayString[in][first];date[eq]2025-08-26T00:00:00.000Z;object[eq]hours:1,minutes:2,seconds:3&sort=age[d];name[a]&search=searching';
+
+const ENCODED_PARAMS_RESULT_STRING = encodeURIComponent(CLEAN_PARAMS_RESULT_STRING);
 
 describe('@cloud-ru/ft-request-payload-transform', () => {
   it('createRequestPayload with initial arguments', async () => {
     const payload = createRequestPayload(REQUEST_PARAMS);
-    const paramsAsString = payload.toString();
+    const paramsAsString = payload.toString({ encode: true });
     const paramsAsObject = payload.toObject();
 
-    expect(paramsAsString).toEqual(PARAMS_RESULT_STRING);
+    expect(paramsAsString).toEqual(ENCODED_PARAMS_RESULT_STRING);
     expect(paramsAsObject).toEqual(REQUEST_PARAMS);
   });
 
   it('createRequestPayload pass search param and empty arrays for filter and sort', async () => {
     const payload = createRequestPayload({ filter: [], sort: [], search: REQUEST_PARAMS.search });
 
-    const paramsAsString = payload.toString();
+    const paramsAsString = payload.toString({ encode: false });
     const paramsAsObject = payload.toObject();
 
-    expect(paramsAsString).toEqual(encodeURIComponent(`search=${REQUEST_PARAMS.search}`));
+    expect(paramsAsString).toEqual(`search=${REQUEST_PARAMS.search}`);
     expect(paramsAsObject).toEqual({ search: REQUEST_PARAMS.search });
   });
 
@@ -82,7 +83,7 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
   });
 
   it('parseRequestParams return proper params object', async () => {
-    const payload = parseQueryParamsString(PARAMS_RESULT_STRING);
+    const payload = parseQueryParamsString(CLEAN_PARAMS_RESULT_STRING);
 
     expect(payload).toEqual(REQUEST_PARAMS);
   });

@@ -63,6 +63,7 @@ export function isValueNotEmpty(value: unknown) {
 
 export function stringifyRequestParams(
   params: Partial<Omit<RequestPayloadParams, 'pagination'>> & { pagination?: Partial<PaginationParams> },
+  { encode = false }: { encode?: boolean },
 ) {
   const { pagination, ...restParams } = params;
   const result: Partial<Record<keyof Omit<RequestPayloadParams, 'pagination'> | keyof PaginationParams, unknown>> = {
@@ -84,7 +85,7 @@ export function stringifyRequestParams(
     return `${acc}${delimiter}${key}=${value}`;
   }, '');
 
-  return encodeURIComponent(returnString);
+  return encode ? encodeURIComponent(returnString) : returnString;
 }
 
 export function isPaginationKey(key: string): key is keyof PaginationParams {
