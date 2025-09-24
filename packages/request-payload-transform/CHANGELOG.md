@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>0.2.1 (2025-09-24)</small>
+
+* feat(FF-7134): add optional encode prop createRequestPayload.toString, disabled by default ([2b6c102](https://github.com/cloud-ru-tech/frontend-tools/commit/2b6c102))
+
+
+
+
+
 # 0.2.0 (2025-08-26)
 
 
