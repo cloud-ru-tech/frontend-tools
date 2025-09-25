@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>0.2.2 (2025-09-25)</small>
+
+* fix(FF-7134): remove empty filters in removeEmptyValuesFromObject ([5c1fd15](https://github.com/cloud-ru-tech/frontend-tools/commit/5c1fd15))
+
+
+
+
+
 ## <small>0.2.1 (2025-09-24)</small>
 
 * feat(FF-7134): add optional encode prop createRequestPayload.toString, disabled by default ([2b6c102](https://github.com/cloud-ru-tech/frontend-tools/commit/2b6c102))
