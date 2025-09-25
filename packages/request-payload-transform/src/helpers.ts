@@ -58,7 +58,11 @@ export function isValueNotEmpty(value: unknown) {
     return value.length !== 0;
   }
 
-  return value !== undefined;
+  if (isObject(value)) {
+    return Object.keys(value).length !== 0;
+  }
+
+  return value !== undefined && value !== null;
 }
 
 export function stringifyRequestParams(
@@ -127,7 +131,9 @@ export function parseStringToValue(filterValue: string) {
   return parseStringToTypedValue(filterValue);
 }
 
-export function removeEmptyValuesFromObject<T extends Partial<RequestPayloadParams | PaginationParams>>(obj: T) {
+export function removeEmptyValuesFromObject<T extends Partial<RequestPayloadParams | PaginationParams | FieldFilter>>(
+  obj: T,
+) {
   return Object.keys(obj).reduce<T>((acc, cur) => {
     const key = cur as keyof T;
 
@@ -138,7 +144,20 @@ export function removeEmptyValuesFromObject<T extends Partial<RequestPayloadPara
         value = removeEmptyValuesFromObject(value);
       }
 
-      acc[key] = value;
+      if (Array.isArray(value)) {
+        // Special handling for filter arrays - remove filters with empty values
+        if (key === 'filter') {
+          value = value.filter((filterItem: FieldFilter) => isValueNotEmpty(filterItem?.value)) as T[keyof T];
+        } else {
+          value = value.filter(isValueNotEmpty) as T[keyof T];
+        }
+
+        if ((value as T[keyof T][]).length > 0) {
+          acc[key] = value;
+        }
+      } else {
+        acc[key] = value;
+      }
     }
 
     return acc;

@@ -87,4 +87,21 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
 
     expect(payload).toEqual(REQUEST_PARAMS);
   });
+
+  it('createRequestPayload pass empty arrays for filter', async () => {
+    const payload = createRequestPayload({
+      filter: [
+        { field: 'emails', condition: 'in', value: [] },
+        { field: 'name', condition: 'eq', value: '' },
+        { field: 'surname', condition: 'eq', value: null },
+        { field: 'meta', condition: 'eq', value: {} },
+      ],
+    });
+
+    const paramsAsString = payload.toString();
+    const paramsAsObject = payload.toObject();
+
+    expect(paramsAsString).toBe('');
+    expect(paramsAsObject).toEqual({});
+  });
 });
