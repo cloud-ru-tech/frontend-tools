@@ -42,6 +42,9 @@
     },
     {
       "path": "./copy-to-clipboard/tsconfig.cjs.json"
+    },
+    {
+      "path": "./formatters/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {
