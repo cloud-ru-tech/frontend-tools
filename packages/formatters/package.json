@@ -1,0 +1,39 @@
+{
+  "name": "@cloud-ru/ft-formatters",
+  "version": "1.0.0",
+  "description": "Helper function to format data",
+  "keywords": [
+    "formatBytes",
+    "truncateString"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "./LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/formatters",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/formatters"
+  },
+  "dependencies": {
+    "date-fns": "2.30.0",
+    "js-base64": "3.7.5"
+  }
+}
