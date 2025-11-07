@@ -45,6 +45,9 @@
     },
     {
       "path": "./formatters/tsconfig.cjs.json"
+    },
+    {
+      "path": "./debug-mode/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {

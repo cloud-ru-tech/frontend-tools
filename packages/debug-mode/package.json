@@ -1,0 +1,31 @@
+{
+  "name": "@cloud-ru/ft-debug-mode",
+  "version": "4.1.0",
+  "description": "Helper function for detect and toggle debug mode",
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "./LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/-/tree/master/packages/debug-mode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/debug-mode"
+  }
+}
