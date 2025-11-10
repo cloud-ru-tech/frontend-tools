@@ -48,6 +48,9 @@
     },
     {
       "path": "./debug-mode/tsconfig.cjs.json"
+    },
+    {
+      "path": "./config-i18n/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {
