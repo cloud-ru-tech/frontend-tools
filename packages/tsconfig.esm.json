@@ -48,6 +48,9 @@
     },
     {
       "path": "./debug-mode/tsconfig.esm.json"
+    },
+    {
+      "path": "./config-i18n/tsconfig.esm.json"
     }
   ],
   "compilerOptions": {
