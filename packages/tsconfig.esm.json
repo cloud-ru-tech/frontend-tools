@@ -51,6 +51,9 @@
     },
     {
       "path": "./config-i18n/tsconfig.esm.json"
+    },
+    {
+      "path": "./all-linters-pack/tsconfig.esm.json"
     }
   ],
   "compilerOptions": {

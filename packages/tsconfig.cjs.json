@@ -51,6 +51,9 @@
     },
     {
       "path": "./config-i18n/tsconfig.cjs.json"
+    },
+    {
+      "path": "./all-linters-pack/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {
