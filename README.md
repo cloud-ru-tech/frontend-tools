@@ -4,11 +4,15 @@ Common repository, which contains all kinds of frontend tools, i.e. configs, hoo
 
 ## Existing packages:
 
+* [@cloud-ru/ft-all-linters-pack](packages/all-linters-pack/README.md)
+
 * [@cloud-ru/ft-config-babel](packages/config-babel/README.md)
 
 * [@cloud-ru/ft-config-commit-message](packages/config-commit-message/README.md)
 
 * [@cloud-ru/ft-config-husky](packages/config-husky/README.md)
+
+* [@cloud-ru/ft-config-i18n](packages/config-i18n/README.md)
 
 * [@cloud-ru/ft-config-lint-staged](packages/config-lint-staged/README.md)
 
@@ -24,9 +28,15 @@ Common repository, which contains all kinds of frontend tools, i.e. configs, hoo
 
 * [@cloud-ru/ft-conventional-changelog](packages/conventional-changelog/README.md)
 
+* [@cloud-ru/ft-copy-to-clipboard](packages/copy-to-clipboard/README.md)
+
+* [@cloud-ru/ft-debug-mode](packages/debug-mode/README.md)
+
 * [@cloud-ru/eslint-config](packages/eslint-config/README.md)
 
 * [@cloud-ru/eslint-plugin-ssr-safe-react](packages/eslint-plugin-ssr-safe-react/README.md)
+
+* [@cloud-ru/ft-formatters](packages/formatters/README.md)
 
 * [@cloud-ru/ft-lerna-changelog-generator](packages/lerna-changelog-generator/README.md)
 
