@@ -19,6 +19,9 @@
     "name": "Akhremenko Grigorii",
     "url": "https://github.com/AGrigorii"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "Apache-2.0",
   "types": "./dist/esm/index.d.ts",
   "exports": {
