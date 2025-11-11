@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-debug-mode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helper function for detect and toggle debug mode",
   "author": {
     "name": "Akhremenko Grigorii",
