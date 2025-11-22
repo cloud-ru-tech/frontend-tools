@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.2.2 (2025-11-22)</small>
+
+* deps(FF-7188)!: up node to v24, up npm to v11, up pnpm to v10.22.0 ([7961d71](https://github.com/cloud-ru-tech/frontend-tools/commit/7961d71))
+
+
+
+
+
 ## 1.2.1 (2025-08-07)
 
 
