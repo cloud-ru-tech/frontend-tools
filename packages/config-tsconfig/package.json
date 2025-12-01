@@ -16,10 +16,10 @@
     "./tsconfig.json"
   ],
   "dependencies": {
-    "@types/node": "22.5.4",
+    "@types/node": "24.10.1",
     "ts-config-single-spa": "3.0.0",
     "ts-node": "10.9.2",
-    "typescript": "5.5.4"
+    "typescript": "5.9.3"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-tsconfig",
   "repository": {
