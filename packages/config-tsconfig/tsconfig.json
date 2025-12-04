@@ -1,11 +1,13 @@
 {
-  "extends": "ts-config-single-spa",
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
   "compilerOptions": {
+    "esModuleInterop": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "target": "es6",
     "lib": ["es2017", "dom", "esnext"],
     "module": "esnext",

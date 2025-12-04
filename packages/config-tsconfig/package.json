@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "@types/node": "24.10.1",
-    "ts-config-single-spa": "3.0.0",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   },
