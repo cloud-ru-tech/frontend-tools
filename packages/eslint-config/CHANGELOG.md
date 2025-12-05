@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2025-12-05)
+
+
+### BREAKING CHANGES
+
+
+* **FF-7187:** up typescript to 5.9.3 & some typescript-eslint deps ([884057f](https://github.com/cloud-ru-tech/frontend-tools/commit/884057f83c6c2e075669b5aee062d57ea5e1ed69))
+
+
+
+
 ## <small>2.1.2 (2025-09-19)</small>
 
 * chore(FF-7260): fix vulnerabilities ([bccf338](https://github.com/cloud-ru-tech/frontend-tools/commit/bccf338))

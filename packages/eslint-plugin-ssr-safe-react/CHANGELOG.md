@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2025-12-05)
+
+
+### BREAKING CHANGES
+
+
+* **FF-7187:** up typescript to 5.9.3 & some typescript-eslint deps ([884057f](https://github.com/cloud-ru-tech/frontend-tools/commit/884057f83c6c2e075669b5aee062d57ea5e1ed69))
+
+
+
+
 ## 0.4.1 (2025-09-12)
 
 
