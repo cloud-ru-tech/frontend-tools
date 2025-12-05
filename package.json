@@ -42,7 +42,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@cloud-ru/ft-conventional-changelog": "1.1.2",
+    "@cloud-ru/ft-conventional-changelog-old": "npm:@cloud-ru/ft-conventional-changelog@1.1.0",
     "@types/inquirer": "9.0.9",
     "@types/shelljs": "0.8.15",
     "inquirer": "8.2.7",
