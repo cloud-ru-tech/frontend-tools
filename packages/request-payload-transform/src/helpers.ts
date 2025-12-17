@@ -19,12 +19,13 @@ function parseStringToTypedValue(value: string) {
 }
 
 function stringifySortParams(sortParams: FieldSort[]) {
-  return sortParams.reduce((acc, cur, ind) => {
-    const delimiter = ind !== 0 && ind !== sortParams.length ? DELIMITER : '';
-    const { field, direction } = cur;
+  if (sortParams.length === 0) {
+    return '';
+  }
 
-    return `${acc}${delimiter}${field}[${direction}]`;
-  }, '');
+  const formattedFields = sortParams.map(({ field, direction }) => `${direction}${field}`);
+
+  return `[${formattedFields.join(',')}]`;
 }
 
 function stringifyFilterParams(filters: FieldFilter[]) {
@@ -79,8 +80,8 @@ export function stringifyRequestParams(
     result.filter = stringifyFilterParams(params.filter);
   }
 
-  if (params.sort?.length) {
-    result.sort = stringifySortParams(params.sort);
+  if (params.ordering?.length) {
+    result.ordering = stringifySortParams(params.ordering);
   }
 
   const returnString = Object.entries(result).reduce((acc, [key, value]) => {

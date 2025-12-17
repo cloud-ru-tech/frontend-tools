@@ -13,16 +13,16 @@ const REQUEST_PARAMS: Required<RequestPayloadParams> = {
     { field: 'date', condition: 'eq', value: new Date('2025-08-26').toISOString() },
     { field: 'object', condition: 'eq', value: { hours: 1, minutes: 2, seconds: 3 } },
   ],
-  sort: [
-    { field: 'age', direction: 'd' },
-    { field: 'name', direction: 'a' },
+  ordering: [
+    { field: 'age', direction: '-' },
+    { field: 'name', direction: '+' },
   ],
   search: 'searching',
   pagination: { limit: 10, offset: 2 },
 };
 
 const CLEAN_PARAMS_RESULT_STRING =
-  'limit=10&offset=2&filter=name[eq]John;age[in][18,25];bool[in][true,false];great[ge]13;stringsArray[in][first,second];singleArrayString[in][first];date[eq]2025-08-26T00:00:00.000Z;object[eq]hours:1,minutes:2,seconds:3&sort=age[d];name[a]&search=searching';
+  'limit=10&offset=2&filter=name[eq]John;age[in][18,25];bool[in][true,false];great[ge]13;stringsArray[in][first,second];singleArrayString[in][first];date[eq]2025-08-26T00:00:00.000Z;object[eq]hours:1,minutes:2,seconds:3&ordering=[-age,+name]&search=searching';
 
 const ENCODED_PARAMS_RESULT_STRING = encodeURIComponent(CLEAN_PARAMS_RESULT_STRING);
 
@@ -36,8 +36,8 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
     expect(paramsAsObject).toEqual(REQUEST_PARAMS);
   });
 
-  it('createRequestPayload pass search param and empty arrays for filter and sort', async () => {
-    const payload = createRequestPayload({ filter: [], sort: [], search: REQUEST_PARAMS.search });
+  it('createRequestPayload pass search param and empty arrays for filter and ordering', async () => {
+    const payload = createRequestPayload({ filter: [], ordering: [], search: REQUEST_PARAMS.search });
 
     const paramsAsString = payload.toString({ encode: false });
     const paramsAsObject = payload.toObject();
@@ -46,8 +46,8 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
     expect(paramsAsObject).toEqual({ search: REQUEST_PARAMS.search });
   });
 
-  it('createRequestPayload pass only empty arrays for filter and sort', async () => {
-    const payload = createRequestPayload({ filter: [], sort: [] });
+  it('createRequestPayload pass only empty arrays for filter and ordering', async () => {
+    const payload = createRequestPayload({ filter: [], ordering: [] });
 
     const paramsAsString = payload.toString();
     const paramsAsObject = payload.toObject();
@@ -65,7 +65,7 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
   it('parseQueryParamsString broken string returns only valid values', async () => {
     const params = parseQueryParamsString(
       encodeURIComponent(
-        'limit=&offset=2&filter=name[eq];age[in][18,25];bool;stringsArray[in][first,second];singleArrayString[in]&sort=&search',
+        'limit=&offset=2&filter=name[eq];age[in][18,25];bool;stringsArray[in][first,second];singleArrayString[in]&ordering=&search',
       ),
     );
 
@@ -84,6 +84,11 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
 
   it('parseRequestParams return proper params object', async () => {
     const payload = parseQueryParamsString(CLEAN_PARAMS_RESULT_STRING);
+
+    console.info('PAYLOAD__', {
+      payload,
+      requestParams: REQUEST_PARAMS.ordering,
+    });
 
     expect(payload).toEqual(REQUEST_PARAMS);
   });

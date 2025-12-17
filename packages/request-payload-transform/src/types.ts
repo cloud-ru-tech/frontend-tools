@@ -40,7 +40,7 @@ export type PaginationParams = RequireAtLeastOne<{
 }>;
 
 export type RequestPayloadParams = RequireAtLeastOne<{
-  [PARAM_KEYS.sort]?: FieldSort[];
+  [PARAM_KEYS.ordering]?: FieldSort[];
   [PARAM_KEYS.filter]?: FieldFilter[];
   [PARAM_KEYS.pagination]?: PaginationParams;
   [PARAM_KEYS.search]?: string | number | boolean;

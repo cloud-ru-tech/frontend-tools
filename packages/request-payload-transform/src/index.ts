@@ -23,7 +23,7 @@ type RequestPayloadFormatMethods = {
 
 type RequestPayloadCreator = RequestPayloadFormatMethods & {
   filter(params: FieldFilter): RequestPayloadCreator;
-  sort(params: FieldSort): RequestPayloadCreator;
+  ordering(params: FieldSort): RequestPayloadCreator;
   pagination(params: PaginationParams): RequestPayloadCreator;
   search(value: RequestPayloadParams['search']): RequestPayloadCreator;
 };
@@ -59,12 +59,12 @@ export function createRequestPayload(
       result.filter.push(params);
       return this;
     },
-    sort(params) {
-      if (!result.sort) {
-        result.sort = [];
+    ordering(params) {
+      if (!result.ordering) {
+        result.ordering = [];
       }
 
-      result.sort.push(params);
+      result.ordering.push(params);
       return this;
     },
     pagination(params) {
@@ -91,20 +91,27 @@ export function parseQueryParamsString(params: string): Partial<RequestPayloadPa
     const [param, value] = cur.split('=');
 
     if (isValueNotEmpty(value)) {
-      const matches = Array.from(value.matchAll(EXTRACT_VALUES_REG), ([, f, c, v]) => [f, c, v]);
+      if (param === PARAM_KEYS.ordering) {
+        const arrayValue = value.replace(/[[\]]/g, '').split(',');
 
-      if (param === PARAM_KEYS.sort) {
-        if (matches.length) {
-          acc[param] = matches.map(([field, direction]) => ({
-            field,
-            direction: direction as SortDirection,
-          }));
+        if (arrayValue.length) {
+          acc[param] = arrayValue.map(ordering => {
+            const direction = ordering.startsWith('-') ? '-' : '+';
+            const field = ordering.replace(direction, '');
+
+            return {
+              field,
+              direction: direction as SortDirection,
+            };
+          });
         }
 
         return acc;
       }
 
       if (param === PARAM_KEYS.filter) {
+        const matches = Array.from(value.matchAll(EXTRACT_VALUES_REG), ([, f, c, v]) => [f, c, v]);
+
         if (matches.length) {
           acc[param] = matches
             .map(
