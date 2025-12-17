@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2025-12-17)
+
+
+### Features
+
+* **FF-7798:** replace format from sort to ordering ([712c255](https://github.com/cloud-ru-tech/frontend-tools/commit/712c255ef37dc88a856ce18a643b087f3a3bacc7))
+
+
+
+
+
 ## <small>0.2.2 (2025-09-25)</small>
 
 * fix(FF-7134): remove empty filters in removeEmptyValuesFromObject ([5c1fd15](https://github.com/cloud-ru-tech/frontend-tools/commit/5c1fd15))
