@@ -5,7 +5,7 @@ export const EXTRACT_VALUES_REG = /(\w+)\[([^\]]+)]([^;]+)?/g;
 
 export const PARAM_KEYS = {
   filter: 'filter',
-  sort: 'sort',
+  ordering: 'ordering',
   pagination: 'pagination',
   search: 'search',
 } as const;
@@ -15,7 +15,7 @@ export const PAGINATION_KEYS = {
   limit: 'limit',
 };
 
-export const SORT_DIRECTION = ['a', 'd'] as const;
+export const SORT_DIRECTION = ['+', '-'] as const;
 
 export const SINGLE_VALUE_CONDITIONS = ['eq', 'nq', 'lt', 'le', 'gt', 'ge', 'cn', 'nc', 'sw'] as const;
 
