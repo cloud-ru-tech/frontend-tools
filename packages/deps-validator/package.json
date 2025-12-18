@@ -1,0 +1,37 @@
+{
+  "name": "@cloud-ru/ft-deps-validator",
+  "version": "1.0.0",
+  "description": "Validator for unused, missing or wrong version dependencies in monorepo's packages",
+  "keywords": [
+    "dependency", "internal"
+  ],
+  "author": "Ilya Belyavskiy <iabelyavskiy@cloud.ru>",
+  "license": "Apache-2.0",
+  "bin": {
+    "deps-validator": "./dist/cjs/index.js"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/deps-validator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/deps-validator"
+  },
+  "dependencies": {
+    "colors": "1.4.0",
+    "depcheck": "1.4.7",
+    "glob": "10.5.0",
+    "yargs": "18.0.0"
+  }
+}
