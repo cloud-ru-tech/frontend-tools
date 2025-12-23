@@ -1,9 +1,10 @@
 {
   "name": "@cloud-ru/ft-deps-validator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Validator for unused, missing or wrong version dependencies in monorepo's packages",
   "keywords": [
-    "dependency", "internal"
+    "dependency",
+    "internal"
   ],
   "author": "Ilya Belyavskiy <iabelyavskiy@cloud.ru>",
   "license": "Apache-2.0",
