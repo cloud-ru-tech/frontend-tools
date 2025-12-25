@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Report > add > should add state to storage 1`] = `
+[
+  "[debug] 
+packages/test-package",
+  "[warn]   wrong version of internal packages:",
+  "[error]     \\"@cloud-ru/package\\" has wrong version \\"1.0.0\\", but need \\"2.0.0\\".",
+  "[warn]   unused dependencies:",
+  "[error]     unused-dep",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should handle all error types together 1`] = `
+[
+  "[debug] 
+packages/test-package",
+  "[warn]   wrong version of internal packages:",
+  "[error]     \\"@cloud-ru/package1\\" has wrong version \\"1.0.0\\", but need \\"2.0.0\\".",
+  "[warn]   incorrect usage as dev dep of internal packages:",
+  "[error]     @cloud-ru/package2",
+  "[warn]   unused dependencies:",
+  "[error]     unused-dep",
+  "[warn]   missing dependencies:",
+  "[error]     missing-package",
+  "[error]       file.ts",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should process multiple packages 1`] = `
+[
+  "[debug] 
+packages/package1",
+  "[warn]   wrong version of internal packages:",
+  "[error]     \\"@cloud-ru/package\\" has wrong version \\"1.0.0\\", but need \\"2.0.0\\".",
+  "[debug] 
+packages/package2",
+  "[warn]   unused dependencies:",
+  "[error]     unused-dep",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should return 0 when storage is empty 1`] = `
+[
+  "[info] Dependencies have been checked. Everything is ok.",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should return 0 when there are no errors 1`] = `
+[
+  "[info] Dependencies have been checked. Everything is ok.",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should return 1 and log errors when dependencies exist 1`] = `
+[
+  "[debug] 
+packages/test-package",
+  "[warn]   unused dependencies:",
+  "[error]     unused-dep1",
+  "[error]     unused-dep2",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should return 1 and log errors when internalAsDev exist 1`] = `
+[
+  "[debug] 
+packages/test-package",
+  "[warn]   incorrect usage as dev dep of internal packages:",
+  "[error]     @cloud-ru/package1",
+  "[error]     @cloud-ru/package2",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should return 1 and log errors when missing dependencies exist 1`] = `
+[
+  "[debug] 
+packages/test-package",
+  "[warn]   missing dependencies:",
+  "[error]     missing-package1",
+  "[error]       file1.ts",
+  "[error]       file2.ts",
+  "[error]     missing-package2",
+  "[error]       file3.ts",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should return 1 and log errors when wrongVersions exist 1`] = `
+[
+  "[debug] 
+packages/test-package",
+  "[warn]   wrong version of internal packages:",
+  "[error]     \\"@cloud-ru/package1\\" has wrong version \\"1.0.0\\", but need \\"2.0.0\\".",
+  "[error]     \\"@cloud-ru/package2\\" has wrong version \\"1.5.0\\", but need \\"2.1.0\\".",
+]
+`;
+
+exports[`Report > printResultAndGetExitCode > should use default values for undefined fields 1`] = `
+[
+  "[info] Dependencies have been checked. Everything is ok.",
+]
+`;
