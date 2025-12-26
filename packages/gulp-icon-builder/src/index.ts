@@ -1,2 +1,3 @@
 export { gulpFixSvg } from './svg-fixer';
-export { gulpSvgValidate } from './svg-validator';
+export { gulpSvgSizeValidator } from './svg-size-validator';
+export { gulpSvgUniqValidator } from './svg-uniq-validator';
