@@ -3,10 +3,10 @@ import type File from 'vinyl';
 
 type TransformCallback = (err?: Error | null, data?: File) => void;
 
-type Handler = (file: File.BufferFile, _encoding: BufferEncoding, callback: TransformCallback) => void;
+type Transformer = (file: File.BufferFile, _encoding: BufferEncoding, callback: TransformCallback) => void;
 
-export function createPipeTransformer(handler: Handler) {
-  return new Transform({
+export function createPipeTransformer(transformer: Transformer, onEnd?: () => void) {
+  const stream = new Transform({
     objectMode: true,
     async transform(file: File, _encoding: BufferEncoding, callback: TransformCallback) {
       if (file.isNull()) {
@@ -19,7 +19,7 @@ export function createPipeTransformer(handler: Handler) {
 
       if (file.isBuffer()) {
         try {
-          return handler(file, _encoding, callback);
+          return transformer(file, _encoding, callback);
         } catch (error) {
           return callback(error as Error);
         }
@@ -28,4 +28,10 @@ export function createPipeTransformer(handler: Handler) {
       return callback(null, file);
     },
   });
+
+  if (onEnd) {
+    stream.on('end', onEnd);
+  }
+
+  return stream;
 }
