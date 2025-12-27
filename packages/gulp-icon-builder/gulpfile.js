@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { dest, src } = require('gulp');
-const { gulpFixSvg, gulpSvgUniqValidator, gulpSvgSizeValidator, gulpCreateSvgSprite } = require('./dist/cjs');
+const { gulpFixSvg, gulpSvgUniqValidator, gulpSvgSizeValidator, gulpCreateSvgSprite, gulpSvgr } = require('./dist/cjs');
 
 module.exports.default = () =>
   src('./test/icons/*.svg')
@@ -8,4 +8,5 @@ module.exports.default = () =>
     .pipe(gulpSvgUniqValidator())
     .pipe(gulpFixSvg())
     .pipe(gulpCreateSvgSprite({ filePath: './test/dest/sprite.svg', prefix: 'snack-icons-' }))
+    .pipe(gulpSvgr())
     .pipe(dest('./test/dest'));
