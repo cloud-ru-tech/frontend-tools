@@ -26,4 +26,10 @@ export default [
       '@typescript-eslint/no-var-requires': 'off',
     },
   },
+  {
+    files: ['packages/deps-validator/src/utils/console.ts'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
 ];
