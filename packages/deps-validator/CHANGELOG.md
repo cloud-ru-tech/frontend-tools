@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2025-12-30)
+
+
+### BREAKING CHANGES
+
+
+* **FF-7809:** add regular and monorepos supporting ([9183cbc](https://github.com/cloud-ru-tech/frontend-tools/commit/9183cbcf6841f8870fa4b27079aed68c06b235be))
+
+
+
+
 ## 1.1.1 (2025-12-23)
 
 
