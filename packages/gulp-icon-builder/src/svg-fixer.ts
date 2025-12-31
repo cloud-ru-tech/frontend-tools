@@ -9,9 +9,11 @@ type SvgFixer = { fixString: (svg: string | Buffer) => Promise<string> };
 const fixSvg = (svgFixer as unknown as SvgFixer).fixString;
 
 export function gulpFixSvg() {
-  return createPipeTransformer(async (file, encoding, callback) => {
-    const fixedSvg = await fixSvg(file.contents);
-    file.contents = Buffer.from(fixedSvg, encoding);
-    return callback(null, file);
+  return createPipeTransformer({
+    transformer: async (file, encoding, callback) => {
+      const fixedSvg = await fixSvg(file.contents);
+      file.contents = Buffer.from(fixedSvg, encoding);
+      return callback(null, file);
+    },
   });
 }
