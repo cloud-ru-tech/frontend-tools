@@ -3,5 +3,7 @@ export { gulpSvgSizeValidator } from './svg-size-validator';
 export { gulpSvgUniqValidator } from './svg-uniq-validator';
 export { gulpCreateSvgSprite } from './svg-create-sprite';
 export { gulpSvgr, type GulpSvgrParams } from './svg-svgr';
+export { gulpSvgIndexFile } from './svg-index-file';
 // TODO: удалить экспорт template
 export { template } from './utils/svgr-template';
+export { getComponent } from './utils/index-template';
