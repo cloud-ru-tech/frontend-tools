@@ -1,6 +1,7 @@
 import type { Template } from '@svgr/babel-plugin-transform-svg-component';
 import { transform } from '@svgr/core';
 
+import { getComponentName } from './utils';
 import { createPipeTransformer } from './utils/createPipeTransformer';
 
 export type GulpSvgrParams = {
@@ -11,6 +12,8 @@ export function gulpSvgr({ template }: GulpSvgrParams) {
   return createPipeTransformer({
     transformer: (file, _encoding, callback) => {
       const content = file.contents.toString();
+
+      const componentName = getComponentName(file.basename);
 
       const result = transform.sync(
         content,
@@ -23,8 +26,7 @@ export function gulpSvgr({ template }: GulpSvgrParams) {
           exportType: 'default',
           plugins: ['@svgr/plugin-jsx'],
         },
-        // TODO: componentName should be dynamic
-        { componentName: 'IconComponent', caller: { name: 'gulp-svgr' }, filePath: file.path },
+        { componentName, caller: { name: 'gulp-svgr' }, filePath: file.path },
       );
 
       file.contents = Buffer.from(result);

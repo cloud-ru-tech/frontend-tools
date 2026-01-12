@@ -8,7 +8,7 @@ export interface ISvgIconProps extends SVGProps<SVGSVGElement> {
 const REACT_IMPORT = "import { SVGProps, forwardRef, Ref } from 'react';";
 const DEFAULT_SIZE = 24;
 
-const getExportName = (fileName: string) => (fileName.endsWith('xs.tsx') ? 'XsSVG' : 'SSVG'); // TODO: переделать имена компонентов
+const getExportName = (fileName: string) => (fileName.endsWith('xs.tsx') ? 'XsSVG' : 'SSVG');
 
 const withoutExtension = (fileName: string) => fileName.split('.')[0];
 
@@ -17,17 +17,19 @@ export const getComponent = (iconFiles: string[], componentName: string) => {
     .map(file => `import { default as ${getExportName(file)} } from './${withoutExtension(file)}';`)
     .join('\n');
 
+  const finalComponentName = `${componentName}SVG`;
+
   return `
   ${REACT_IMPORT}
   ${iconImports}
   
   ${ICON_PROPS}
   
-  const ${componentName}SVG = forwardRef(({ size = ${DEFAULT_SIZE}, ...props }: ISvgIconProps, ref: Ref<SVGSVGElement>) => {
+  const ${finalComponentName} = forwardRef(({ size = ${DEFAULT_SIZE}, ...props }: ISvgIconProps, ref: Ref<SVGSVGElement>) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return Number(size) >= 20 ? <SSVG ref={ref} size={size} {...props} /> : <XsSVG ref={ref} size={size} {...props} />;
   });
 
-  export default ${componentName}SVG;`;
+  export default ${finalComponentName};`;
 };

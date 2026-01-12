@@ -6,7 +6,7 @@ import SVGSprite from 'svg-sprite';
 
 import { createPipeTransformer } from './utils/createPipeTransformer';
 
-export function gulpCreateSvgSprite({ filePath, prefix }: { prefix: string; filePath: string }) {
+export function gulpCreateSvgSprite({ filePath, idPrefix }: { idPrefix: string; filePath: string }) {
   const sprite = new SVGSprite({
     dest: path.resolve(process.cwd(), filePath),
     mode: {
@@ -18,7 +18,9 @@ export function gulpCreateSvgSprite({ filePath, prefix }: { prefix: string; file
     transformer: (file, _encoding, callback) => {
       const content = file.contents.toString();
 
-      sprite.add(prefix + path.basename(file.path), null, content.replace(/fill="[A-Za-z0-9#]+"/g, 'fill="inherit"'));
+      const name = (idPrefix + '-' + path.basename(file.path)).split('.')[0];
+
+      sprite.add(name, null, content.replace(/fill="[A-Za-z0-9#]+"/g, 'fill="inherit"'));
 
       callback(null, file);
     },
