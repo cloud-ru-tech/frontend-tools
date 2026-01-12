@@ -9,6 +9,11 @@ type Params = {
   dest: string;
 };
 
+const capitalizeFirstLetter = (str: string): string => {
+  if (!str) return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 export function gulpSvgIndexFile({ src, dest }: Params) {
   const folders: Record<string, string[]> = {};
 
@@ -25,18 +30,34 @@ export function gulpSvgIndexFile({ src, dest }: Params) {
     },
 
     onEnd: async () => {
+      const imports: string[] = [];
+      let indexFile: string | undefined;
+
       for (const [folder, files] of Object.entries(folders)) {
         if (files.length !== 1 && files.length !== 2) {
           throw new Error(`Unexpected count of files in folder: ${folder}`);
         }
 
-        const component =
-          files.length === 2 ? getComponent(files, 'Component') : `export * from './${files[0].split('.')[0]}';`;
+        {
+          // index file for icon folder
+          const component =
+            files.length === 2 ? getComponent(files, 'Component') : `export * from './${files[0].split('.')[0]}';`;
+          const finalFilePath = path.resolve(dest, getTail(folder), 'index.tsx');
+          fs.writeFileSync(finalFilePath, component);
+        }
 
-        const finalFilePath = path.resolve(dest, getTail(folder), 'index.tsx');
-
-        fs.writeFileSync(finalFilePath, component);
+        {
+          // index file for all
+          const folderName = path.basename(folder);
+          const componentName = capitalizeFirstLetter(folderName);
+          imports.push(`export { default as ${componentName} } from './${folderName}';`);
+          if (!indexFile) {
+            indexFile = path.resolve(dest, getTail(path.dirname(folder)), 'index.tsx');
+          }
+        }
       }
+
+      fs.writeFileSync(indexFile as string, imports.join('\n'));
     },
   });
 }

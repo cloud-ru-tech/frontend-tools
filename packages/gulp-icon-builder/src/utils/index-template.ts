@@ -10,9 +10,11 @@ const DEFAULT_SIZE = 24;
 
 const getExportName = (fileName: string) => (fileName.endsWith('xs.tsx') ? 'XsSVG' : 'SSVG'); // TODO: переделать имена компонентов
 
+const withoutExtension = (fileName: string) => fileName.split('.')[0];
+
 export const getComponent = (iconFiles: string[], componentName: string) => {
   const iconImports = iconFiles
-    .map(file => `import { default as ${getExportName(file)} } from './${file}';`)
+    .map(file => `import { default as ${getExportName(file)} } from './${withoutExtension(file)}';`)
     .join('\n');
 
   return `

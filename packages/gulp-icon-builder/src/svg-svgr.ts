@@ -16,11 +16,11 @@ export function gulpSvgr({ template }: GulpSvgrParams) {
         content,
         {
           icon: true,
-          exportType: 'named',
           template,
           typescript: true,
           expandProps: 'end',
           jsxRuntime: 'classic',
+          exportType: 'default',
           plugins: ['@svgr/plugin-jsx'],
         },
         // TODO: componentName should be dynamic
