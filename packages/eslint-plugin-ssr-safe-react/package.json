@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/eslint-plugin-ssr-safe-react",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "eslint plugin for validating react code so that it would be suitable for SSR",
   "keywords": [
     "eslint",

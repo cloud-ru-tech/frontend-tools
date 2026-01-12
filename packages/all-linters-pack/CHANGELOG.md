@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.5 (2026-01-12)
+
+### Only dependencies have been changed
+* [@cloud-ru/eslint-config@3.1.0](/blob/packages/eslint-config/CHANGELOG.md)
+
+
+
+
+
 ## 1.0.4 (2025-12-05)
 
 ### Only dependencies have been changed
