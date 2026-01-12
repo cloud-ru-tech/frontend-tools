@@ -1,5 +1,5 @@
 import { Globals } from 'storybook/internal/types';
-import { useDarkMode } from 'storybook-dark-mode';
+import { useDarkMode } from '@storybook-community/storybook-dark-mode';
 
 import { PARAM_COLOR_MAP_KEY } from '../constants';
 import { getCustomBrands } from '../customBrands';
