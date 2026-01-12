@@ -1,9 +1,4 @@
-function config(entry = []) {
-  return [...entry, require.resolve('./dist/cjs/preview.js')];
-}
-
-function managerEntries(entry = []) {
-  return [...entry, require.resolve('./dist/cjs/manager.js')];
-}
-
-module.exports = { managerEntries, config };
+module.exports = {
+  managerEntries: (entry = []) => [...entry, require.resolve('./dist/cjs/manager.js')],
+  previewAnnotations: (entry = []) => [...entry, require.resolve('./dist/cjs/preview.js')],
+};
