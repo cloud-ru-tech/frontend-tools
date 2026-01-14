@@ -1,5 +1,7 @@
 type ReleaseConfig = {
   shouldPublishPackage?: boolean;
+  commitAnalyzerConfig?: string;
+  releaseNotesGeneratorConfig?: string;
 };
 
 export const defaultReleaseConfig = (config?: ReleaseConfig) => ({
@@ -9,7 +11,7 @@ export const defaultReleaseConfig = (config?: ReleaseConfig) => ({
     [
       '@semantic-release/commit-analyzer',
       {
-        config: '@cloud-ru/ft-conventional-changelog',
+        config: config?.commitAnalyzerConfig || '@cloud-ru/ft-conventional-changelog',
         releaseRules: [
           {
             type: 'deps',
@@ -21,7 +23,7 @@ export const defaultReleaseConfig = (config?: ReleaseConfig) => ({
     [
       '@semantic-release/release-notes-generator',
       {
-        config: '@cloud-ru/ft-conventional-changelog',
+        config: config?.releaseNotesGeneratorConfig || '@cloud-ru/ft-conventional-changelog',
       },
     ],
     [
