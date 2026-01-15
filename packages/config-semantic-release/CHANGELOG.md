@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2026-01-15)
+
+
+### Features
+
+* **FF-7728:** up semantic-release and add config params ([f706ba5](https://github.com/cloud-ru-tech/frontend-tools/commit/f706ba5b1584a3835cc11064003f0dd745202caf))
+
+
+
+
+
 ## 1.1.3 (2024-10-29)
 
 ### Only dependencies have been changed
