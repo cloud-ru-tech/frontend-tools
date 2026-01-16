@@ -57,6 +57,9 @@
     },
     {
       "path": "./deps-validator/tsconfig.esm.json"
+    },
+    {
+      "path": "./gulp-icon-builder/tsconfig.esm.json"
     }
   ],
   "compilerOptions": {
