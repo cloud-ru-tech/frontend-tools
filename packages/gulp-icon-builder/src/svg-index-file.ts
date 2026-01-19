@@ -7,6 +7,7 @@ import { getComponent } from './utils/index-template';
 type Params = {
   src: string;
   dest: string;
+  getComponentName?: (fileName: string) => string;
 };
 
 const capitalizeFirstLetter = (str: string): string => {
@@ -16,7 +17,7 @@ const capitalizeFirstLetter = (str: string): string => {
 
 const removeLeadingSlash = (str: string): string => str.replace(/^\/+/, '');
 
-export function gulpSvgIndexFile({ src, dest }: Params) {
+export function gulpSvgIndexFile({ src, dest, getComponentName = capitalizeFirstLetter }: Params) {
   const folders: Record<string, string[]> = {};
 
   const getTail = (fullPath: string) => removeLeadingSlash(fullPath.replace(path.resolve(process.cwd(), src), ''));
@@ -53,7 +54,7 @@ export function gulpSvgIndexFile({ src, dest }: Params) {
         {
           // index file for all
           const folderName = path.basename(folder);
-          const componentName = capitalizeFirstLetter(folderName);
+          const componentName = getComponentName(folderName);
           imports.push(`export { default as ${componentName} } from './${folderName}';`);
           if (!indexFile) {
             indexFile = path.resolve(dest, getTail(path.dirname(folder)), 'index.tsx');
