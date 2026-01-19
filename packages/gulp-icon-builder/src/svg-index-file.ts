@@ -14,10 +14,12 @@ const capitalizeFirstLetter = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
+const removeLeadingSlash = (str: string): string => str.replace(/^\/+/, '');
+
 export function gulpSvgIndexFile({ src, dest }: Params) {
   const folders: Record<string, string[]> = {};
 
-  const getTail = (fullPath: string) => fullPath.replace(`${path.resolve(process.cwd(), src)}/`, '');
+  const getTail = (fullPath: string) => removeLeadingSlash(fullPath.replace(path.resolve(process.cwd(), src), ''));
 
   return createPipeTransformer({
     transformer: (file, _encoding, callback) => {
@@ -41,7 +43,9 @@ export function gulpSvgIndexFile({ src, dest }: Params) {
         {
           // index file for icon folder
           const component =
-            files.length === 2 ? getComponent(files, 'Component') : `export * from './${files[0].split('.')[0]}';`;
+            files.length === 2
+              ? getComponent(files, 'Component')
+              : `export { default } from './${files[0].split('.')[0]}';`;
           const finalFilePath = path.resolve(dest, getTail(folder), 'index.tsx');
           fs.writeFileSync(finalFilePath, component);
         }
