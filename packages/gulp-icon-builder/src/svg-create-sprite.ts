@@ -27,7 +27,9 @@ export function gulpCreateSvgSprite({ filePath, idPrefix }: { idPrefix: string; 
 
     onEnd: async () => {
       const { result } = await sprite.compileAsync();
-      fs.writeFileSync(path.resolve(process.cwd(), filePath), result.symbol.sprite.contents.toString());
+      const fullFilePath = path.resolve(process.cwd(), filePath);
+      fs.mkdirSync(path.dirname(fullFilePath), { recursive: true });
+      fs.writeFileSync(fullFilePath, result.symbol.sprite.contents.toString());
     },
   });
 }
