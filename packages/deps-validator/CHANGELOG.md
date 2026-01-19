@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2026-01-19)
+
+
+### Bug Fixes
+
+* **FF-6693:** expand list of ignored file patterns ([83b5321](https://github.com/cloud-ru-tech/frontend-tools/commit/83b53218c0d12f7b380f4d9f3ccd5fe9274fd99d))
+
+
+
+
+
 # 2.0.0 (2025-12-30)
 
 
