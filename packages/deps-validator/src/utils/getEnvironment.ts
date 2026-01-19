@@ -9,7 +9,7 @@ export function getEnvironment(): MonorepoEnvType | RepoEnvType {
   const defaultConfig = {
     cwd: process.cwd(),
     ignoredPackagesFolderFiles: ['packages/tsconfig.cjs.json', 'packages/tsconfig.esm.json'],
-    ignoreFilePatterns: ['stories', 'dist', '__tests__', '__e2e__'],
+    ignoreFilePatterns: ['stories', 'dist', '__tests__', '__test__', '__e2e__', '__unit__'],
     ignorePackagePatterns: [
       'react',
       'react-dom',
