@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2026-01-19)
+
+
+### Dependencies
+
+* **FF-7726:** up lint-staged ([43d275e](https://github.com/cloud-ru-tech/frontend-tools/commit/43d275ec3f22654d33968289de169b27a8b9ae95))
+
+
+
+
+
 ## <small>1.1.3 (2025-09-19)</small>
 
 * chore(FF-7260): fix vulnerabilities ([bccf338](https://github.com/cloud-ru-tech/frontend-tools/commit/bccf338))
