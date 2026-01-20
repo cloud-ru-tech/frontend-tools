@@ -8,11 +8,15 @@ type InterpolationVariables = Record<string, string>;
 
 export type AdditionalResources = Record<Exclude<Languages, Languages.CIMode>, ResourceLanguage>;
 
-export type I18nConfigProps = {
-  initReactI18next: ThirdPartyModule;
+type InitConfig = {
   backendLoadPath?: string;
   additionalResources?: AdditionalResources;
   interpolationVariables?: InterpolationVariables;
+  useReactSuspense?: boolean;
+};
+
+export type I18nConfigProps = InitConfig & {
+  initReactI18next: ThirdPartyModule;
 };
 
 declare module 'i18next' {
@@ -26,13 +30,10 @@ const getInitConfig = ({
   backendLoadPath,
   additionalResources,
   interpolationVariables,
-}: {
-  backendLoadPath?: string;
-  additionalResources?: AdditionalResources;
-  interpolationVariables?: InterpolationVariables;
-}): InitOptions => ({
+  useReactSuspense = false,
+}: InitConfig): InitOptions => ({
   react: {
-    useSuspense: false,
+    useSuspense: useReactSuspense,
   },
   backend: backendLoadPath
     ? {
@@ -67,16 +68,16 @@ const getInitConfig = ({
   },
 });
 
-export const i18nConfig = ({ initReactI18next, ...props }: I18nConfigProps): Promise<TFunction> => {
-  if (props.backendLoadPath) {
-    const backendLoadPath = `${props.backendLoadPath}${process.env.COMMIT ? `?hash=${process.env.COMMIT}` : ''}`;
+export const i18nConfig = (configProps: I18nConfigProps): Promise<TFunction> => {
+  if (configProps.backendLoadPath) {
+    const backendLoadPath = `${configProps.backendLoadPath}${process.env.COMMIT ? `?hash=${process.env.COMMIT}` : ''}`;
 
     return i18next
       .use(Backend)
       .use(languageDetector)
-      .use(initReactI18next)
-      .init(getInitConfig({ ...props, backendLoadPath }));
+      .use(configProps.initReactI18next)
+      .init(getInitConfig({ ...configProps, backendLoadPath }));
   }
 
-  return i18next.use(languageDetector).use(initReactI18next).init(getInitConfig(props));
+  return i18next.use(languageDetector).use(configProps.initReactI18next).init(getInitConfig(configProps));
 };
