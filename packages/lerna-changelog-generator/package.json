@@ -12,7 +12,7 @@
     "dependencies"
   ],
   "dependencies": {
-    "simple-git": "3.27.0",
+    "simple-git": "3.30.0",
     "yargs": "18.0.0"
   },
   "devDependencies": {
