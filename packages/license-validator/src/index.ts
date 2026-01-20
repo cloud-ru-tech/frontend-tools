@@ -9,17 +9,21 @@ import { getPackageJsonFilesPath } from './getPackageJsonFilesPath';
 import { splitArray } from './splitArray';
 
 enum License {
-  /*
-  Лицензия не добавляет дополнительных ограничений на Apache-совместимые лицензии
-  Упоминание содержится в разделе 3.3 ("Distribution of a Larger Work")
-  https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE#L185
-  */
+  /**
+   * Лицензия не добавляет дополнительных ограничений на Apache-совместимые лицензии
+   * Упоминание содержится в разделе 3.3 ("Distribution of a Larger Work")
+   * https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE#L185
+   */
   MPL_V2 = 'MPL-2.0',
   APACHE_V2 = 'Apache-2.0',
   BSD = 'BSD',
   ISC = 'ISC',
   MIT = 'MIT',
   PublicDomain = 'Public Domain',
+  /**
+   * https://blueoakcouncil.org/license/1.0.0
+   */
+  BlueOak_V1 = 'BlueOak-1.0.0',
 }
 
 type PackageJson = {
@@ -32,12 +36,21 @@ type PackageJson = {
 const INTERNAL_PACKAGE_SCOPES = ['@snack-ui', '@cloud-ru'];
 
 const LICENSES = {
-  [License.APACHE_V2]: [License.APACHE_V2, License.BSD, License.MIT, License.PublicDomain, License.ISC, License.MPL_V2],
+  [License.APACHE_V2]: [
+    License.APACHE_V2,
+    License.BSD,
+    License.MIT,
+    License.PublicDomain,
+    License.ISC,
+    License.MPL_V2,
+    License.BlueOak_V1,
+  ],
   [License.BSD]: [License.BSD, License.ISC, License.MIT, License.PublicDomain],
   [License.ISC]: [License.BSD, License.ISC, License.MIT, License.PublicDomain],
   [License.MIT]: [License.MIT, License.PublicDomain],
   [License.PublicDomain]: [License.PublicDomain],
   [License.MPL_V2]: [License.APACHE_V2, License.MPL_V2],
+  [License.BlueOak_V1]: [License.APACHE_V2, License.BlueOak_V1],
 };
 
 function getAllDeps(packageJson?: PackageJson) {
