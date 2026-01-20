@@ -37,37 +37,38 @@ export function ReadmePanel() {
   }
 
   return (
-    <ReactMarkdown
-      className={markdownClassName}
-      components={{
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // TODO: поправить
-        code({ className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || '');
+    <div className={markdownClassName}>
+      <ReactMarkdown
+        components={{
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          // TODO: поправить
+          code({ className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '');
 
-          return match ? (
-            <SyntaxHighlighter
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              style={codeTheme}
-              language={match[1]}
-              PreTag='div'
-              {...props}
-            >
-              {String(children).replace(/\n$/, '')}
-            </SyntaxHighlighter>
-          ) : (
-            <code className={className} {...props}>
-              {children}
-            </code>
-          );
-        },
-      }}
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
-    >
-      {sidebar.join('\n')}
-    </ReactMarkdown>
+            return match ? (
+              <SyntaxHighlighter
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                style={codeTheme}
+                language={match[1]}
+                PreTag='div'
+                {...props}
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            );
+          },
+        }}
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+      >
+        {sidebar.join('\n')}
+      </ReactMarkdown>
+    </div>
   );
 }
