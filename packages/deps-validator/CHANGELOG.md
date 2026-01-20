@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.2 (2026-01-20)
+
+
+### Dependencies
+
+* **FF-7730:** up glob to v13 ([59ec507](https://github.com/cloud-ru-tech/frontend-tools/commit/59ec5075cf23e2ed9c6bb122df828e283f63ac18))
+
+
+
+
+
 ## 2.0.1 (2026-01-19)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2026-01-20)
+
+
+### Dependencies
+
+* **FF-7730:** up glob to v13 ([59ec507](https://github.com/cloud-ru-tech/frontend-tools/commit/59ec5075cf23e2ed9c6bb122df828e283f63ac18))
+
+
+### Features
+
+* **FF-7729:** add blue oak v1 license ([8154b2e](https://github.com/cloud-ru-tech/frontend-tools/commit/8154b2e3ef8580a63cfad8b915da847874a13e42))
+
+
+
+
+
 # 1.2.0 (2025-05-27)
 
 

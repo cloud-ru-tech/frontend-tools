@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.3 (2026-01-20)
+
+
+### Dependencies
+
+* **FF-7729:** up simple-git to 3.30.0 ([7c36702](https://github.com/cloud-ru-tech/frontend-tools/commit/7c36702ad04d54bbd221b469045d400d4878e77f))
+* **FF-7729:** up yargs ([67c719b](https://github.com/cloud-ru-tech/frontend-tools/commit/67c719b417f34fbdd5aeb01be2ac98c22d7422ea))
+
+
+
+
+
 ## 1.2.2 (2024-12-26)
 
 
