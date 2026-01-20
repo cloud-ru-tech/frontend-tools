@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.5 (2026-01-20)
+
+
+### Dependencies
+
+* **FF-7734:** up react-markdown react-syntax-highlighter and remark-gfm ([74c01e0](https://github.com/cloud-ru-tech/frontend-tools/commit/74c01e06db53a5818d945f6e9b3040abefb7d14b))
+
+
+
+
+
 ## <small>2.0.4 (2025-09-19)</small>
 
 * chore(FF-7260): fix vulnerabilities ([bccf338](https://github.com/cloud-ru-tech/frontend-tools/commit/bccf338))
