@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import * as console from '../../utils/console';
-import { Report } from '../index';
+import { Report } from '../src/Report/index';
+import * as console from '../src/utils/console';
 
-vi.mock('../../utils/console', () => ({
+vi.mock('../src/utils/console', () => ({
   logDebug: vi.fn(),
   logError: vi.fn(),
   logInfo: vi.fn(),

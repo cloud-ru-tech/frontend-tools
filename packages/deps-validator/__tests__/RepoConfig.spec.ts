@@ -2,7 +2,7 @@ import path from 'path';
 
 import { describe, expect, it } from 'vitest';
 
-import { RepoConfig } from '../RepoConfig';
+import { RepoConfig } from '../src/Config/RepoConfig';
 
 describe('RepoConfig', () => {
   describe('constructor', () => {

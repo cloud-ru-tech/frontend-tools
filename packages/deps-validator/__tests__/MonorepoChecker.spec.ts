@@ -1,16 +1,16 @@
 import depcheck from 'depcheck';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { MonorepoConfig } from '../../Config/MonorepoConfig';
-import { CheckState } from '../../Report';
-import { readPackageJsonFile, readPackageJsonFileSync } from '../../utils/readPackageJsonFile';
-import { MonorepoChecker } from '../MonorepoChecker';
+import { MonorepoChecker } from '../src/Checker/MonorepoChecker';
+import { MonorepoConfig } from '../src/Config/MonorepoConfig';
+import { CheckState } from '../src/Report';
+import { readPackageJsonFile, readPackageJsonFileSync } from '../src/utils/readPackageJsonFile';
 
 vi.mock('depcheck', () => ({
   default: vi.fn(),
 }));
 
-vi.mock('../../utils/readPackageJsonFile', () => ({
+vi.mock('../src/utils/readPackageJsonFile', () => ({
   readPackageJsonFile: vi.fn(),
   readPackageJsonFileSync: vi.fn(),
 }));

@@ -1,9 +1,9 @@
 import depcheck from 'depcheck';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { RepoConfig } from '../../Config/RepoConfig';
-import { CheckState } from '../../Report';
-import { RepoChecker } from '../RepoChecker';
+import { RepoChecker } from '../src/Checker/RepoChecker';
+import { RepoConfig } from '../src/Config/RepoConfig';
+import { CheckState } from '../src/Report';
 
 vi.mock('depcheck', () => ({
   default: vi.fn(),
