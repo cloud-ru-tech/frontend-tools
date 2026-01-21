@@ -2,7 +2,7 @@ import { globSync } from 'glob';
 import path from 'node:path';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { MonorepoConfig } from '../MonorepoConfig';
+import { MonorepoConfig } from '../src/Config/MonorepoConfig';
 
 vi.mock('glob', () => ({
   globSync: vi.fn(),

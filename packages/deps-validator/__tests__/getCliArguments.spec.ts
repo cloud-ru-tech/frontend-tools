@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { getCliArguments } from '../getCliArguments';
+import { getCliArguments } from '../src/utils/getCliArguments';
 
 describe('@cloud-ru/ft-deps-validator/getCliArguments', () => {
   const originalArgv = process.argv;
