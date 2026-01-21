@@ -1,30 +1,48 @@
 import path from 'path';
 
-import { defineConfig, mergeConfig, UserConfig } from 'vitest/config';
+import { defineConfig, mergeConfig, type ViteUserConfig } from 'vitest/config';
 
 import { tsconfigPathsConverter } from './tsconfigPathsConverter';
 
-type DefaultConfigOptions = {
+type Options = {
+  /**
+   * Environment for unit tests.
+   * @default 'jsdom'
+   */
+  unitEnvironment?: 'node' | 'jsdom';
+  /**
+   * Whether to use aliases from `tsconfig.json` in root directory.
+   * @default true
+   */
   useAliases?: boolean;
 };
 
-const getDefaultConfig = ({ useAliases = true }: DefaultConfigOptions) =>
-  defineConfig({
-    test: {
-      snapshotFormat: {
-        escapeString: true,
+export default function (userConfig?: ViteUserConfig, { unitEnvironment = 'jsdom', useAliases = true }: Options = {}) {
+  return mergeConfig(
+    defineConfig({
+      resolve: {
+        alias: useAliases ? tsconfigPathsConverter(path.resolve(process.cwd(), 'tsconfig.json')) : undefined,
       },
-      globals: true,
-      include: ['**/__tests__/**/*.spec.(ts|js|tsx|jsx)'],
-
-      environment: 'jsdom',
-      outputFile: 'reports/unit/unit-report.xml',
-      reporters: ['default', 'junit'],
-    },
-    resolve: {
-      alias: useAliases ? tsconfigPathsConverter(path.resolve(process.cwd(), 'tsconfig.json')) : undefined,
-    },
-  }) as UserConfig;
-
-export default (overrides: UserConfig = {}, options: DefaultConfigOptions = {}) =>
-  mergeConfig(getDefaultConfig(options), overrides);
+      test: {
+        snapshotFormat: {
+          escapeString: true,
+        },
+        outputFile: 'reports/unit/unit-report.xml',
+        reporters: ['default', 'junit'],
+        projects: [
+          {
+            extends: true,
+            test: {
+              globals: true,
+              include: ['**/__tests__/**/*.spec.(ts|js|tsx|jsx)'],
+              exclude: ['**/dist/**', '**/node_modules/**', '**/*.browser.spec.(ts|tsx|js|jsx)'],
+              name: 'unit',
+              environment: unitEnvironment,
+            },
+          },
+        ],
+      },
+    }),
+    userConfig ?? {},
+  );
+}
