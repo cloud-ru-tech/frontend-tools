@@ -32,6 +32,8 @@ Common repository, which contains all kinds of frontend tools, i.e. configs, hoo
 
 * [@cloud-ru/ft-debug-mode](packages/debug-mode/README.md)
 
+* [@cloud-ru/ft-deps-validator](packages/deps-validator/README.md)
+
 * [@cloud-ru/eslint-config](packages/eslint-config/README.md)
 
 * [@cloud-ru/eslint-plugin-ssr-safe-react](packages/eslint-plugin-ssr-safe-react/README.md)
@@ -41,6 +43,8 @@ Common repository, which contains all kinds of frontend tools, i.e. configs, hoo
 * [@cloud-ru/ft-lerna-changelog-generator](packages/lerna-changelog-generator/README.md)
 
 * [@cloud-ru/ft-license-validator](packages/license-validator/README.md)
+
+* [@cloud-ru/ft-request-payload-transform](packages/request-payload-transform/README.md)
 
 * [@cloud-ru/ft-storybook-brand-addon](packages/storybook-brand-addon/README.md)
 
