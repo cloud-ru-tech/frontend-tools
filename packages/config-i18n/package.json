@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-i18n",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Config and dependencies for using i18n",
   "author": {
     "name": "Akhremenko Grigorii",
