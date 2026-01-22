@@ -22,7 +22,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@typescript-eslint/rule-tester": "8.52.0"
+    "@typescript-eslint/rule-tester": "8.53.1"
   },
   "peerDependencies": {
     "eslint": ">= 9.0.0"
