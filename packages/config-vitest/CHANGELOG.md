@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2026-01-22)
+
+
+### Features
+
+* **FF-7732:** update vitest, add unitEnvironment param ([3b1f4a8](https://github.com/cloud-ru-tech/frontend-tools/commit/3b1f4a8a83913ad8f74ac9ea5feb0a9956dfd79e))
+
+
+
+
+
 ## 1.2.2 (2025-04-29)
 
 
