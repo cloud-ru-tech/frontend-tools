@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2026-01-23)
+
+
+### Dependencies
+
+* **FF-7735:** up babel deps ([43b1488](https://github.com/cloud-ru-tech/frontend-tools/commit/43b1488dd83669bee9cc460b012944b317ea1826))
+
+
+
+
+
 ## <small>1.1.3 (2025-09-19)</small>
 
 * chore(FF-7260): fix vulnerabilities ([bccf338](https://github.com/cloud-ru-tech/frontend-tools/commit/bccf338))

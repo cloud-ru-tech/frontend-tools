@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.6.1 (2026-01-23)
+
+
+### Dependencies
+
+* **FF-7735:** up eslint & prettier deps ([85ec4e8](https://github.com/cloud-ru-tech/frontend-tools/commit/85ec4e8b3c05ec4b290af1879b9cac1f5ddcaf3a))
+
+
+
+
+
 # 0.6.0 (2026-01-12)
 
 

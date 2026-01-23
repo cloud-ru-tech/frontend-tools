@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.7 (2026-01-23)
+
+### Only dependencies have been changed
+* [@cloud-ru/ft-config-prettier@1.1.3](/blob/packages/config-prettier/CHANGELOG.md)
+* [@cloud-ru/eslint-config@3.1.1](/blob/packages/eslint-config/CHANGELOG.md)
+
+
+
+
+
 ## 1.0.6 (2026-01-19)
 
 ### Only dependencies have been changed
