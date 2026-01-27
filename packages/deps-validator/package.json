@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-deps-validator",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Validator for unused, missing or wrong version dependencies in monorepo's packages",
   "publishConfig": {
     "access": "public"

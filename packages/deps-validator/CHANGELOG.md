@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2026-01-27)
+
+
+### Features
+
+* **FF-7958:** add cloud-ru/figma-tokens to deps-validator ignore ([154ba8d](https://github.com/cloud-ru-tech/frontend-tools/commit/154ba8d93e7696eb2413ece276c59bc25d90a5e0))
+
+
+
+
+
 ## 2.0.2 (2026-01-20)
 
 
