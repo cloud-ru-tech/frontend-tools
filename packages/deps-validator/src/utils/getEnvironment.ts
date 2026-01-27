@@ -15,11 +15,15 @@ export function getEnvironment(): MonorepoEnvType | RepoEnvType {
       'react-dom',
       'react-docgen-typescript',
       '@snack-uikit/figma-tokens',
+      '@snack-uikit/figma-tokens-nachos',
       '@sbercloud/figma-tokens-cloud-platform',
       '@sbercloud/figma-tokens-mlspace',
       '@sbercloud/figma-tokens-admin',
       '@sbercloud/figma-tokens-web',
       '@sbercloud/figma-tokens-giga-id',
+      '@cloud-ru/figma-tokens-cloud-platform',
+      '@cloud-ru/figma-tokens-web',
+      '@cloud-ru/figma-tokens-giga-id',
     ],
   };
 
