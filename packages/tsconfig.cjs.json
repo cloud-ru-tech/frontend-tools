@@ -57,6 +57,9 @@
     },
     {
       "path": "./deps-validator/tsconfig.cjs.json"
+    },
+    {
+      "path": "./gulp-icon-builder/tsconfig.cjs.json"
     }
   ],
   "compilerOptions": {
