@@ -1,14 +1,11 @@
-import type { Template } from '@svgr/babel-plugin-transform-svg-component';
-import { transform } from '@svgr/core';
+import { Config, transform } from '@svgr/core';
 
 import { getComponentName } from './utils';
 import { createPipeTransformer } from './utils/createPipeTransformer';
 
-export type GulpSvgrParams = {
-  template: Template;
-};
+export type GulpSvgrParams = Config;
 
-export function gulpSvgr({ template }: GulpSvgrParams) {
+export function gulpSvgr(params: GulpSvgrParams) {
   return createPipeTransformer({
     transformer: (file, _encoding, callback) => {
       const content = file.contents.toString();
@@ -19,12 +16,12 @@ export function gulpSvgr({ template }: GulpSvgrParams) {
         content,
         {
           icon: true,
-          template,
           typescript: true,
           expandProps: 'end',
           jsxRuntime: 'classic',
           exportType: 'default',
           plugins: ['@svgr/plugin-jsx'],
+          ...params,
         },
         { componentName, caller: { name: 'gulp-svgr' }, filePath: file.path },
       );
