@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.2 (2026-02-12)
+
+
+### Bug Fixes
+
+* **FF-8038:** update @vitest/eslint-plugin ([a2451ba](https://github.com/cloud-ru-tech/frontend-tools/commit/a2451ba17f1e07c4f73020ee32182bfef16b5f6c))
+
+
+
+
+
 ## 3.1.1 (2026-01-23)
 
 
