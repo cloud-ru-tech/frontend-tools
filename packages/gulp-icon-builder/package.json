@@ -1,0 +1,49 @@
+{
+  "name": "@cloud-ru/ft-gulp-icon-builder",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    ""
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "author": "yetihead <yetibrain@yandex.ru>",
+  "license": "Apache-2.0",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-toolspackages/gulp-icon-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/gulp-icon-builder"
+  },
+  "dependencies": {
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
+    "camelcase": "5.3.1",
+    "fast-xml-parser": "5.3.3",
+    "gulp": "5.0.1",
+    "kebab-case": "2.0.2",
+    "oslllo-svg-fixer": "6.0.1",
+    "svg-sprite": "2.0.4",
+    "vinyl": "3.0.1"
+  },
+  "devDependencies": {
+    "@types/vinyl": "2.0.12",
+    "gulp-cli": "3.1.0"
+  }
+}
