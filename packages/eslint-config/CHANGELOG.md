@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.3 (2026-02-26)
+
+
+### Dependencies
+
+* **FF-8060:** add missing @eslint/js dependency ([b1f5872](https://github.com/cloud-ru-tech/frontend-tools/commit/b1f5872db11a05492fea71f4f71cf536169a5e82))
+
+
+
+
+
 ## 3.1.2 (2026-02-12)
 
 
