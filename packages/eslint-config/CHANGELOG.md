@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.4 (2026-02-26)
+
+
+### Bug Fixes
+
+* **FF-8112:** update deps to fix vulnerability in vite -> rollup ([0e16c96](https://github.com/cloud-ru-tech/frontend-tools/commit/0e16c9657fdb0d3e93b3ffbb426d05dfd418376e))
+
+
+
+
+
 ## 3.1.3 (2026-02-26)
 
 
