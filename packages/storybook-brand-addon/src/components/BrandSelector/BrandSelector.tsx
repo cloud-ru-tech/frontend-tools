@@ -1,8 +1,8 @@
 import '../../styles.css';
 
-import { Button } from '@storybook/components';
-import { AddIcon, CircleIcon } from '@storybook/icons';
-import { useGlobals } from '@storybook/manager-api';
+import { Button } from 'storybook/components';
+import { AddIcon, CircleIcon } from 'storybook/icons';
+import { useGlobals } from 'storybook/manager-api';
 import { useMemo, useState } from 'react';
 
 import { PARAM_CAN_ADD_CUSTOM_BRAND_KEY, PARAM_COLOR_MAP_KEY, PARAM_KEY } from '../../constants';

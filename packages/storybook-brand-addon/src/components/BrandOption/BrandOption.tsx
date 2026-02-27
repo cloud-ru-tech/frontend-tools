@@ -1,5 +1,5 @@
-import { IconButton } from '@storybook/components';
-import { CircleIcon, EditIcon, TrashIcon } from '@storybook/icons';
+import { IconButton } from 'storybook/components';
+import { CircleIcon, EditIcon, TrashIcon } from 'storybook/icons';
 import cn from 'classnames';
 import { SyntheticEvent, useState } from 'react';
 
