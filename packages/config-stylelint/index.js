@@ -1,4 +1,10 @@
-module.exports = {
+import { noMixinFunctions } from './rules/noMixinFunctions.js';
+import { noNestedMedia } from './rules/noNestedMedia.js';
+import { noNestedSelectors } from './rules/noNestedSelectors.js';
+import { noSassTildaImport } from './rules/noSassTildaImport.js';
+
+export const stylelintConfig = {
+  plugins: [noMixinFunctions, noNestedMedia, noNestedSelectors, noSassTildaImport],
   rules: {
     'color-no-hex': [
       true,
@@ -26,6 +32,10 @@ module.exports = {
       },
     ],
     'declaration-no-important': true,
+    'turbopack/no-mixin-functions': true,
+    'turbopack/no-nested-media': true,
+    'turbopack/no-nested-selectors': true,
+    'turbopack/no-sass-tilda-import': true,
   },
   overrides: [
     {
