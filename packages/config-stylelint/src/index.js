@@ -1,4 +1,9 @@
-module.exports = {
+import { RULE_NAMES } from './const.js';
+import { noPureGlobal } from './rules/noPureGlobal.js';
+
+// eslint-disable-next-line import/no-default-export
+export default {
+  plugins: [noPureGlobal],
   rules: {
     'color-no-hex': [
       true,
@@ -25,7 +30,7 @@ module.exports = {
           'Property "z-index" is restricted from use. Docs: https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-stylelint#z-index',
       },
     ],
-    'declaration-no-important': true,
+    [RULE_NAMES.noPureGlobal]: true,
   },
   overrides: [
     {
