@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.1.0 (2026-03-18)
+
+
+### Features
+
+* **PROFCOMM-2703:** added turbopack stylelint rules ([dbc63d5](https://github.com/cloud-ru-tech/frontend-tools/commit/dbc63d5c3b483a08a06d0c61f14a3843fecea5e7))
+
+
+
+
+
 # 3.0.0 (2025-01-14)
 
 
