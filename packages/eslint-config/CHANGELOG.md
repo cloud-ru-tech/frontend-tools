@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.5 (2026-03-20)
+
+
+### Bug Fixes
+
+* **FF-8201:** flatted vuln ([60c15e1](https://github.com/cloud-ru-tech/frontend-tools/commit/60c15e14ed023d4f07e9f151c567ae8adb76eeb8))
+
+
+
+
+
 ## 3.1.4 (2026-02-26)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.12 (2026-03-20)
+
+### Only dependencies have been changed
+* [@cloud-ru/ft-config-stylelint@3.1.1](/blob/packages/config-stylelint/CHANGELOG.md)
+* [@cloud-ru/eslint-config@3.1.5](/blob/packages/eslint-config/CHANGELOG.md)
+
+
+
+
+
 ## 1.0.11 (2026-03-18)
 
 ### Only dependencies have been changed
