@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.2 (2026-03-20)
+
+
+### Bug Fixes
+
+* **FF-8201:** downgrade stylelint ([e42a223](https://github.com/cloud-ru-tech/frontend-tools/commit/e42a22359d2e244863b6bd0978d7fca881353979))
+
+
+
+
+
 ## 3.1.1 (2026-03-20)
 
 
