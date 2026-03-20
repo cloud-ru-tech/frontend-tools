@@ -25,7 +25,7 @@
     "directory": "packages/config-stylelint"
   },
   "dependencies": {
-    "stylelint": "16.26.1",
+    "stylelint": "16.6.1",
     "stylelint-config-recommended-scss": "14.1.0"
   }
 }
