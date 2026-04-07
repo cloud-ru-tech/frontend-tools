@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.2 (2026-04-07)
+
+
+### Dependencies
+
+* **FF-8343:** updated vitest config deps to resolve vulnerability ([163a929](https://github.com/cloud-ru-tech/frontend-tools/commit/163a92996cead95140288519a81f362c37c08797))
+
+
+
+
+
 ## 1.3.1 (2026-02-26)
 
 
