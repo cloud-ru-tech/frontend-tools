@@ -1,4 +1,4 @@
-import { Button } from '@storybook/components';
+import { Button } from 'storybook/components';
 import { SyntheticEvent, useState } from 'react';
 
 import { useCustomBrandContext } from '../../contexts';
