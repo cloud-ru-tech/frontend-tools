@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2026-04-23)
+
+
+### Bug Fixes
+
+* **FF-8423:** vuln i18next-http-backend ([721729d](https://github.com/cloud-ru-tech/frontend-tools/commit/721729d55b7f94471a71f617938ba630a2c3cba4))
+
+
+
+
+
 # 1.1.0 (2026-01-22)
 
 
