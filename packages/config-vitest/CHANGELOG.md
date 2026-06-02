@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.3 (2026-06-02)
+
+
+### Dependencies
+
+* **FF-8587:** up vitest to 4.1.8 ([bcddadc](https://github.com/cloud-ru-tech/frontend-tools/commit/bcddadc9821c6af92f44468be064f257da1ec7b6))
+
+
+
+
+
 ## 1.3.2 (2026-04-07)
 
 
