@@ -24,6 +24,9 @@
     "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
     "directory": "packages/config-stylelint"
   },
+  "bugs": {
+    "url": "https://github.com/cloud-ru-tech/frontend-tools/issues"
+  },
   "dependencies": {
     "stylelint": "16.6.1",
     "stylelint-config-recommended-scss": "14.1.0"
