@@ -1,6 +1,9 @@
 {
   "name": "@cloud-ru/ft-config-stylelint",
   "version": "3.1.2",
+  "bugs": {
+    "url": "https://github.com/cloud-ru-tech/frontend-tools/issues"
+  },
   "author": "Konstantin Yakovlev",
   "publishConfig": {
     "access": "public"
