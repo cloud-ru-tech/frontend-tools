@@ -1,0 +1,32 @@
+{
+  "name": "@cloud-ru/ft-solidarity",
+  "version": "1.0.0",
+  "description": "CLI for environment validation via .solidarity config",
+  "keywords": [
+    "solidarity",
+    "environment",
+    "validation"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "solidarity": "./bin/solidarity.js"
+  },
+  "dependencies": {
+    "semver": "7.6.3"
+  },
+  "author": "Anna Kozlova <apkozlova@cloud.ru>",
+  "license": "Apache-2.0",
+  "files": [
+    "bin",
+    "./CHANGELOG.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/solidarity",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/solidarity"
+  }
+}

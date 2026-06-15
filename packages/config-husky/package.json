@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@cloud-ru/ft-config-commit-message": "1.1.2",
-    "husky": "9.1.6",
-    "solidarity": "3.0.4"
+    "@cloud-ru/ft-solidarity": "1.0.0",
+    "husky": "9.1.6"
   },
   "peerDependencies": {
     "lint-staged": "*"

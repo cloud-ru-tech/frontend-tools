@@ -23,7 +23,7 @@
   "dependencies": {
     "husky": "9.1.7",
     "lerna": "8.2.4",
-    "solidarity": "3.0.4"
+    "@cloud-ru/ft-solidarity": "1.0.0"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools",
   "repository": {
