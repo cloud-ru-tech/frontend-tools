@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-husky",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": {
     "name": "Akhremenko Grigorii",
     "url": "https://github.com/AGrigorii"
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@cloud-ru/ft-config-commit-message": "1.1.2",
-    "@cloud-ru/ft-solidarity": "1.0.0",
+    "@cloud-ru/ft-solidarity": "1.1.0",
     "husky": "9.1.6"
   },
   "peerDependencies": {

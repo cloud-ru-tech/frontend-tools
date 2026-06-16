@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.14 (2026-06-16)
+
+### Only dependencies have been changed
+* [@cloud-ru/ft-config-husky@1.3.0](/blob/packages/config-husky/CHANGELOG.md)
+
+
+
+
+
 ## 1.0.13 (2026-03-20)
 
 ### Only dependencies have been changed

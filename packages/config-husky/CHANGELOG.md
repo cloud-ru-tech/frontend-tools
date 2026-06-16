@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2026-06-16)
+
+
+### Features
+
+* **FF-8466:** add ft-solidarity package ([b8fee20](https://github.com/cloud-ru-tech/frontend-tools/commit/b8fee204c8525578fa1b9e24751d893af55c010b))
+
+
+
+
+
 ## <small>1.2.2 (2025-11-22)</small>
 
 * deps(FF-7188)!: up node to v24, up npm to v11, up pnpm to v10.22.0 ([7961d71](https://github.com/cloud-ru-tech/frontend-tools/commit/7961d71))
