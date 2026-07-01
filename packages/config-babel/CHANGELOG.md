@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.5 (2026-07-01)
+
+
+### Dependencies
+
+* **FF-8720:** updated ft-config-babel deps to resolve @babel/core vulnerability ([27bc9fe](https://github.com/cloud-ru-tech/frontend-tools/commit/27bc9fec01a1051405eef2a3c7681bf410092a34))
+
+
+
+
+
 ## 1.1.4 (2026-01-23)
 
 

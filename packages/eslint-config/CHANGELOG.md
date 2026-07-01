@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.6 (2026-07-01)
+
+
+### Dependencies
+
+* **FF-8720:** updated eslint-config deps ([e4d996e](https://github.com/cloud-ru-tech/frontend-tools/commit/e4d996e9fd1d4a7c670c9d9a75dfe4bc0cb88b12))
+
+
+
+
+
 ## 3.1.5 (2026-03-20)
 
 
