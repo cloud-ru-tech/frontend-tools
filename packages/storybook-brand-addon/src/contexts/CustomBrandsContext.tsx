@@ -1,4 +1,4 @@
-import { useGlobals } from '@storybook/manager-api';
+import { useGlobals } from 'storybook/manager-api';
 import { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 
 import { DEFAULT_BRAND } from '../constants';
