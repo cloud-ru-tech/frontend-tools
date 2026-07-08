@@ -21,7 +21,7 @@ export class MonorepoChecker extends RepoChecker {
     if (pkg.dependencies) {
       for (const [dep, version] of Object.entries(pkg.dependencies)) {
         const actualVersion = this.actualVersions[dep];
-        if (actualVersion && actualVersion !== version) {
+        if (actualVersion && actualVersion !== version && !version.startsWith('workspace:')) {
           const data = { version, actualVersion, dep };
           if (result.wrongVersions) {
             result.wrongVersions.push(data);
