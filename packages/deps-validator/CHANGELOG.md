@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.1 (2026-07-09)
+
+
+### Bug Fixes
+
+* **FF-8678:** allow worspace in package version ([ae226d5](https://github.com/cloud-ru-tech/frontend-tools/commit/ae226d50b9b59cb0b5c06f1b495f50ce9a135d3c))
+
+
+
+
+
 # 2.1.0 (2026-01-27)
 
 
