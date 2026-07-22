@@ -11,8 +11,8 @@
   "description": "Config and dependencies for vitest",
   "license": "Apache-2.0",
   "dependencies": {
-    "jsdom": "27.4.0",
-    "vitest": "4.1.8"
+    "jsdom": "^27.4.0",
+    "vitest": "^4.1.10"
   },
   "types": "./dist/esm/index.d.ts",
   "exports": {
