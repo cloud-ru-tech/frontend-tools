@@ -21,9 +21,8 @@
     "access": "public"
   },
   "dependencies": {
-    "husky": "9.1.7",
-    "lerna": "8.2.4",
-    "@cloud-ru/ft-solidarity": "1.0.0"
+    "@cloud-ru/ft-solidarity": "1.0.0",
+    "husky": "9.1.7"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools",
   "repository": {
@@ -46,6 +45,7 @@
     "@types/inquirer": "9.0.9",
     "@types/shelljs": "0.10.0",
     "inquirer": "8.2.7",
+    "lerna": "9.0.7",
     "shelljs": "0.10.0",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
