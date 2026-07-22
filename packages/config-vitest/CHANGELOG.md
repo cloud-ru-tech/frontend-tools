@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.4 (2026-07-22)
+
+
+### Dependencies
+
+* **FF-8811:** updated vitest and jsdom ranges in config-vitest ([6fa3c9e](https://github.com/cloud-ru-tech/frontend-tools/commit/6fa3c9eba3eb32d840f4158cb5b6edc93292d65d))
+
+
+
+
+
 ## 1.3.3 (2026-06-02)
 
 

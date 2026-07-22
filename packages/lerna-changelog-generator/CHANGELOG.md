@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2026-07-22)
+
+
+### BREAKING CHANGES
+
+
+* **FF-8811:** upgraded lerna to 9.0.7 and simple-git to 3.36.0 ([0b7af57](https://github.com/cloud-ru-tech/frontend-tools/commit/0b7af5750ba9a61fc6c3832d2ad161290fb7bc66))
+
+
+
+
 ## 1.2.3 (2026-01-20)
 
 
