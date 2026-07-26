@@ -7,7 +7,7 @@ import {
   useFloating,
   useInteractions,
 } from '@floating-ui/react';
-import { StorybookTheme, useTheme } from '@storybook/theming';
+import { StorybookTheme, useTheme } from 'storybook/theming';
 import { MouseEvent, ReactNode } from 'react';
 
 type TooltipProps = {
