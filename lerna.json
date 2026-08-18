@@ -1,16 +1,28 @@
 {
   "version": "independent",
   "npmClient": "pnpm",
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md"],
+      "ignoreChanges": [
+        "ignored-file",
+        "*.md"
+      ],
       "message": "[ci skip] Version bump",
       "registry": "https://registry.npmjs.org"
     },
     "version": {
-      "changelogPreset": "@cloud-ru/ft-conventional-changelog-old",
-      "ignoreChanges": ["**/*.md", "**/*.MD", "**/*.mdx", "**/*.MDX", "./scripts/**/*", "packages/*/__tests__/**/*.*"]
+      "changelogPreset": "@cloud-ru/ft-conventional-changelog",
+      "ignoreChanges": [
+        "**/*.md",
+        "**/*.MD",
+        "**/*.mdx",
+        "**/*.MDX",
+        "./scripts/**/*",
+        "packages/*/__tests__/**/*.*"
+      ]
     },
     "create": {
       "license": "Apache-2.0"

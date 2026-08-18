@@ -38,7 +38,7 @@
     "@cloud-ru/ft-config-husky": "workspace:^",
     "@cloud-ru/ft-config-stylelint": "workspace:^",
     "@cloud-ru/ft-config-vitest": "workspace:^",
-    "@cloud-ru/ft-conventional-changelog-old": "npm:@cloud-ru/ft-conventional-changelog@1.1.0",
+    "@cloud-ru/ft-conventional-changelog": "workspace:^",
     "@cloud-ru/ft-solidarity": "workspace:^",
     "@types/inquirer": "9.0.10",
     "@types/node": "catalog:",
