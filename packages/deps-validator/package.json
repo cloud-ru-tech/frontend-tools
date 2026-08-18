@@ -37,5 +37,9 @@
     "depcheck": "1.4.7",
     "glob": "13.0.0",
     "yargs": "18.0.0"
+  },
+  "devDependencies": {
+    "@types/yargs": "17.0.35",
+    "vitest": "4.1.10"
   }
 }

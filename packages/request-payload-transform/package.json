@@ -27,5 +27,8 @@
     "type": "git",
     "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
     "directory": "packages/request-payload-transform"
+  },
+  "devDependencies": {
+    "vitest": "4.1.10"
   }
 }

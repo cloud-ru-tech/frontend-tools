@@ -1,5 +1,7 @@
 {
   "version": "independent",
+  "npmClient": "pnpm",
+  "packages": ["packages/*"],
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
@@ -14,5 +16,5 @@
       "license": "Apache-2.0"
     }
   },
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
+  "$schema": "https://raw.githubusercontent.com/lerna/lerna/main/packages/lerna/schemas/lerna-schema.json"
 }
