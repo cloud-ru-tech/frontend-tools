@@ -33,9 +33,9 @@
     "directory": "packages/deps-validator"
   },
   "dependencies": {
-    "colors": "^1.4.0",
     "depcheck": "^1.4.7",
     "glob": "catalog:",
+    "picocolors": "catalog:",
     "yargs": "catalog:"
   },
   "devDependencies": {
