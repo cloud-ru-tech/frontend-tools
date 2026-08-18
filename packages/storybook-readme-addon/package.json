@@ -29,7 +29,7 @@
     "@storybook/manager-api": "catalog:",
     "@storybook/theming": "catalog:",
     "@types/react": "catalog:",
-    "@types/react-syntax-highlighter": "15.5.13",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "react": "catalog:",
     "react-dom": "catalog:",
     "ts-node": "catalog:",

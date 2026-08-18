@@ -43,11 +43,6 @@ jobs:
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
           pnpm exec lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA"
           pnpm run build:packages
-          # см. комментарий в release.yml — lerna не понимает catalog:
-          pnpm run publish:resolve-specs
-          pnpm run publish:check-specs
-          git add -A
-          git commit -q --no-verify -m "chore: resolve catalog specs for publish [skip ci]"
-          # from-package, а не from-git — см. комментарий в release.yml
-          pnpm exec lerna publish from-package --yes --dist-tag preview
+          # catalog: разворачивает корневой prepack — см. комментарий в release.yml
+          pnpm exec lerna publish from-git --yes --dist-tag preview
         shell: bash

@@ -23,10 +23,10 @@ catalog:
   typescript: ^5.9.3
   vitest: ^4.1.10
   yargs: ^18.1.0
-  # dev-only — пином
-  '@types/react': 18.3.28
-  react: 18.3.1
-  react-dom: 18.3.1
+  # react/react-dom — пином: несколько копий React ломают хуки
+  '@types/react': ^18.2.45
+  react: 18.2.0
+  react-dom: 18.2.0
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false

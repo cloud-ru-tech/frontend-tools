@@ -30,7 +30,7 @@
     "@types/react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "storybook": "8.6.18",
+    "storybook": "^8.6.18",
     "ts-node": "catalog:",
     "typescript": "catalog:"
   },
