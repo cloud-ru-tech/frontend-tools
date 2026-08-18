@@ -48,5 +48,6 @@ jobs:
           pnpm run publish:check-specs
           git add -A
           git commit -q --no-verify -m "chore: resolve catalog specs for publish [skip ci]"
-          pnpm exec lerna publish from-git --yes --dist-tag preview
+          # from-package, а не from-git — см. комментарий в release.yml
+          pnpm exec lerna publish from-package --yes --dist-tag preview
         shell: bash

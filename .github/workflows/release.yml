@@ -66,13 +66,18 @@ jobs:
             if [[ "$isNewVersionDetected" != "false" ]] ; then
               pnpm run build:packages
               # lerna не разворачивает catalog: — делаем это сами и проверяем результат.
-              # Дереву нужно быть чистым (lerna publish падает с EUNCOMMIT), поэтому
-              # результат коммитим локально; коммит никуда не пушится.
+              # Дереву нужно быть чистым (lerna publish падает с EUNCOMMIT, флага для
+              # пропуска проверки нет), поэтому результат коммитим локально; коммит
+              # никуда не пушится.
               pnpm run publish:resolve-specs
               pnpm run publish:check-specs
               git add -A
               git commit -q --no-verify -m "chore: resolve catalog specs for publish [skip ci]"
-              pnpm exec lerna publish from-git --yes
+              # Именно from-package, а не from-git: коммит выше сдвигает HEAD с тега,
+              # который поставил lerna version, и from-git отвечает "No tagged release
+              # found" — то есть молча не публикует ничего. from-package определяет
+              # набор релиза по версиям, которых ещё нет в реестре.
+              pnpm exec lerna publish from-package --yes
             fi
           fi
         shell: bash

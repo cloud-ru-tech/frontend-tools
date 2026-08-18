@@ -53,6 +53,40 @@ const LICENSES = {
   [License.BlueOak_V1]: [License.APACHE_V2, License.BlueOak_V1],
 };
 
+/**
+ * Ищет фактически установленную версию зависимости, поднимаясь по node_modules от
+ * директории манифеста.
+ *
+ * Фильтр `packages` у license-checker сравнивает строку `name@version` буквально,
+ * поэтому объявленный специфаер для него бесполезен: каретка (`^1.1.1`), диапазон
+ * (`^16.0.0 || ^17.0.0`) и протоколы pnpm (`catalog:`, `workspace:^`) не совпадут
+ * ни с чем, и проверка молча пройдёт вхолостую. Сверять нужно установленную версию.
+ */
+function resolveInstalledVersion(depName: string, fromDir: string): string | undefined {
+  let dir = path.resolve(fromDir);
+
+  for (;;) {
+    const candidate = path.join(dir, 'node_modules', depName, 'package.json');
+
+    if (fs.existsSync(candidate)) {
+      try {
+        const { version } = JSON.parse(fs.readFileSync(candidate, 'utf8')) as { version?: string };
+        return version;
+      } catch {
+        return undefined;
+      }
+    }
+
+    const parent = path.dirname(dir);
+
+    if (parent === dir) {
+      return undefined;
+    }
+
+    dir = parent;
+  }
+}
+
 function getAllDeps(packageJson?: PackageJson) {
   if (!packageJson) {
     return [];
@@ -63,11 +97,21 @@ function getAllDeps(packageJson?: PackageJson) {
     ...packageJson.peerDependencies,
   };
 
-  return Object.entries(allDeps);
+  return Object.keys(allDeps);
 }
 
-function mapPackagesWithVersion(deps: [string, string][]) {
-  return deps.map(([packageName, version]) => `${packageName}@${version}`);
+function mapPackagesWithVersion(depNames: string[], manifestDir: string, unresolved: Set<string>) {
+  return depNames.reduce<string[]>((acc, depName) => {
+    const version = resolveInstalledVersion(depName, manifestDir);
+
+    if (version) {
+      acc.push(`${depName}@${version}`);
+    } else {
+      unresolved.add(depName);
+    }
+
+    return acc;
+  }, []);
 }
 
 function getPackageJson(file: string): PackageJson {
@@ -75,23 +119,25 @@ function getPackageJson(file: string): PackageJson {
   return require(path.resolve(file));
 }
 
-function getLicenseInfo(props: InitOpts, allowedLicenses: string): Promise<ModuleInfos> {
+function getLicenseInfo(props: InitOpts, allowedLicenses?: string): Promise<ModuleInfos> {
   return new Promise((resolve, reject) => {
-    checker.init(
-      {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        exclude: allowedLicenses,
-        ...props,
-      },
-      function (err, packages) {
-        if (err) {
-          return reject(err);
-        }
+    const options: InitOpts = { ...props };
 
-        resolve(packages);
-      },
-    );
+    if (allowedLicenses) {
+      // license-checker разбирает `exclude` как строку с запятыми (lib/index.js),
+      // хотя в типах объявлен string[].
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      options.exclude = allowedLicenses;
+    }
+
+    checker.init(options, function (err, packages) {
+      if (err) {
+        return reject(err);
+      }
+
+      resolve(packages);
+    });
   });
 }
 
@@ -109,11 +155,19 @@ function getLicenseInfo(props: InitOpts, allowedLicenses: string): Promise<Modul
     }
 
     const allowedLicenses = LICENSES[license].join(', ');
-    const depsToCheck = [
-      ...new Set([...packageFiles.flatMap(file => mapPackagesWithVersion(getAllDeps(getPackageJson(file))))]).values(),
-    ];
+    const unresolvedDeps = new Set<string>();
 
-    const [internalDepsToCheck, externalDepsToCheck] = splitArray(depsToCheck, packageName =>
+    // Обход ведётся от директории каждого манифеста, а не только от корня проекта:
+    // в раскладке pnpm зависимости пакета лежат в packages/<pkg>/node_modules и из
+    // корня недостижимы, поэтому проверка от './' видела бы лишь корневые deps.
+    const manifests = packageFiles.map(file => {
+      const dir = path.dirname(path.resolve(file));
+
+      return { dir, deps: mapPackagesWithVersion(getAllDeps(getPackageJson(file)), dir, unresolvedDeps) };
+    });
+
+    const allDepsToCheck = [...new Set(manifests.flatMap(({ deps }) => deps)).values()];
+    const [internalDepsToCheck, externalDepsToCheck] = splitArray(allDepsToCheck, packageName =>
       INTERNAL_PACKAGE_SCOPES.some(scope => packageName.startsWith(scope)),
     );
 
@@ -121,18 +175,67 @@ function getLicenseInfo(props: InitOpts, allowedLicenses: string): Promise<Modul
     logData(externalDepsToCheck.map(dep => ` * ${dep}`).join('\n'));
     logData(internalDepsToCheck.map(dep => ` * ${dep}`).join('\n'));
 
-    const externalDepsLicenseInfo = Object.entries(
-      await getLicenseInfo({ start: './', packages: externalDepsToCheck.join(';') }, allowedLicenses),
-    );
-    const internalDepsLicenseInfo = Object.entries(
-      await getLicenseInfo({ start: './', packages: internalDepsToCheck.join(';') }, allowedLicenses),
-    );
+    if (unresolvedDeps.size > 0) {
+      logWarn('[WARNING] The following deps are declared but not installed, so their licenses are not checked:');
+      logWarn([...unresolvedDeps].map(dep => ` * ${dep}`).join('\n'));
+    }
+
+    const matchedExternal = new Set<string>();
+    const externalViolations = new Map<string, string>();
+    const internalViolations = new Map<string, string>();
+
+    for (const { dir, deps } of manifests) {
+      if (deps.length === 0) {
+        continue;
+      }
+
+      const [internal, external] = splitArray(deps, packageName =>
+        INTERNAL_PACKAGE_SCOPES.some(scope => packageName.startsWith(scope)),
+      );
+
+      if (external.length > 0) {
+        const packages = external.join(';');
+
+        // Первый вызов без `exclude` — чтобы знать, сколько пакетов вообще попало под
+        // фильтр: без этого пустой список нарушений неотличим от «проверять было нечего».
+        Object.keys(await getLicenseInfo({ start: dir, packages })).forEach(name => matchedExternal.add(name));
+
+        for (const [name, info] of Object.entries(await getLicenseInfo({ start: dir, packages }, allowedLicenses))) {
+          externalViolations.set(name, String(info.licenses));
+        }
+      }
+
+      if (internal.length > 0) {
+        const info = await getLicenseInfo({ start: dir, packages: internal.join(';') }, allowedLicenses);
+
+        for (const [name, { licenses }] of Object.entries(info)) {
+          internalViolations.set(name, String(licenses));
+        }
+      }
+    }
+
+    // Пустой список нарушений сам по себе ничего не доказывает: он одинаково выглядит
+    // и когда всё в порядке, и когда проверять было нечего. Считаем объявленным всё, что
+    // нашлось в манифестах, включая неразрешённое, — иначе неустановленные зависимости
+    // дали бы пустой список и проверка снова прошла бы вхолостую.
+    const declaredCount = externalDepsToCheck.length + unresolvedDeps.size;
+
+    if (declaredCount > 0 && matchedExternal.size === 0) {
+      logError('[ERROR] License check matched no packages at all — the result is meaningless.');
+      logError(
+        `Declared deps: ${declaredCount}, matched in node_modules: 0. Install dependencies before running the check.`,
+      );
+      process.exit(1);
+    }
+
+    logInfo(`Licenses checked for ${matchedExternal.size} of ${externalDepsToCheck.length} external deps`);
+
+    const externalDepsLicenseInfo = [...externalViolations.entries()];
+    const internalDepsLicenseInfo = [...internalViolations.entries()];
 
     if (internalDepsLicenseInfo.length > 0) {
       logWarn('[WARNING] The following internal packages have not valid licenses:');
-      logWarn(
-        internalDepsLicenseInfo.map(([packageName, { licenses }]) => ` * ${packageName}: ${licenses}`).join('\n'),
-      );
+      logWarn(internalDepsLicenseInfo.map(([packageName, licenses]) => ` * ${packageName}: ${licenses}`).join('\n'));
     }
 
     if (externalDepsLicenseInfo.length === 0) {
@@ -141,7 +244,7 @@ function getLicenseInfo(props: InitOpts, allowedLicenses: string): Promise<Modul
     }
 
     logError('[ERROR] The following external packages have not valid licenses:');
-    logError(externalDepsLicenseInfo.map(([packageName, { licenses }]) => ` * ${packageName}: ${licenses}`).join('\n'));
+    logError(externalDepsLicenseInfo.map(([packageName, licenses]) => ` * ${packageName}: ${licenses}`).join('\n'));
 
     logError(`The list of allowed licenses: ${allowedLicenses}`);
     process.exit(1);
