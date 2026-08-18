@@ -12,7 +12,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.25",
+    "@floating-ui/react": "^0.26.28",
     "@storybook/components": "catalog:",
     "@storybook/csf": "^0.1.13",
     "@storybook/icons": "^1.6.0",
@@ -27,11 +27,10 @@
     "storybook": "^8.0.0"
   },
   "devDependencies": {
-    "@storybook/types": "8.3.6",
     "@types/react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "storybook": "8.3.6",
+    "storybook": "8.6.18",
     "ts-node": "catalog:",
     "typescript": "catalog:"
   },

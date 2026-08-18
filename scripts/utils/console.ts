@@ -1,22 +1,18 @@
-import colors from 'colors/safe';
+import pc from 'picocolors';
 
+// В picocolors нет аналога colors-темы `rainbow`, поэтому silly-уровень окрашен
+// в magenta. Остальные цвета совпадают с прежними.
 const themes = {
-  silly: 'rainbow',
-  input: 'grey',
-  verbose: 'cyan',
-  prompt: 'grey',
-  info: 'green',
-  data: 'grey',
-  help: 'cyan',
-  warn: 'yellow',
-  debug: 'blue',
-  error: 'red',
+  silly: pc.magenta,
+  info: pc.green,
+  help: pc.cyan,
+  warn: pc.yellow,
+  debug: pc.blue,
+  error: pc.red,
 } as const;
 
-colors.setTheme(themes);
-
 const log = (message: string, theme: keyof typeof themes = 'warn'): void => {
-  console.log(colors[themes[theme]](`${message}\n`));
+  console.log(themes[theme](`${message}\n`));
 };
 
 export const logError = (message: string) => log(message, 'error');

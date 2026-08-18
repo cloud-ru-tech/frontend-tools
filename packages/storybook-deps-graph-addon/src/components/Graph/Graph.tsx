@@ -30,7 +30,7 @@ export function Graph({ storyName, elements }: GraphProps): ReactElement {
 
   const themeColors = color[base] || color.light;
 
-  const cytoscapeStylesheet: Array<cytoscape.Stylesheet> = [
+  const cytoscapeStylesheet: Cytoscape.StylesheetJson = [
     {
       selector: 'node',
       style: {

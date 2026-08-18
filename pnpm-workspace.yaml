@@ -6,25 +6,27 @@ packages:
 # библиотеки), чисто-dev — точной версией: потребитель их не ставит, а пин полезнее
 # для детерминизма локальных сборок. См. .claude/rules/packages-deps.md.
 catalog:
-  '@storybook/components': ^8.3.6
-  '@storybook/manager-api': ^8.3.6
-  '@storybook/theming': ^8.3.6
-  '@types/node': ^24.10.1
+  '@storybook/components': ^8.6.14
+  '@storybook/manager-api': ^8.6.14
+  '@storybook/theming': ^8.6.14
+  '@types/node': ^24.13.3
   '@types/yargs': ^17.0.35
-  eslint: ^9.39.4
-  glob: ^13.0.0
-  husky: ^9.1.6
-  lint-staged: ^16.2.7
-  prettier: ^3.8.1
-  stylelint: ^16.6.1
+  eslint: ^9.39.5
+  glob: ^13.0.6
+  husky: ^9.1.7
+  lint-staged: ^16.4.0
+  picocolors: ^1.1.1
+  prettier: ^3.9.6
+  # stylelint держим в 16.x осознанно: 17.x откачен в FF-8201.
+  stylelint: ^16.26.1
   ts-node: ^10.9.2
   typescript: ^5.9.3
   vitest: ^4.1.10
-  yargs: ^18.0.0
+  yargs: ^18.1.0
   # dev-only — пином
-  '@types/react': 18.2.45
-  react: 18.2.0
-  react-dom: 18.2.0
+  '@types/react': 18.3.28
+  react: 18.3.1
+  react-dom: 18.3.1
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
