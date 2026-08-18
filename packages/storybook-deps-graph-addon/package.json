@@ -13,11 +13,11 @@
     "dependencies"
   ],
   "dependencies": {
-    "@storybook/components": "8.3.6",
-    "@storybook/manager-api": "8.3.6",
-    "@storybook/theming": "8.3.6",
-    "cytoscape": "3.30.3",
-    "cytoscape-dagre": "2.5.0"
+    "@storybook/components": "catalog:",
+    "@storybook/manager-api": "catalog:",
+    "@storybook/theming": "catalog:",
+    "cytoscape": "^3.30.3",
+    "cytoscape-dagre": "^2.5.0"
   },
   "peerDependencies": {
     "react": "^17.0.2 || ^18.0.0",
@@ -26,11 +26,11 @@
   "devDependencies": {
     "@types/cytoscape": "3.21.8",
     "@types/cytoscape-dagre": "2.3.3",
-    "@types/react": "18.2.45",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "@types/react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "ts-node": "catalog:",
+    "typescript": "catalog:"
   },
   "license": "Apache-2.0",
   "types": "./dist/esm/index.d.ts",

@@ -29,6 +29,6 @@
     "directory": "packages/request-payload-transform"
   },
   "devDependencies": {
-    "vitest": "4.1.10"
+    "vitest": "catalog:"
   }
 }

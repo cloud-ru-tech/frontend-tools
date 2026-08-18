@@ -29,6 +29,6 @@
     "directory": "packages/copy-to-clipboard"
   },
   "dependencies": {
-    "copy-to-clipboard": "3.3.3"
+    "copy-to-clipboard": "^3.3.3"
   }
 }

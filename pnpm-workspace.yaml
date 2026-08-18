@@ -9,7 +9,8 @@ catalog:
   '@storybook/components': ^8.3.6
   '@storybook/manager-api': ^8.3.6
   '@storybook/theming': ^8.3.6
-  '@typescript-eslint/parser': ^8.53.1
+  '@types/node': ^24.10.1
+  '@types/yargs': ^17.0.35
   eslint: ^9.39.4
   glob: ^13.0.0
   husky: ^9.1.6
@@ -21,7 +22,6 @@ catalog:
   vitest: ^4.1.10
   yargs: ^18.0.0
   # dev-only — пином
-  '@types/node': 24.10.1
   '@types/react': 18.2.45
   react: 18.2.0
   react-dom: 18.2.0

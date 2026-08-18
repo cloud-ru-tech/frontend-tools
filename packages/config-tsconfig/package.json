@@ -16,9 +16,9 @@
     "./tsconfig.json"
   ],
   "dependencies": {
-    "@types/node": "24.10.1",
-    "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "@types/node": "catalog:",
+    "ts-node": "catalog:",
+    "typescript": "catalog:"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-tsconfig",
   "repository": {
