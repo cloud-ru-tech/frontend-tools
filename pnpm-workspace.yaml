@@ -1,0 +1,40 @@
+packages:
+  - 'packages/*'
+
+# Диапазоны для зависимостей, объявленных в двух и более пакетах. Consumer-facing
+# записи держим каретой (потребитель не должен получать дубликат уже стоящей у него
+# библиотеки), чисто-dev — точной версией: потребитель их не ставит, а пин полезнее
+# для детерминизма локальных сборок. См. .claude/rules/packages-deps.md.
+catalog:
+  '@storybook/components': ^8.3.6
+  '@storybook/manager-api': ^8.3.6
+  '@storybook/theming': ^8.3.6
+  '@typescript-eslint/parser': ^8.53.1
+  eslint: ^9.39.4
+  glob: ^13.0.0
+  husky: ^9.1.6
+  lint-staged: ^16.2.7
+  prettier: ^3.8.1
+  stylelint: ^16.6.1
+  ts-node: ^10.9.2
+  typescript: ^5.9.3
+  vitest: ^4.1.10
+  yargs: ^18.0.0
+  # dev-only — пином
+  '@types/node': 24.10.1
+  '@types/react': 18.2.45
+  react: 18.2.0
+  react-dom: 18.2.0
+
+linkWorkspacePackages: true
+saveWorkspaceProtocol: false
+
+# pnpm 10 по умолчанию блокирует postinstall зависимостей. Разрешаем только тем,
+# кому он действительно нужен: config-husky генерирует .husky/*, остальные три —
+# нативные бинарники (nx под lerna, esbuild под vitest, unrs-resolver под
+# eslint-import-resolver-typescript).
+onlyBuiltDependencies:
+  - '@cloud-ru/ft-config-husky'
+  - esbuild
+  - nx
+  - unrs-resolver

@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: 'Use "--force" flag for npm'
+        description: 'Use "--force" flag for pnpm install'
         required: false
         default: 'false'
 
@@ -19,27 +19,34 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
-          cache: 'npm'
+          node-version: 24
+          cache: 'pnpm'
 
       - name: Publish preview
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if [[ "${{ inputs.force }}" == "true" ]]; then
-            NPM_FLAGS="--force"
-            NPM_CLIENT_ARGS="--npm-client-args=--force"
+            PNPM_FLAGS="--force"
             echo "Force installing is enabled"
           fi
           git config --global user.email "robot@cloud.ru"
           git config --global user.name "cloud-ru-tech-robot"
           npm config --global set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-          npm ci $NPM_FLAGS
+          pnpm install --frozen-lockfile $PNPM_FLAGS
           SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          npx lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA" ${NPM_CLIENT_ARGS}
-          npm run build:packages $NPM_FLAGS
-          npx lerna publish from-git --yes --dist-tag preview
+          pnpm exec lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA"
+          pnpm run build:packages
+          # см. комментарий в release.yml — lerna не понимает catalog:
+          pnpm run publish:resolve-specs
+          pnpm run publish:check-specs
+          git add -A
+          git commit -q --no-verify -m "chore: resolve catalog specs for publish [skip ci]"
+          pnpm exec lerna publish from-git --yes --dist-tag preview
         shell: bash
