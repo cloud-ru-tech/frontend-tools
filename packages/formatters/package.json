@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-formatters",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helper function to format data",
   "keywords": [
     "formatBytes",

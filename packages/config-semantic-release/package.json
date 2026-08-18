@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-semantic-release",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Config and dependencies for semantic-release",
   "author": {
     "name": "Belov Aleksei",

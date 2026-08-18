@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2026-08-18)
+
+
+### Dependencies
+
+* **FF-8693:** use carets and pnpm catalog for package dependencies ([7d3ff6a](https://github.com/cloud-ru-tech/frontend-tools/commit/7d3ff6adddc1ca0085d3646eba09784f8ff132cd))
+
+
+### Features
+
+* **FF-8693:** migrate repository to pnpm workspaces ([5c338c5](https://github.com/cloud-ru-tech/frontend-tools/commit/5c338c567dff3bd63d161416e3b3387ac0d9ad48))
+
+
+
+
+
 # 0.3.0 (2025-12-17)
 
 

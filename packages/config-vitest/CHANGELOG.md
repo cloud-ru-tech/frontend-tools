@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.5 (2026-08-18)
+
+
+### Dependencies
+
+* **FF-8693:** use carets and pnpm catalog for package dependencies ([7d3ff6a](https://github.com/cloud-ru-tech/frontend-tools/commit/7d3ff6adddc1ca0085d3646eba09784f8ff132cd))
+
+
+
+
+
 ## 1.3.4 (2026-07-22)
 
 

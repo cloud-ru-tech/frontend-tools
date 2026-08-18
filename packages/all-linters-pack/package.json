@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-all-linters-pack",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "husky + lint-staged + eslint + stylelint + prettier",
   "keywords": [
     "husky",

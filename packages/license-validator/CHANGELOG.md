@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2026-08-18)
+
+
+### Bug Fixes
+
+* **FF-8693:** stop license lookup at project root and fix preview install flags ([edd0a35](https://github.com/cloud-ru-tech/frontend-tools/commit/edd0a358cdc58828e5e68074eb7e97892c409d60))
+
+
+### Dependencies
+
+* **FF-8693:** audit dependencies and fix vulnerabilities ([f435396](https://github.com/cloud-ru-tech/frontend-tools/commit/f435396a0c3b756789fab9be09f1c2da2bfd88b3))
+* **FF-8693:** pin react, use carets for devDependencies and publish via root prepack ([537d0bd](https://github.com/cloud-ru-tech/frontend-tools/commit/537d0bd064dde17fe0c4b947822f736b11e7a756))
+* **FF-8693:** use carets and pnpm catalog for package dependencies ([7d3ff6a](https://github.com/cloud-ru-tech/frontend-tools/commit/7d3ff6adddc1ca0085d3646eba09784f8ff132cd))
+
+
+### BREAKING CHANGES
+
+
+* **FF-8693:** check licenses of installed versions, not declared ranges ([08f53a1](https://github.com/cloud-ru-tech/frontend-tools/commit/08f53a13906200cd1a4c42c908831ea12ec13e85))
+
+
+
+
 # 1.3.0 (2026-01-20)
 
 

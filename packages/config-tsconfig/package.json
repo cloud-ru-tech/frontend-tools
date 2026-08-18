@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-tsconfig",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Reusable typescript configuration",
   "author": {
     "name": "Akhremenko Grigorii",
