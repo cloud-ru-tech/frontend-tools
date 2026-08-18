@@ -110,6 +110,17 @@ function main() {
       for (const [depName, spec] of Object.entries(deps)) {
         if (typeof spec !== 'string' || !spec.startsWith('catalog:')) continue;
 
+        // peer-диапазоны намеренно шире, чем версия для локальной сборки: каталог
+        // держит одну версию (например react 18.2.0), а peer должен допускать всё,
+        // что пакет реально поддерживает (^17.0.2 || ^18.0.0). Через catalog: peer
+        // схлопнулся бы в точную версию и потребитель не смог бы поставить пакет.
+        if (field === 'peerDependencies') {
+          throw new Error(
+            `${manifest.name ?? slug}: peerDependencies.${depName} = ${spec}. ` +
+              'В peerDependencies catalog: использовать нельзя — укажи диапазон явно.',
+          );
+        }
+
         deps[depName] = resolveCatalogSpec(depName, spec, catalog, manifest.name ?? slug);
         changed = true;
         resolvedCount += 1;
