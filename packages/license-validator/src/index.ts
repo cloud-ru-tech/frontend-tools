@@ -63,6 +63,7 @@ const LICENSES = {
  * ни с чем, и проверка молча пройдёт вхолостую. Сверять нужно установленную версию.
  */
 function resolveInstalledVersion(depName: string, fromDir: string): string | undefined {
+  const projectRoot = path.resolve(process.cwd());
   let dir = path.resolve(fromDir);
 
   for (;;) {
@@ -75,6 +76,13 @@ function resolveInstalledVersion(depName: string, fromDir: string): string | und
       } catch {
         return undefined;
       }
+    }
+
+    // Выше корня проекта не поднимаемся: в родительских каталогах может лежать
+    // посторонний node_modules (домашний каталог, внешний воркспейс), и версия
+    // оттуда не имеет отношения к проверяемому проекту.
+    if (dir === projectRoot) {
+      return undefined;
     }
 
     const parent = path.dirname(dir);
