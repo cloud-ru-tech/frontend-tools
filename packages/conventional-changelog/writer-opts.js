@@ -70,6 +70,11 @@ function getWriterOpts() {
         type,
         scope,
         shortHash,
+        // hash и header нужны шаблонам: templates/commit.hbs строит ссылку на коммит
+        // из {{hash}}, а {{header}} подставляется, когда subject пуст. Без них ссылка
+        // получается вида `.../commit/` — без хеша.
+        hash: commit.hash,
+        header: commit.header,
         subject: commit.subject,
         references,
       };

@@ -90,9 +90,9 @@ importers:
       '@cloud-ru/ft-config-vitest':
         specifier: workspace:^
         version: link:packages/config-vitest
-      '@cloud-ru/ft-conventional-changelog-old':
-        specifier: npm:@cloud-ru/ft-conventional-changelog@1.1.0
-        version: '@cloud-ru/ft-conventional-changelog@1.1.0'
+      '@cloud-ru/ft-conventional-changelog':
+        specifier: workspace:^
+        version: link:packages/conventional-changelog
       '@cloud-ru/ft-solidarity':
         specifier: workspace:^
         version: link:packages/solidarity
@@ -1157,9 +1157,6 @@ packages:
 
   '@cacheable/utils@2.5.0':
     resolution: {integrity: sha512-buipgOVDkkPXNR5+xBpDw7Zk2n1EvU7qBJCNUcL7rhQ//kfpOXPAvQ511Os0vpLYJ1pZnvudNytkQt2hst3wqA==}
-
-  '@cloud-ru/ft-conventional-changelog@1.1.0':
-    resolution: {integrity: sha512-01R+sbiKDV2sBFMJMKLNDXvpCdrIcxAH9JHpzgVxDbUXwxjpS1bdC2/mdGAOxNZ4aOvrC1APYhRlKchN6whgCQ==}
 
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -5976,14 +5973,6 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  q@1.5.1:
-    resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
-    engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
-    deprecated: |-
-      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
-      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
-
   qified@0.10.1:
     resolution: {integrity: sha512-+Owyggi9IxT1ePKGafcI87ubSmxol6smwJ+RAHDQlx9+9cPwFWDiKFFCPuWhr9ignlGpZ9vDQLw67N4dcTVFEA==}
     engines: {node: '>=20'}
@@ -8137,11 +8126,6 @@ snapshots:
     dependencies:
       hashery: 1.5.1
       keyv: 5.6.0
-
-  '@cloud-ru/ft-conventional-changelog@1.1.0':
-    dependencies:
-      compare-func: 2.0.0
-      q: 1.5.1
 
   '@colors/colors@1.5.0':
     optional: true
@@ -13593,8 +13577,6 @@ snapshots:
   proxy-from-env@2.1.0: {}
 
   punycode@2.3.1: {}
-
-  q@1.5.1: {}
 
   qified@0.10.1:
     dependencies:
