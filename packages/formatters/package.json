@@ -33,7 +33,7 @@
     "directory": "packages/formatters"
   },
   "dependencies": {
-    "date-fns": "2.30.0",
-    "js-base64": "3.7.5"
+    "date-fns": "^2.30.0",
+    "js-base64": "^3.7.5"
   }
 }

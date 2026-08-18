@@ -12,11 +12,11 @@
     "dependencies"
   ],
   "dependencies": {
-    "simple-git": "3.36.0",
-    "yargs": "18.0.0"
+    "simple-git": "^3.36.0",
+    "yargs": "catalog:"
   },
   "devDependencies": {
-    "@types/yargs": "17.0.35"
+    "@types/yargs": "catalog:"
   },
   "license": "Apache-2.0",
   "bin": {

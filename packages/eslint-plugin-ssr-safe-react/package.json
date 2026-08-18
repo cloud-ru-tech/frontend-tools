@@ -23,10 +23,10 @@
   ],
   "devDependencies": {
     "@typescript-eslint/rule-tester": "8.53.1",
-    "vitest": "4.1.10"
+    "vitest": "catalog:"
   },
   "peerDependencies": {
-    "eslint": ">= 9.0.0"
+    "eslint": "^9.0.0 || ^10.0.0"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-toolspackages/eslint-plugin-ssr-safe-react",
   "repository": {

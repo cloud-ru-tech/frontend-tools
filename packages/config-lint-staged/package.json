@@ -11,11 +11,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "lint-staged": "16.2.7"
+    "lint-staged": "catalog:"
   },
   "peerDependencies": {
-    "eslint": "*",
-    "prettier": "*"
+    "eslint": "^9.0.0 || ^10.0.0",
+    "prettier": "^3.0.0"
   },
   "types": "./dist/esm/index.d.ts",
   "exports": {

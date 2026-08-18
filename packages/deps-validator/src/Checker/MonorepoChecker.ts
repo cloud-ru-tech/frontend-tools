@@ -2,6 +2,14 @@ import { MonorepoConfig } from '../Config';
 import { readPackageJsonFile, readPackageJsonFileSync } from '../utils/readPackageJsonFile';
 import { RepoChecker } from './RepoChecker';
 
+// Протоколы pnpm: конкретную версию в них не сравнить — её подставляет пакетный
+// менеджер (workspace:) или разворачивает publish (catalog:).
+const PACKAGE_MANAGER_PROTOCOLS = ['workspace:', 'catalog:'];
+
+function isPackageManagerProtocol(version: string): boolean {
+  return PACKAGE_MANAGER_PROTOCOLS.some(protocol => version.startsWith(protocol));
+}
+
 export class MonorepoChecker extends RepoChecker {
   private actualVersions: Record<string, string> = {};
 
@@ -21,7 +29,7 @@ export class MonorepoChecker extends RepoChecker {
     if (pkg.dependencies) {
       for (const [dep, version] of Object.entries(pkg.dependencies)) {
         const actualVersion = this.actualVersions[dep];
-        if (actualVersion && actualVersion !== version && !version.startsWith('workspace:')) {
+        if (actualVersion && actualVersion !== version && !isPackageManagerProtocol(version)) {
           const data = { version, actualVersion, dep };
           if (result.wrongVersions) {
             result.wrongVersions.push(data);

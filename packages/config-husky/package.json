@@ -14,12 +14,12 @@
     "postinstall": "node scripts/prepare.js"
   },
   "dependencies": {
-    "@cloud-ru/ft-config-commit-message": "1.1.2",
-    "@cloud-ru/ft-solidarity": "1.1.0",
-    "husky": "9.1.6"
+    "@cloud-ru/ft-config-commit-message": "workspace:^",
+    "@cloud-ru/ft-solidarity": "workspace:^",
+    "husky": "catalog:"
   },
   "peerDependencies": {
-    "lint-staged": "*"
+    "lint-staged": "^16.0.0 || ^17.0.0"
   },
   "files": [
     "scripts",

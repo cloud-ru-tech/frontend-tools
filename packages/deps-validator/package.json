@@ -33,13 +33,13 @@
     "directory": "packages/deps-validator"
   },
   "dependencies": {
-    "colors": "1.4.0",
-    "depcheck": "1.4.7",
-    "glob": "13.0.0",
-    "yargs": "18.0.0"
+    "colors": "^1.4.0",
+    "depcheck": "^1.4.7",
+    "glob": "catalog:",
+    "yargs": "catalog:"
   },
   "devDependencies": {
-    "@types/yargs": "17.0.35",
-    "vitest": "4.1.10"
+    "@types/yargs": "catalog:",
+    "vitest": "catalog:"
   }
 }
