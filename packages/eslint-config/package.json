@@ -30,11 +30,13 @@
   "main": "base.js",
   "exports": {
     ".": "./base.js",
-    "./monorepo": "./monorepo.js"
+    "./monorepo": "./monorepo.js",
+    "./monorepo-oxfmt": "./monorepo-oxfmt.js"
   },
   "files": [
     "base.js",
     "monorepo.js",
+    "monorepo-oxfmt.js",
     "./README.md",
     "./CHANGELOG.md"
   ],

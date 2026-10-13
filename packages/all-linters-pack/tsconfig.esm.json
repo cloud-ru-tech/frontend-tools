@@ -5,5 +5,10 @@
     "outDir": "./dist/esm"
   },
   "include": ["./src"],
-  "exclude": ["./dist"]
+  "exclude": ["./dist"],
+  "references": [
+    { "path": "../config-oxfmt/tsconfig.esm.json" },
+    { "path": "../config-lint-staged/tsconfig.esm.json" },
+    { "path": "../config-prettier/tsconfig.esm.json" }
+  ]
 }

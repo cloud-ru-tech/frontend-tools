@@ -14,6 +14,9 @@
       "path": "./config-babel/tsconfig.cjs.json"
     },
     {
+      "path": "./config-oxfmt/tsconfig.cjs.json"
+    },
+    {
       "path": "./config-lint-staged/tsconfig.cjs.json"
     },
     {
