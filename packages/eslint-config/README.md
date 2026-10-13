@@ -26,6 +26,14 @@ export default [
 
 ```
 
+Monorepo + oxfmt:
+
+```ts
+import monorepoOxfmtEslintConfig from '@cloud-ru/eslint-config/monorepo-oxfmt';
+
+export default monorepoOxfmtEslintConfig;
+```
+
 For other projects:
 ```ts
 // projectRoot/eslint.config.mjs

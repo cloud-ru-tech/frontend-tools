@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## Unreleased
+
+### Features
+
+* CLI **`migrate-to-oxfmt`**, oxfmt re-exports, bin requires consumer pack **≥ 1.0.17**
+
 ## 1.0.16 (2026-08-18)
 
 

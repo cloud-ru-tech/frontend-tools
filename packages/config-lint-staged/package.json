@@ -11,6 +11,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@cloud-ru/ft-config-oxfmt": "workspace:^",
     "lint-staged": "catalog:"
   },
   "peerDependencies": {

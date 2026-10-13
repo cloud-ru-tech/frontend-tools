@@ -1,20 +1,23 @@
 # `@cloud-ru/ft-all-linters-pack`
 
-> Содержит в себе следующие утилиты для разработки:
-> * [@cloud-ru/ft-config-husky](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-husky)
-> * [@cloud-ru/ft-config-lint-staged](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-lint-staged)
-> * [@cloud-ru/eslint-config](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/eslint-config)
-> * [@cloud-ru/ft-config-prettier](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-prettier)
-> * [@cloud-ru/ft-config-stylelint](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-stylelint)
+Набор конфигов для husky, lint-staged, eslint, stylelint, Prettier / oxfmt:
+
+| Пакет | Назначение |
+|-------|------------|
+| [ft-config-husky](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-husky) | git hooks |
+| [ft-config-lint-staged](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-lint-staged) | pre-commit |
+| [eslint-config](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/eslint-config) | ESLint |
+| [ft-config-prettier](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-prettier) | Prettier (legacy) |
+| [ft-config-oxfmt](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-oxfmt) | oxfmt, CLI scripts |
+| [ft-config-stylelint](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-stylelint) | SCSS |
 
 ## Usage
 
-#### .eslintrc.js
+#### eslint.config.mjs
 ```typescript
-module.exports = {
-  extends: '@cloud-ru/eslint-config/single-spa'
-  // Будет установлен транзитивно вместе с данным пакетом
-};
+import monorepoEslintConfig from '@cloud-ru/eslint-config/monorepo';
+
+export default monorepoEslintConfig;
 ```
 
 #### stylelint.config.js
@@ -33,3 +36,9 @@ module.exports = require('@cloud-ru/ft-all-linters-pack').defaultPrettierConfig;
 ```typescript
 module.exports = require('@cloud-ru/ft-all-linters-pack').defaultLintStagedConfig;
 ```
+
+## Oxfmt
+
+Миграция с Prettier: `@cloud-ru/ft-all-linters-pack` **≥ 1.0.17**, из корня репозитория `pnpm exec migrate-to-oxfmt` (предпросмотр: `--dry-run`).
+
+Подробно — конфиг, scripts, IDE, lint-staged и ESLint: **[README `@cloud-ru/ft-config-oxfmt`](https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-oxfmt)**.

@@ -1,0 +1,38 @@
+{
+  "name": "@cloud-ru/ft-config-oxfmt",
+  "version": "1.0.0",
+  "description": "Config and dependencies for oxfmt",
+  "keywords": [
+    "oxfmt",
+    "formatter",
+    "oxc"
+  ],
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "oxfmt": "0.71.0"
+  },
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist/esm",
+    "dist/cjs",
+    "src",
+    "./CHANGELOG.md"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-oxfmt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-oxfmt"
+  }
+}
