@@ -93,6 +93,18 @@ describe('@cloud-ru/ft-request-payload-transform', () => {
     expect(payload).toEqual(REQUEST_PARAMS);
   });
 
+  it('parseQueryParamsString with decode: false keeps percent sign', async () => {
+    const params = parseQueryParamsString('search=100%', { decode: false });
+
+    expect(params).toEqual({ search: '100%' });
+  });
+
+  it('parseQueryParamsString with decode: false does not decode escape sequences', async () => {
+    const params = parseQueryParamsString('search=a%41b', { decode: false });
+
+    expect(params).toEqual({ search: 'a%41b' });
+  });
+
   it('createRequestPayload pass empty arrays for filter', async () => {
     const payload = createRequestPayload({
       filter: [

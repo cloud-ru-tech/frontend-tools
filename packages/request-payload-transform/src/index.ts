@@ -1,5 +1,4 @@
 import { EXTRACT_VALUES_REG, PARAM_KEYS } from './constants';
-export * from './types';
 import {
   isPaginationKey,
   isValueNotEmpty,
@@ -15,6 +14,7 @@ import {
   RequestPayloadParams,
   SortDirection,
 } from './types';
+export * from './types';
 
 type RequestPayloadFormatMethods = {
   toObject(): Partial<RequestPayloadParams>;
@@ -80,10 +80,13 @@ export function createRequestPayload(
   } as RequestPayloadCreator;
 }
 
-export function parseQueryParamsString(params: string): Partial<RequestPayloadParams> | undefined {
+export function parseQueryParamsString(
+  params: string,
+  { decode = true }: { decode?: boolean } = {},
+): Partial<RequestPayloadParams> | undefined {
   if (!params.length) return undefined;
 
-  const paramsArray = decodeURIComponent(params).split('&');
+  const paramsArray = (decode ? decodeURIComponent(params) : params).split('&');
 
   const result = paramsArray.reduce<
     Partial<Omit<RequestPayloadParams, 'pagination'>> & { pagination?: Partial<PaginationParams> }
