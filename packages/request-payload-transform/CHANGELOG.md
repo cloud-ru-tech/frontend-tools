@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2026-10-14)
+
+
+### Features
+
+* **CORESERV-12174:** add optional decode param to parseQueryParamsString ([3bb964d](https://github.com/cloud-ru-tech/frontend-tools/commit/3bb964d9c32b3ea917c81f3f8cfd59612faa4567))
+
+
+
+
+
 # 0.4.0 (2026-08-18)
 
 
