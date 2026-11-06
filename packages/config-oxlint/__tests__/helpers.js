@@ -1,3 +1,24 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+
+export function createProject(files) {
+  const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'config-oxlint-')));
+  const write = (file, content) => {
+    const filePath = path.join(root, file);
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, typeof content === 'string' ? content : JSON.stringify(content, null, 2));
+    return filePath;
+  };
+  Object.entries(files).forEach(([file, content]) => write(file, content));
+  return {
+    root,
+    file: relativePath => path.join(root, relativePath),
+    write,
+    remove: () => fs.rmSync(root, { recursive: true, force: true }),
+  };
+}
+
 function deepFreeze(value) {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
     Object.freeze(value);
@@ -9,6 +30,20 @@ function deepFreeze(value) {
 const literal = value => ({ type: 'Literal', value });
 
 export const ast = {
+  import: (source, { kind = 'value', names = [] } = {}) => ({
+    type: 'ImportDeclaration',
+    importKind: kind,
+    source: literal(source),
+    specifiers: names.map(name => ({ type: 'ImportSpecifier', imported: { type: 'Identifier', name } })),
+  }),
+  exportFrom: (source, names = []) => ({
+    type: 'ExportNamedDeclaration',
+    exportKind: 'value',
+    source: literal(source),
+    specifiers: names.map(name => ({ type: 'ExportSpecifier', exported: { type: 'Identifier', name } })),
+  }),
+  exportAll: source => ({ type: 'ExportAllDeclaration', exportKind: 'value', source: literal(source) }),
+  dynamicImport: source => ({ type: 'ImportExpression', source: literal(source) }),
   call: (callee, args) => ({ type: 'CallExpression', callee, arguments: args }),
   identifier: name => ({ type: 'Identifier', name }),
   literal,

@@ -26,6 +26,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@boundaries/elements": "1.2.0",
     "eslint-plugin-simple-import-sort": "catalog:",
     "oxlint": "1.75.0"
   },

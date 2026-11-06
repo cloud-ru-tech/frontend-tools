@@ -114,6 +114,35 @@ module.exports = require('@cloud-ru/ft-all-linters-pack').defaultLintStagedConfi
 | `import-js` (`src/plugins/import-js`) | `no-dynamic-require` вместо правила eslint-plugin-import |
 | `eslint-plugin-simple-import-sort` | порядок импортов (группы как в ESLint) |
 
+### Boundaries (структура проекта)
+
+В пресеты не входит, подключается отдельно через `boundariesJsPlugin`. Те же правила, настройки и сообщения, что у
+`eslint-plugin-boundaries` (`element-types`, `entry-point`, `no-private`, `no-unknown`, `no-unknown-files`), на его движке
+`@boundaries/elements`. Импорты резолвятся по `paths` из tsconfig без нативных биндингов.
+
+```typescript
+import { defineConfig } from 'oxlint';
+
+import { baseOxlintConfig, boundariesJsPlugin, mergeOxlintConfigs } from '@cloud-ru/ft-config-oxlint';
+
+export default defineConfig(
+  mergeOxlintConfigs(baseOxlintConfig, {
+    jsPlugins: [boundariesJsPlugin],
+    settings: {
+      'boundaries/include': ['src/**/*'],
+      'boundaries/elements': [
+        { type: 'components', pattern: 'components/*', mode: 'folder' },
+        { type: 'utils', pattern: 'utils/*', mode: 'file' },
+      ],
+    },
+    rules: {
+      'boundaries/element-types': ['error', { default: 'allow', rules: [{ from: 'utils', disallow: ['components'] }] }],
+      'boundaries/no-unknown': 'warn',
+    },
+  }),
+);
+```
+
 ## Компромиссы относительно ESLint
 
 | Что | Как сейчас |
