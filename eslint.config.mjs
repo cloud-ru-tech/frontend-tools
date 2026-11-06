@@ -20,6 +20,7 @@ export default [
       'packages/eslint-plugin-ssr-safe-react/**/*.js',
       'packages/config-husky/**/*.js',
       'packages/conventional-changelog/**/*.js',
+      'packages/config-oxlint/src/**/*.js',
     ],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',

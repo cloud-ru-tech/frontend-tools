@@ -18,6 +18,14 @@
     "eslint": "^9.0.0 || ^10.0.0",
     "prettier": "^3.0.0"
   },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    }
+  },
   "types": "./dist/esm/index.d.ts",
   "exports": {
     "import": "./dist/esm/index.js",

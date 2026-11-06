@@ -11,3 +11,13 @@ export const defaultLintStagedConfigWithOxfmt = {
   '*.{ts,js,tsx,jsx}': ['eslint --fix', defaultOxfmtLintStagedWriteCommand],
   '*.scss': ['stylelint --fix'],
 };
+
+export const defaultLintStagedConfigWithOxlint = {
+  '*.{ts,js,tsx,jsx}': ['oxlint --fix', 'prettier --write'],
+  '*.scss': ['stylelint --fix'],
+};
+
+export const defaultLintStagedConfigWithOxlintAndOxfmt = {
+  '*.{ts,js,tsx,jsx}': ['oxlint --fix', defaultOxfmtLintStagedWriteCommand],
+  '*.scss': ['stylelint --fix'],
+};

@@ -9,6 +9,13 @@ export {
   defaultOxfmtIgnorePatterns,
   defaultOxfmtLintStagedWriteCommand,
 } from '@cloud-ru/ft-config-oxfmt';
+export {
+  baseOxlintConfig,
+  defaultOxlintConfigRelativePath,
+  mergeOxlintConfigs,
+  monorepoOxlintConfig,
+  playwrightTestsOxlintOverride,
+} from '@cloud-ru/ft-config-oxlint';
 
 export const defaultPrettierConfig = {
   ...defaultPrettierConfigFromPackage,
