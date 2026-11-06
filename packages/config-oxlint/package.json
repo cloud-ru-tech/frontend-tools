@@ -1,0 +1,44 @@
+{
+  "name": "@cloud-ru/ft-config-oxlint",
+  "version": "1.0.0",
+  "description": "Shared Oxlint configs (parity with @cloud-ru/eslint-config)",
+  "keywords": [
+    "oxlint",
+    "linter",
+    "oxc",
+    "eslint-config"
+  ],
+  "author": {
+    "name": "Akhremenko Grigorii",
+    "url": "https://github.com/AGrigorii"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "eslint-plugin-simple-import-sort": "catalog:",
+    "oxlint": "1.75.0"
+  },
+  "files": [
+    "src",
+    "./CHANGELOG.md",
+    "./README.md",
+    "./LICENSE"
+  ],
+  "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-oxlint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-ru-tech/frontend-tools.git",
+    "directory": "packages/config-oxlint"
+  }
+}

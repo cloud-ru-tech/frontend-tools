@@ -22,7 +22,7 @@
     "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-simple-import-sort": "catalog:",
     "globals": "^17.9.0",
     "typescript-eslint": "^8.67.0"
   },

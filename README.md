@@ -16,6 +16,8 @@ Common repository, which contains all kinds of frontend tools, i.e. configs, hoo
 
 * [@cloud-ru/ft-config-lint-staged](packages/config-lint-staged/README.md)
 
+* [@cloud-ru/ft-config-oxlint](packages/config-oxlint/README.md)
+
 * [@cloud-ru/ft-config-prettier](packages/config-prettier/README.md)
 
 * [@cloud-ru/ft-config-semantic-release](packages/config-semantic-release/README.md)

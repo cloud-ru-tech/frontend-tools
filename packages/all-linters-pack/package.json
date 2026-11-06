@@ -1,23 +1,27 @@
 {
   "name": "@cloud-ru/ft-all-linters-pack",
   "version": "1.1.0",
-  "description": "husky + lint-staged + eslint + oxfmt + stylelint + prettier",
+  "description": "husky + lint-staged + eslint/oxlint + oxfmt/prettier + stylelint",
   "keywords": [
     "husky",
     "lint-staged",
     "eslint",
+    "oxlint",
     "oxfmt",
     "prettier",
-    "migrate-to-oxfmt"
+    "migrate-to-oxfmt",
+    "migrate-to-oxlint"
   ],
   "bin": {
-    "migrate-to-oxfmt": "./dist/cjs/bin/migrate-to-oxfmt.js"
+    "migrate-to-oxfmt": "./dist/cjs/bin/migrate-to-oxfmt.js",
+    "migrate-to-oxlint": "./dist/cjs/bin/migrate-to-oxlint.js"
   },
   "dependencies": {
     "@cloud-ru/eslint-config": "workspace:^",
     "@cloud-ru/ft-config-husky": "workspace:^",
     "@cloud-ru/ft-config-lint-staged": "workspace:^",
     "@cloud-ru/ft-config-oxfmt": "workspace:^",
+    "@cloud-ru/ft-config-oxlint": "workspace:^",
     "@cloud-ru/ft-config-prettier": "workspace:^",
     "@cloud-ru/ft-config-stylelint": "workspace:^"
   },
