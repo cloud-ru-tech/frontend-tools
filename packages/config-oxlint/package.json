@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-config-oxlint",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shared Oxlint configs (parity with @cloud-ru/eslint-config)",
   "keywords": [
     "oxlint",
