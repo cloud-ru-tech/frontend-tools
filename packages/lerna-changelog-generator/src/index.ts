@@ -3,7 +3,7 @@ import { execFileSync } from 'child_process';
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-import simpleGit from 'simple-git';
+import { simpleGit } from 'simple-git';
 import { hideBin } from 'yargs/helpers';
 import yargs from 'yargs/yargs';
 

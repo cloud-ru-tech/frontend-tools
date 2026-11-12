@@ -62,13 +62,17 @@
   "pnpm": {
     "overrides": {
       "@types/cytoscape": "3.31.0",
-      "axios": "^1.19.0",
-      "brace-expansion@^5.0.0": "^5.0.9",
+      "axios": "^1.20.0",
+      "brace-expansion@^5.0.0": "^5.0.11",
       "ejs": "^3.1.10",
       "esbuild": "^0.25.12",
-      "js-yaml@^4.0.0": "^4.3.1",
+      "js-yaml@^4.0.0": "^4.3.2",
+      "lerna>pacote": "^21.5.1",
+      "nx>follow-redirects": "^1.16.2",
+      "nx>smol-toml": "^1.7.1",
       "json5": "^2.2.3",
-      "tar": "^7.5.22"
+      "tar": "^7.5.22",
+      "vite": "^8.2.4"
     }
   }
 }
