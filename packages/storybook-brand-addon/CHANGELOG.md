@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.1 (2026-11-13)
+
+
+### Bug Fixes
+
+* close high and critical dependency vulnerabilities ([92de8c0](https://github.com/cloud-ru-tech/frontend-tools/commit/92de8c0bce2773a6d318f2cfba4e39b9a3189a36))
+
+
+
+
+
 # 2.1.0 (2026-08-18)
 
 

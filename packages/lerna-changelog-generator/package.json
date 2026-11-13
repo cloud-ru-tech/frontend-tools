@@ -1,6 +1,6 @@
 {
   "name": "@cloud-ru/ft-lerna-changelog-generator",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Kruglov Dmitry",
   "publishConfig": {
     "access": "public"
