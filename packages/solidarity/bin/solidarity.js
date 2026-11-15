@@ -29,8 +29,35 @@ function getWantedVersion(range) {
   return semver.minVersion(range)?.version ?? range;
 }
 
+function getPathEnvKey() {
+  if (process.platform !== 'win32') {
+    return 'PATH';
+  }
+
+  return Object.keys(process.env).find(key => key.toUpperCase() === 'PATH') ?? 'PATH';
+}
+
+/** Project-local bins (e.g. husky prepends `node_modules/.bin`) must not shadow real CLI tools. */
+function isProjectLocalBinDir(entry) {
+  const normalized = path.normalize(entry);
+  const segments = normalized.split(path.sep).filter(Boolean);
+
+  return segments.length >= 2 && segments.at(-1) === '.bin' && segments.at(-2) === 'node_modules';
+}
+
+function getCliEnv() {
+  const pathKey = getPathEnvKey();
+  const currentPath = process.env[pathKey] ?? '';
+  const cleanedPath = currentPath
+    .split(path.delimiter)
+    .filter(entry => entry.length > 0 && !isProjectLocalBinDir(entry))
+    .join(path.delimiter);
+
+  return { ...process.env, [pathKey]: cleanedPath };
+}
+
 function getCliVersion(binary, versionFlag = '--version') {
-  const output = execSync(`${binary} ${versionFlag}`, { encoding: 'utf8' }).trim();
+  const output = execSync(`${binary} ${versionFlag}`, { encoding: 'utf8', env: getCliEnv() }).trim();
   const version = semver.coerce(output);
 
   if (!version) {

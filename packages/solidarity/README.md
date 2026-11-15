@@ -17,3 +17,5 @@ npx solidarity
 ```
 
 Supported rules: `cli`, `shell`.
+
+For `cli` rules, binaries from `node_modules/.bin` are ignored. Husky prepends that directory to `PATH`, so without this filter the check can pick up a transitive package binary (for example `npm` from `@semantic-release/npm`) instead of the environment tool from nvm or the Node distribution.
