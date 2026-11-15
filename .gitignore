@@ -144,3 +144,5 @@ dist
 tsconfig.tsbuildinfo
 .env
 .report
+
+.history
