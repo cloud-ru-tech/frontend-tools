@@ -8,7 +8,7 @@
     "build:watch": "tsc -b ./packages/tsconfig.esm.json -w",
     "build:packages:esm": "tsc -b ./packages/tsconfig.esm.json",
     "build:packages:cjs": "tsc -b ./packages/tsconfig.cjs.json",
-    "build:packages": "pnpm run clean:dist && pnpm -r run compile && pnpm run build:packages:esm && pnpm run build:packages:cjs",
+    "build:packages": "pnpm run clean:dist && pnpm -r run compile && pnpm run build:packages:esm && pnpm run build:packages:cjs && pnpm install --frozen-lockfile --ignore-scripts",
     "clean:dist": "rimraf --glob ./packages/*/dist",
     "clean:modules": "rimraf --glob ./node_modules ./packages/*/node_modules",
     "deps": "pnpm install",
