@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2026-11-18)
+
+
+### BREAKING CHANGES
+
+
+* **FF-9399:** updates for node v26 ([6be7563](https://github.com/cloud-ru-tech/frontend-tools/commit/6be7563ffd7ddbc3c813c61f09638dc0903b5109))
+
+
+
+
 ## 1.3.1 (2026-08-18)
 
 

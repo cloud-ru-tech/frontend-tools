@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.2 (2026-11-18)
+
+
+### Bug Fixes
+
+* **FF-9399:** ignore node_modules/.bin when resolving CLI tools ([2620cf6](https://github.com/cloud-ru-tech/frontend-tools/commit/2620cf6a02c9dd2f3fe03868a72a32572fc40df5))
+
+
+
+
+
 ## 1.1.1 (2026-08-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.6 (2026-11-18)
+
+
+### Bug Fixes
+
+* **FF-9399:** disable webstorage for nodejs26 compatibility with vitest ([4481cfb](https://github.com/cloud-ru-tech/frontend-tools/commit/4481cfbd72ffeb9079e48bf5336f633beacfced2))
+
+
+
+
+
 ## 1.3.5 (2026-08-18)
 
 
