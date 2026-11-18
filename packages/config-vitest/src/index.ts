@@ -24,6 +24,9 @@ export default function (userConfig?: ViteUserConfig, { unitEnvironment = 'jsdom
         alias: useAliases ? tsconfigPathsConverter(path.resolve(process.cwd(), 'tsconfig.json')) : undefined,
       },
       test: {
+        execArgv: process.allowedNodeEnvironmentFlags.has('--no-experimental-webstorage')
+          ? ['--no-experimental-webstorage']
+          : [],
         snapshotFormat: {
           escapeString: true,
         },
