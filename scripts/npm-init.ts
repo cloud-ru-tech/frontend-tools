@@ -4,6 +4,7 @@ import shell from 'shelljs';
 import { logDebug, logError, logHelp, logInfo, logSilly } from './utils/console';
 import { bootstrapFiles, ExistingPackageNames } from './utils/files';
 import * as gitUtils from './utils/git';
+import { isValidPackageTitle } from './utils/packageTitle';
 
 const user = gitUtils.getGitUserName();
 const email = gitUtils.getGitEmail();
@@ -43,7 +44,7 @@ inquirer
       message: 'Package Title',
       filter: input => generatePackageTitle(input),
       validate: input => {
-        if (/[^0-9a-zA-Z ]/.test(input)) {
+        if (!isValidPackageTitle(input)) {
           return 'Package title can only contain letters a-z, A-Z, numbers 0-9 and spaces';
         }
         if (ExistingPackageNames.includes(generatePackageName(input))) {
