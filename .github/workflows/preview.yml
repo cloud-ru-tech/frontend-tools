@@ -1,52 +1,73 @@
 name: Release preview
+run-name: Release preview · ${{ github.ref_name }}
 
 on:
   workflow_dispatch:
     inputs:
       force:
         description: 'Ignore lockfile mismatch (pnpm install --no-frozen-lockfile)'
-        required: false
-        default: 'false'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
 
 jobs:
   preview:
+    concurrency:
+      group: npm-publish-preview
+      queue: max
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    env:
+      HUSKY: '0'
     steps:
-      - name: 'Checkout'
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
+          ref: ${{ github.sha }}
           fetch-depth: 0
+          persist-credentials: false
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6
         with:
           node-version: '26.13.1'
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org/'
 
-      - name: Publish preview
+      - name: Prepare local preview versions
+        id: version
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          LOCKFILE_FLAG: ${{ inputs.force && '--no-frozen-lockfile' || '--frozen-lockfile' }}
         run: |
-          INSTALL_FLAGS="--frozen-lockfile"
-          if [[ "${{ inputs.force }}" == "true" ]]; then
-            # pnpm-аналог прежнего npm --force: единственное, что имеет смысл
-            # ослабить при ручном запуске — сверку локфайла. Сам --force у pnpm
-            # означает пересоздание локфайла и с --frozen-lockfile несовместим.
-            INSTALL_FLAGS="--no-frozen-lockfile"
-            echo "Lockfile check is disabled"
+          git switch -c "preview-build-$GITHUB_RUN_ID"
+          git config user.email "robot@cloud.ru"
+          git config user.name "cloud-ru-tech"
+          pnpm install "$LOCKFILE_FLAG"
+
+          # Lerna requires a clean checkout even when it only creates local tags.
+          if [[ "$LOCKFILE_FLAG" == "--no-frozen-lockfile" ]] && ! git diff --quiet -- pnpm-lock.yaml; then
+            git commit --only -m "Refresh preview lockfile" -- pnpm-lock.yaml
           fi
-          git config --global user.email "robot@cloud.ru"
-          git config --global user.name "cloud-ru-tech-robot"
-          npm config --global set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
-          pnpm install $INSTALL_FLAGS
-          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)
-          pnpm exec lerna version prerelease --yes --exact --no-push --no-commit-hooks --preid "preview-$SHORT_SHA"
-          pnpm run build:packages
-          # catalog: разворачивает корневой prepack — см. комментарий в release.yml
+
+          before_version=$(git rev-parse HEAD)
+          pnpm exec lerna version prerelease --yes --exact --no-push --no-commit-hooks \
+            --preid "preview-${GITHUB_SHA:0:7}-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+
+          if [[ "$(git rev-parse HEAD)" != "$before_version" ]]; then
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Нет изменённых пакетов для preview.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Build preview packages
+        if: steps.version.outputs.changed == 'true'
+        run: pnpm run build:packages
+
+      - name: Publish to npm with the preview tag
+        if: steps.version.outputs.changed == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
           pnpm exec lerna publish from-git --yes --dist-tag preview
-        shell: bash
+          git tag --points-at HEAD --list '*@*-preview-*' --format='- `%(refname:short)`' >> "$GITHUB_STEP_SUMMARY"

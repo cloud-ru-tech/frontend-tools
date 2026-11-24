@@ -12,7 +12,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "jsdom": "^27.4.0",
-    "vitest": "catalog:"
+    "vitest": "catalog:default"
   },
   "types": "./dist/esm/index.d.ts",
   "exports": {
