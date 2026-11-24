@@ -2,6 +2,12 @@
 
 Common repository, which contains all kinds of frontend tools, i.e. configs, hooks, functions, etc
 
+## Ручная публикация preview-пакетов
+
+Откройте **Actions → Release preview → Run workflow**, выберите ветку с нужными изменениями и запустите workflow. Для проверки pull request выберите его исходную ветку в этом репозитории.
+
+Точные версии появятся в **Actions → Release preview → Summary**. Установите нужный пакет по указанной версии, например `npm install @cloud-ru/ft-config-vitest@<версия>`. Тег `@preview` указывает на последнюю preview-публикацию конкретного пакета и может перейти на сборку другого PR.
+
 ## Existing packages:
 
 * [@cloud-ru/ft-all-linters-pack](packages/all-linters-pack/README.md)
