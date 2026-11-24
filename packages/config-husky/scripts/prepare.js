@@ -1,4 +1,3 @@
-const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const pkg = require('../package.json');
@@ -8,28 +7,42 @@ if (process.env.CI) {
 }
 
 const versionPrefix = `# ${pkg.version}\n`;
-const targetDirectoryRoot = process.env.INIT_CWD || process.cwd();
-const commandCommonPrefix = `cd ${targetDirectoryRoot} && echo "${versionPrefix}node_modules/.bin/`;
-const precommitPath = path.resolve(targetDirectoryRoot, '.husky/pre-commit');
-const prepushPath = path.resolve(targetDirectoryRoot, '.husky/pre-push');
-const precommitmsgPath = path.resolve(targetDirectoryRoot, '.husky/commit-msg');
-
-function shouldUpdate(path) {
-  return !fs.existsSync(path) || !fs.readFileSync(path).toString().startsWith(versionPrefix);
+function writeHook(name, command) {
+  const hookPath = path.join('.husky', name);
+  if (!fs.existsSync(hookPath) || !fs.readFileSync(hookPath, 'utf8').startsWith(versionPrefix)) {
+    fs.writeFileSync(hookPath, `${versionPrefix}node_modules/.bin/${command}\n`);
+  }
 }
 
-execSync(`cd ${targetDirectoryRoot} && husky`);
+function copySolidarityConfig() {
+  const source = path.join(__dirname, '.solidarity');
+  try {
+    fs.copyFileSync(source, '.solidarity');
+    return;
+  } catch (error) {
+    if (error.code !== 'EACCES' && error.code !== 'EPERM') throw error;
+  }
 
-if (shouldUpdate(precommitPath)) {
-  execSync(`${commandCommonPrefix}lint-staged" > .husky/pre-commit`);
+  // Like cp -f, replace a read-only destination when its directory is writable.
+  const tempDir = fs.mkdtempSync('.solidarity-');
+  try {
+    const tempFile = path.join(tempDir, '.solidarity');
+    fs.copyFileSync(source, tempFile);
+    fs.renameSync(tempFile, '.solidarity');
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
 }
 
-if (shouldUpdate(prepushPath)) {
-  execSync(`${commandCommonPrefix}solidarity" > .husky/pre-push`);
+async function prepare() {
+  const { default: installHusky } = await import('husky');
+  process.chdir(process.env.INIT_CWD || process.cwd());
+  process.stdout.write(installHusky());
+
+  writeHook('pre-commit', 'lint-staged');
+  writeHook('pre-push', 'solidarity');
+  writeHook('commit-msg', 'cloud-ru-commit-message');
+  copySolidarityConfig();
 }
 
-if (shouldUpdate(precommitmsgPath)) {
-  execSync(`${commandCommonPrefix}cloud-ru-commit-message" > .husky/commit-msg`);
-}
-
-execSync(`cp -f ${path.resolve(__dirname, '.solidarity')} ${path.resolve(targetDirectoryRoot, '.solidarity')}`);
+prepare();

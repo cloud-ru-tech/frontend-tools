@@ -43,7 +43,7 @@ inquirer
       message: 'Package Title',
       filter: input => generatePackageTitle(input),
       validate: input => {
-        if (!input.match(/^([0-9a-zA-Z]+ ?)*$/)) {
+        if (/[^0-9a-zA-Z ]/.test(input)) {
           return 'Package title can only contain letters a-z, A-Z, numbers 0-9 and spaces';
         }
         if (ExistingPackageNames.includes(generatePackageName(input))) {
