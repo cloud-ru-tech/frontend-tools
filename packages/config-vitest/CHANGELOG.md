@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.7 (2026-11-25)
+
+
+### Bug Fixes
+
+* update vulnerable tooling and CI workflows ([e4fe4f1](https://github.com/cloud-ru-tech/frontend-tools/commit/e4fe4f140aa9810b06a85092aef17e0723d5fe5d))
+
+
+
+
+
 ## 1.3.6 (2026-11-18)
 
 

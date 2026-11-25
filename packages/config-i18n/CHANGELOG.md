@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2026-11-25)
+
+
+### BREAKING CHANGES
+
+
+* **config-i18n:** consumers importing i18next directly should align on v26. The HTTP backend requires native fetch on Node.js 18 or later. ([41b3af3](https://github.com/cloud-ru-tech/frontend-tools/commit/41b3af39271a1b78e29a1a40c1f88f246df20cbe))
+
+
+
+
 ## 1.1.2 (2026-08-18)
 
 

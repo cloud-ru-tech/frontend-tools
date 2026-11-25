@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2026-11-25)
+
+
+### Bug Fixes
+
+* install Husky hooks without a shell and simplify title validation ([e43b3fe](https://github.com/cloud-ru-tech/frontend-tools/commit/e43b3fe827ad8f95e153b89eb49e4b808845686d))
+
+
+
+
+
 # 2.0.0 (2026-11-18)
 
 
