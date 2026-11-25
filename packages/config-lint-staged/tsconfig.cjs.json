@@ -4,6 +4,7 @@
     "rootDir": "./src",
     "outDir": "./dist/cjs"
   },
+  "references": [{ "path": "../config-oxfmt/tsconfig.cjs.json" }],
   "include": ["./src"],
   "exclude": ["./dist"]
 }

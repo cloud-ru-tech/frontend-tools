@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@types/node": "catalog:",
-    "ts-node": "catalog:",
+    "tsx": "catalog:",
     "typescript": "catalog:"
   },
   "homepage": "https://github.com/cloud-ru-tech/frontend-tools/tree/master/packages/config-tsconfig",

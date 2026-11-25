@@ -1,14 +1,9 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "compilerOptions": {
     "target": "esnext",
     "lib": ["es2017", "dom", "esnext"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "strict": true,
@@ -17,7 +12,6 @@
     "skipLibCheck": true,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
     "types": ["@types/node", "vitest/globals"]
   },
   "include": ["./"],
