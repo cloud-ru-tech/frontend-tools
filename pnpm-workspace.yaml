@@ -21,7 +21,7 @@ catalog:
   # stylelint держим в 16.x осознанно: 17.x откачен в FF-8201.
   stylelint: ^16.26.1
   ts-node: ^10.9.2
-  typescript: ^5.9.3
+  typescript: 6.0.3
   vitest: ^4.1.12
   yargs: ^18.1.0
   # react/react-dom — пином: несколько копий React ломают хуки
