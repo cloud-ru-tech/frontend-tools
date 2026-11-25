@@ -31,7 +31,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "storybook": "^8.6.19",
-    "ts-node": "catalog:",
+    "tsx": "catalog:",
     "typescript": "catalog:"
   },
   "license": "Apache-2.0",
@@ -52,6 +52,6 @@
     "directory": "packages/storybook-brand-addon"
   },
   "scripts": {
-    "compile": "ts-node scripts/custom-copy.ts"
+    "compile": "tsx scripts/custom-copy.ts"
   }
 }

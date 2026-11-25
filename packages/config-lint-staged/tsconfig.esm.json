@@ -4,6 +4,7 @@
     "rootDir": "./src",
     "outDir": "./dist/esm"
   },
+  "references": [{ "path": "../config-oxfmt/tsconfig.esm.json" }],
   "include": ["./src"],
   "exclude": ["./dist"]
 }

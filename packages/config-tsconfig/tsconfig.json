@@ -1,9 +1,4 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "compilerOptions": {
     "esModuleInterop": true,
     "declaration": true,
@@ -11,14 +6,13 @@
     "target": "es6",
     "lib": ["es2017", "dom", "esnext"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": false,
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "allowSyntheticDefaultImports": true,
-    "ignoreDeprecations": "5.0"
+    "allowSyntheticDefaultImports": true
   }
 }
